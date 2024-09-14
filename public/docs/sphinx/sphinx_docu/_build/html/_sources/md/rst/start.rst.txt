@@ -1,0 +1,37 @@
+===============================
+Rst Datein 🚀
+===============================
+
+Rst Datein sind Datein, die in der ReST (reStructuredText) Sprache geschrieben sind. ReST ist eine Markup-Sprache, die von Sphinx verwendet wird, um Dokumentationen zu schreiben. Es ist einfach zu lesen und zu schreiben und bietet viele Funktionen, die das Schreiben von Dokumentationen erleichtern.
+
+Einige der wichtigsten Funktionen von ReST sind:
+
+- **Überschriften**: Überschriften werden durch unterschiedliche Anzahl von Unterstrichen oder Gleichheitszeichen definiert.
+- **Listen**: Unsortierte und sortierte Listen können einfach erstellt werden.
+- **Links**: Links zu anderen Dokumenten oder Webseiten können eingefügt werden.
+- **Code-Blöcke**: Code-Blöcke können mit spezieller Syntax hervorgehoben werden.
+- **Tabellen**: Tabellen können einfach erstellt werden.
+- **Bilder**: Bilder können eingefügt werden.
+- **Zitate**: Zitate können hervorgehoben werden.
+- **Referenzen**: Referenzen können verwendet werden, um auf andere Teile der Dokumentation zu verweisen.
+- **Erweiterungen**: ReST bietet viele Erweiterungen und Anpassungsmöglichkeiten.
+- **Automatische Nummerierung**: ReST bietet die Möglichkeit, automatisch Nummerierungen für Abschnitte und Überschriften zu generieren.
+- **Inhaltsverzeichnis**: Ein Inhaltsverzeichnis kann automatisch generiert werden.
+- **Querverweise**: Querverweise zu anderen Teilen der Dokumentation können einfach erstellt werden.
+- **Mathematische Formeln**: ReST unterstützt die Einbindung von mathematischen Formeln.
+- **Benutzerdefinierte Stile**: ReST ermöglicht die Definition von benutzerdefinierten Stilen und Formatierungen.
+
+ReST ist eine vielseitige und leistungsstarke Markup-Sprache, die von vielen Entwicklern und Autoren für die Erstellung von Dokumentationen verwendet wird. Mit Sphinx können Sie ReST-Dateien in HTML, PDF und anderen Formaten umwandeln, um hochwertige Dokumentationen zu erstellen.
+
+include  📄
+----------------
+
+Um den Inhalt einer Datei in eine andere Datei einzufügen, können Sie den Befehl ``include`` verwenden. Dies ist nützlich, wenn Sie denselben Inhalt in mehreren Dateien verwenden möchten, ohne ihn mehrmals schreiben zu müssen.
+
+Hier ist ein Beispiel, wie Sie den Inhalt einer Datei ``example.rst`` in eine andere Datei einfügen können:
+
+.. code-block:: rst
+
+   .. include:: example.rst
+
+Der Inhalt der Datei ``example.rst`` wird an der Stelle des ``include``-Befehls in die Datei eingefügt, in der er platziert ist.

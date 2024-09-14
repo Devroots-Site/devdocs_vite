@@ -1,0 +1,889 @@
+:app-name: cheetsheet
+:author: Bichler bastian 
+:toc: left
+:icons: font
+:source-highlighter: highlightjs
+:experimental:
+:images-cdn: https://cdn.statically.io/gh/bastibl/cheatsheets/main/
+:tip-caption: Tipp
+:note-caption: Hinweis
+:important-caption: Wichtig
+:caution-caption: Vorsicht
+:warning-caption: Warnung
+:imagesdir: image
+:doctype: book
+
+# Css CheetSheet
+
+
+## Abstand (Margin, Border, Padding)
+
+image:abstand/Computered.png[Abstand zwischen Elementen]
+
+### Border
+
+Die Border eigenschaft definiert die Breite, den Stil und die Farbe der Umrandung eines Elements.
+
+|===
+| Eigenschaft | Beschreibung 
+| border-width | Legt die Breite der Umrandung fest. 
+| border-style | Legt den Stil der Umrandung fest. 
+| border-color | Legt die Farbe der Umrandung fest. 
+|===
+
+[Tip]
+====
+Die Border kann auch mit border: 1px solid black; abgekürzt werden.
+====
+
+[source, CSS]
+```css
+border-width: 1px;
+border-style: solid;
+border-color: black;
+
+# Oder als Kurzschreibweise
+
+border: 1px solid black;
+```
+
+### Margin
+
+Margin ist der Abstand zwischen den Rändern eines Elements und den Rändern der umgebenden Elemente.
+
+|===
+| Eigenschaft | Beschreibung
+| margin-top | Legt den oberen Abstand fest.
+| margin-right | Legt den rechten Abstand fest.
+| margin-bottom | Legt den unteren Abstand fest.
+| margin-left | Legt den linken Abstand fest.
+| margin | Legt den Abstand für alle vier Seiten fest.
+|===
+
+[source, CSS]
+----
+margin: 10px; // Alle Seiten
+margin: 10px 20px; // Oben/Unten, Links/Rechts
+margin: 10px 20px 30px; // Oben, Links/Rechts, Unten
+margin: 10px 20px 30px 40px; // Oben, Rechts, Unten, Links
+----
+
+
+### Padding
+
+Das Padding ist der Abstand zwischen dem Inhalt eines Elements und seinem Rand.
+
+
+|===
+| Eigenschaft | Beschreibung
+| padding-top | Legt den oberen Abstand fest.
+| padding-right | Legt den rechten Abstand fest.
+| padding-bottom | Legt den unteren Abstand fest.
+| padding-left | Legt den linken Abstand fest.
+| padding | Legt den Abstand für alle vier Seiten fest.
+|===
+
+[source, CSS]
+----
+padding: 10px; // Alle Seiten
+padding: 10px 20px; // Oben/Unten, Links/Rechts
+padding: 10px 20px 30px; // Oben, Links/Rechts, Unten
+padding: 10px 20px 30px 40px; // Oben, Rechts, Unten, Links
+----
+
+Beispiel:
+image:abstand/Padding.png[Padding abstand]
+
+// Display Block Flexbox Float Gap Grid Inline
+
+## Animate
+
+Die Animate-Eigenschaft wird verwendet, um eine Animation für ein Element zu erstellen.
+
+|===
+| Eigenschaft | Beschreibung
+| transition | Legt die Eigenschaften fest, die animiert werden sollen.
+| keyframes | Legt die Schlüsselbilder für die *Animation* fest.
+| animation | Legt die Animation fest per keyframes.
+|===
+
+### Transition
+
+Die Transition-Eigenschaft wird verwendet, um *eine* Animation für eine oder mehrere Eigenschaften eines Elements zu erstellen.
+
+|===
+| Eigenschaft | Beschreibung
+| transition-property | Legt die Eigenschaften fest, die animiert werden sollen.
+| transition-duration | Legt die Dauer der Animation fest.
+| transition-timing-function | Legt die Geschwindigkeitskurve der Animation fest.
+| transition-delay | Legt den Verzögerungszeitraum der Animation fest.
+| transition | Legt alle Übergangseigenschaften in einer Deklaration fest.
+|===
+
+[source, CSS]
+----
+transition-property: background-color;
+transition-duration: 1s;
+transition-timing-function: linear;
+transition-delay: 0s;
+
+# Oder als Kurzschreibweise
+
+transition: background-color 1s linear 0s;
+----  
+
+### Keyframes
+
+Die Keyframes-Eigenschaft wird verwendet, um *mehrere* Animationen für ein Element zu erstellen.
+
+[source, CSS]
+----
+@keyframes example {
+  0% {background-color: red;}
+  50% {background-color: yellow;}
+  100% {background-color: green;}
+}
+----
+
+### Animation
+
+Die Animation-Eigenschaft wird verwendet, um eine Animation für ein Element zu erstellen.
+
+|===
+| Eigenschaft | Beschreibung
+| animation-name | Legt den Namen der Animation fest.
+| animation-duration | Legt die Dauer der Animation fest.
+| animation-timing-function | Legt die Geschwindigkeitskurve der Animation fest.
+| animation-delay | Legt den Verzögerungszeitraum der Animation fest.
+| animation-iteration-count | Legt die Anzahl der Wiederholungen der Animation fest.
+| animation-direction | Legt die Richtung der Animation fest.
+| animation-fill-mode | Legt fest, was mit dem Element geschehen soll, wenn die Animation abgeschlossen ist.
+| animation-play-state | Legt fest, ob die Animation abgespielt oder angehalten werden soll.
+| animation | Legt alle Animations-Eigenschaften in einer Deklaration fest.
+|===
+
+[source, CSS]
+----
+animation-name: example;  
+animation-duration: 4s;
+animation-timing-function: linear;  
+animation-delay: 0s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+animation-fill-mode: forwards;
+animation-play-state: running;
+----
+
+
+
+## Border & Border-Radius
+
+### Border
+
+Die Border-Eigenschaft definiert die Breite, den Stil und die Farbe der Umrandung eines Elements.
+
+|===
+| Eigenschaft | Beschreibung
+| border-width | Legt die Breite der Umrandung fest.
+| border-style | Legt den Stil der Umrandung fest.
+| border-color | Legt die Farbe der Umrandung fest.
+|===
+
+[source, CSS]
+----
+border-width: 1px;
+border-style: solid;
+border-color: black;
+
+# Oder als Kurzschreibweise
+
+border: 1px solid black;
+----
+
+### Border-Radius
+
+Die Border-Radius-Eigenschaft definiert die abgerundeten Ecken eines Elements.
+
+|===
+| Eigenschaft | Beschreibung
+| border-top-left-radius | Legt den Radius der oberen linken Ecke fest.
+| border-top-right-radius | Legt den Radius der oberen rechten Ecke fest.
+| border-bottom-left-radius | Legt den Radius der unteren linken Ecke fest.
+| border-bottom-right-radius | Legt den Radius der unteren rechten Ecke fest.
+| border-radius | Legt den Radius für alle vier Ecken fest.
+|===
+
+[source, CSS]
+----
+border-top-left-radius: 10px;
+border-top-right-radius: 20px;
+border-bottom-left-radius: 30px;
+border-bottom-right-radius: 40px;
+
+# Oder als Kurzschreibweise
+
+border-radius: 10px 20px 30px 40px;
+----
+
+### Border schalter 
+
+- `solid`: Eine durchgehende Linie.
+- `dotted`: Eine gepunktete Linie.
+- `dashed`: Eine gestrichelte Linie.
+- `double`: Eine doppelte Linie.
+- `groove`: Eine 3D-Rillenlinie.
+- `ridge`: Eine 3D-Kantenlinie.
+
+
+
+
+## Display 
+
+### Block
+
+Das Block-Modell zeigt Elemente als Block an. Das bedeutet, dass ein Element immer eine ganze Zeile einnimmt und einen Zeilenumbruch erzwingt, bevor und nachdem es angezeigt wird.
+
+[source, CSS]
+display: block;
+
+image:display/block.png[block]
+
+
+### Flexbox
+
+Die Flexbox ist ein Layout-Modell, das es ermöglicht, Elemente innerhalb eines Containers flexibel zu positionieren und zu verteilen.
+
+[source, CSS]
+display: flex;
+
+image:display/flexbox.png[flexbox]
+
+#### Wichtige Eigenschaften
+
+- `flex-direction`: Legt die Richtung fest, in der die Elemente im Container angezeigt werden.
+- `flex-wrap`: Legt fest, ob die Elemente in einer Zeile oder in mehreren Zeilen angezeigt werden. Wenn der Platz nicht ausreicht, um alle Elemente in einer Zeile anzuzeigen, werden sie in die nächste Zeile umgebrochen.
+- `justify-content`: Legt die Ausrichtung der Elemente entlang der Hauptachse fest.
+- `align-items`: Legt die Ausrichtung der Elemente entlang der Querachse fest.
+- `align-content`: Legt die Ausrichtung der Zeilen entlang der Querachse fest.
+
+#### flex-direction
+
+- `row`: Elemente werden in *einer Reihe* angezeigt *(default)*.
+- `row-reverse`: Elemente werden in einer *umgekehrten* Reihe angezeigt.
+- `column`: Elemente werden in einer *Spalte* angezeigt.
+- `column-reverse`: Elemente werden in einer *umgekehrten* Spalte angezeigt.
+
+#### flex-wrap
+- `nowrap`: Elemente werden in *einer Zeile* angezeigt *(default)*.
+- `wrap`: Elemente werden in *mehreren Zeilen* angezeigt.
+- `wrap-reverse`: Elemente werden in *mehreren umgekehrten Zeilen* angezeigt.
+
+#### justify-content
+- `flex-start`: Elemente werden am *Anfang* der Hauptachse ausgerichtet *(default)*.
+- `flex-end`: Elemente werden am *Ende* der Hauptachse ausgerichtet.
+- `center`: Elemente werden in der *Mitte* der Hauptachse ausgerichtet.
+- `space-between`: Elemente werden mit *gleichem Abstand* zwischen ihnen ausgerichtet.
+- `space-around`: Elemente werden mit *gleichem Abstand* um sie herum ausgerichtet.
+
+#### align-items
+- `stretch`: Elemente werden auf die *volle Höhe* des Containers gestreckt *(default)*.
+- `flex-start`: Elemente werden am *Anfang* der Querachse ausgerichtet.
+- `flex-end`: Elemente werden am *Ende* der Querachse ausgerichtet.
+- `center`: Elemente werden in der *Mitte* der Querachse ausgerichtet.
+- `baseline`: Elemente werden an der *Basis* der Querachse ausgerichtet.
+
+#### align-content
+- `stretch`: Zeilen werden auf die *volle Höhe* des Containers gestreckt *(default)*.
+- `flex-start`: Zeilen werden am *Anfang* der Querachse ausgerichtet.
+- `flex-end`: Zeilen werden am *Ende* der Querachse ausgerichtet.
+- `center`: Zeilen werden in der *Mitte* der Querachse ausgerichtet.
+- `space-between`: Zeilen werden mit *gleichem Abstand* zwischen ihnen ausgerichtet.
+- `space-around`: Zeilen werden mit *gleichem Abstand* um sie herum ausgerichtet.
+
+#### Flex-Elemente einzeln anpassen
+
+* align-self: Legt die Ausrichtung eines einzelnen Elements entlang der Querachse fest.
+* order: Legt die Reihenfolge der Elemente innerhalb des Containers fest.
+* flex: 
+    - flex-grow: Legt fest, wie viel Platz ein Element relativ zu den anderen Elementen einnimmt.
+    - flex-shrink: Legt fest, wie viel Platz ein Element relativ zu den anderen Elementen abgeben kann.
+    - flex-basis: Legt die Größe eines Elements fest, bevor der Rest des verfügbaren Platzes aufgeteilt wird.
+
+#### align-self
+
+- `auto`: Verwendet den Wert von `align-items` des Containers.
+- `flex-start`: Element wird am *Anfang* der Querachse ausgerichtet.
+- `flex-end`: Element wird am *Ende* der Querachse ausgerichtet.
+- `center`: Element wird in der *Mitte* der Querachse ausgerichtet.
+- `baseline`: Element wird an der *Basis* der Querachse ausgerichtet.
+- `stretch`: Element wird auf die *volle Höhe* des Containers gestreckt.
+
+#### order
+
+- `0`: Element wird in der *normalen Reihenfolge* angezeigt *(default)*.
+- `1`: Element wird *eine Position nach hinten* verschoben.
+- `2`: Element wird *zwei Positionen nach hinten* verschoben.
+- `...`: Element wird um die angegebene Anzahl von Positionen nach hinten verschoben.
+
+#### flex 
+
+- `flex-grow`: Legt fest, wie viel Platz ein Element relativ zu den anderen Elementen einnimmt.
+- `flex-shrink`: Legt fest, wie viel Platz ein Element relativ zu den anderen Elementen abgeben kann.
+- `flex-basis`: Legt die Größe eines Elements fest, bevor der Rest des verfügbaren Platzes aufgeteilt wird.
+
+[Tip]
+====
+Die Flex kann auch mit flex: 1; abgekürzt werden, was flex-grow: 1; flex-shrink: 1; flex-basis: 0; entspricht.
+====
+
+### Float 
+
+Float-Elemente werden entweder links oder rechts ausgerichtet und fließen um andere Elemente herum.
+
+[source, CSS]
+display: float;
+
+Diese Eigenschaft wird häufig verwendet, um Text um Bilder oder andere Elemente fließen zu lassen. 
+
+### Gap 
+
+Die Gap-Eigenschaft legt den Abstand zwischen den Elementen fest.
+Der unterschied zwischen Gap und Margin ist das Gap nur für Flexboxen und Grids verwendet werden kann.
+
+[source, CSS]
+gap: 10px;
+
+image:display/Gap Flexbox.png[]
+
+
+### Grid 
+
+Das Grid-Layout ist ein Layout-Modell, das es ermöglicht, Elemente in einem Raster anzuordnen.
+
+[source, CSS]
+display: grid;
+
+|===
+| Eigenschaft | Beschreibung
+| grid-template-columns | Legt die Breite der Spalten fest.
+| grid-template-rows | Legt die Höhe der Zeilen fest.
+| grid-template-areas | Legt die Bereiche des Rasters fest.
+| grid-template | Legt die Vorlage für das Raster fest.
+| grid-column-gap | Legt den Abstand zwischen den Spalten fest.
+| grid-row-gap | Legt den Abstand zwischen den Zeilen fest.
+| grid-gap | Legt den Abstand zwischen den Spalten und Zeilen fest.
+| grid-auto-columns | Legt die Breite der automatisch generierten Spalten fest.
+| grid-auto-rows | Legt die Höhe der automatisch generierten Zeilen fest.
+| grid-auto-flow | Legt die Reihenfolge fest, in der die Elemente im Raster angezeigt werden.
+| grid | Legt alle Raster-Eigenschaften in einer Deklaration fest.
+|===
+
+Beispiele: 
+[source , CSS]
+----
+grid-template-rows: 100px;
+grid-template-columns: 100px;
+----
+
+image:display/grid zeile1.png[]
+
+[source, CSS]
+----
+grid-template-columns: 100px 100px 100px 100px; 
+rid-template-rows: 100px 100px 100px;^
+----
+
+image:display/grid mehrzeiler1.png[]
+
+[source, CSS]
+----
+grid-template-columns: 100px 100px 150px; 
+grid-template-rows: 100px 100px 100px;
+----
+
+image:display/grid breitere Spalte.png[]
+
+[source, CSS]
+----
+grid-template-columns: 100px 100px ; 
+grid-template-rows: 100px 100px;
+----
+
+image:display/grid letztezeileklein.png[]
+
+Themplate Areas
+
+[source, CSS]
+----
+display: grid
+grid-auto-rows: 100px;
+
+
+grid-template-areas: 
+  "header header nav"
+  "info main nav"
+  "info2 main ende";
+----
+
+image:display/grid Raster.png[]
+
+### Inline 
+
+Inline-Elemente werden in einer Zeile angezeigt und nehmen nur so viel Platz ein, wie sie benötigen.
+
+[source, CSS]
+display: inline;
+
+## Farben 
+
+Farben können mit verschiedenen Formaten angegeben werden. 
+
+|===
+| Format | Beschreibung | Schreibweise | Beispiel
+| Hex | Hexadezimale Darstellung der Farbe. | #RRGGBB  | #ff0000
+| RGB | Rot, Grün, Blau. | rgb(red, green, blue) | rgb(255, 0, 0)
+| HSL | Farbton, Sättigung, Helligkeit. | hsl(hue, saturation, lightness) | hsl(0, 100%, 50%)
+|===
+
+### Gradienten
+
+Gradienten sind Farbverläufe, die aus zwei oder mehr Farben bestehen.
+
+|===
+| Typ | Beschreibung | Schreibweise
+| Linear | Verlauf von einer Seite zur anderen. | linear-gradient(direction, color-stop1, color-stop2, ...)
+| Radial | Verlauf von einem Punkt zum anderen. | radial-gradient(shape size at position, color-stop1, color-stop2, ...)
+| Repeating | Wiederholter Verlauf. | repeating-linear-gradient(direction, color-stop1, color-stop2, ...)
+|===
+
+[source, CSS]
+----
+background: linear-gradient(to right, red, blue);
+background: radial-gradient(circle, red, blue);
+background: repeating-linear-gradient(to right, red, blue);
+----
+
+
+### Hintergrund 
+
+Hintergrundbilder können mit verschiedenen Eigenschaften formatiert werden.
+
+|===
+| Eigenschaft | Beschreibung
+| background-color | Legt die Hintergrundfarbe fest.
+| background-image | Legt das Hintergrundbild fest.
+| background-repeat | Legt fest, wie das Hintergrundbild wiederholt wird.
+| background-attachment | Legt fest, ob das Hintergrundbild beim Scrollen fixiert wird.
+| background-position | Legt die Position des Hintergrundbildes fest.
+| background-size | Legt die Größe des Hintergrundbildes fest.
+| background | Legt alle Hintergrund-Eigenschaften in einer Deklaration fest.
+|===
+
+[source, CSS]
+----
+
+background-color: red;
+background-image: url('image.png');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+----
+
+
+### Text
+
+Texte können mit verschiedenen Stilen formatiert werden.
+
+|===
+| Eigenschaft | Beschreibung
+| color | Legt die Farbe des Textes fest.
+|===
+
+
+
+## Größen 
+(Width, Height, Max-Height, Max-Width, Min-Height, Min-Width)
+
+Im CSS können die Größen von Elementen mit verschiedenen Eigenschaften festgelegt werden. 
+
+Hier ist zu beachten die Größenangaben in CSS können in verschiedenen Einheiten angegeben werden.
+
+- `px`: Pixel
+- `em`: Relative Größe zur Schriftgröße des Elements
+- `rem`: Relative Größe zur Schriftgröße des Root-Elements
+- `%`: Prozentualer Anteil des übergeordneten Elements
+- `vw`: Prozentualer Anteil der Viewport-Breite
+- `vh`: Prozentualer Anteil der Viewport-Höhe
+
+### Was sollte ich verwenden 
+
+- `px`: Für feste Größen
+- `em`: Für relative Größen
+- `rem`: Für relative Größen, die nicht von der Schriftgröße des Elements abhängen
+- `%`: Für prozentuale Größen
+- `vw`: Für prozentuale Größen der Viewport-Breite
+- `vh`: Für prozentuale Größen der Viewport-Höhe
+
+Meistens wird die `px` Einheit verwendet, um die Größe von Elementen festzulegen.
+
+## Links
+
+Links können mit verschiedenen Stilen formatiert werden.
+
+|===
+| Eigenschaft | Beschreibung
+| :link | Legt den Stil eines nicht besuchten Links fest.
+| :visited | Legt den Stil eines besuchten Links fest.
+| :hover | Legt den Stil eines Links fest, wenn der Mauszeiger darüber schwebt.
+| :active | Legt den Stil eines Links fest, wenn er aktiviert wird.     
+|===
+
+[source, CSS]
+----
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: green;
+}
+
+// oder
+
+a {
+  color: blue;
+}
+
+----
+
+
+## Listen 
+
+Es gibt verschiedene Arten von Listen, die in HTML verwendet werden können.
+
+|===
+| Art der Liste | Beschreibung 
+| Ungeordnete Liste | Eine Liste von Elementen ohne eine spezifische Reihenfolge.
+| Geordnete Liste | Eine Liste von Elementen mit einer spezifischen Reihenfolge.
+| Definition Liste | Eine Liste von Begriffen und deren Definitionen.
+|===
+
+### Ungeordnete Liste
+
+Ungeordnete Listen werden mit Punkten oder anderen Symbolen dargestellt.
+
+[source, HTML]
+----
+<ul>
+  <li>Element 1</li>
+  <li>Element 2</li>
+  <li>Element 3</li>
+</ul>
+----
+
+### Geordnete Liste
+
+Geordnete Listen werden mit Zahlen oder Buchstaben dargestellt.
+
+[source, HTML]
+----
+<ol>
+  <li>Element 1</li>
+  <li>Element 2</li>
+  <li>Element 3</li>
+</ol>
+
+### Definition Liste
+
+Definition Listen bestehen aus Begriffen und deren Definitionen.
+
+[source, HTML]
+----
+<dl>
+    <dt>Begriff 1</dt>
+        <dd>Definition 1</dd>
+    <dt>Begriff 2</dt>
+        <dd>Definition 2</dd>
+    <dt>Begriff 3</dt>
+        <dd>Definition 3</dd>
+</dl>
+
+### Listenstyle 
+
+Listen können mit verschiedenen Stilen formatiert werden.
+
+|===
+| Eigenschaft | Beschreibung
+| list-style-type | Legt den Typ des Listenzeichens fest.
+| list-style-image | Legt das Bild des Listenzeichens fest.
+| list-style-position | Legt die Position des Listenzeichens fest.
+| list-style | Legt alle Listenstileigenschaften in einer Deklaration fest.
+|===
+
+#### list-style-type
+
+- `none`: Kein Listenzeichen.
+- `disc`: Runde Punkte *(default)*.
+- `circle`: Kreisförmige Punkte.
+- `square`: Quadratische Punkte.
+- `decimal`: Dezimalzahlen.
+- `decimal-leading-zero`: Dezimalzahlen mit führender Null.
+- `lower-roman`: Kleinbuchstaben römische Zahlen.
+- `upper-roman`: Großbuchstaben römische Zahlen.
+- `lower-alpha`: Kleinbuchstaben alphabetische Zeichen.
+- `upper-alpha`: Großbuchstaben alphabetische Zeichen.
+- ``
+
+#### list-style-image
+
+- `url('image.png')`: Bild als Listenzeichen.
+
+#### list-style-position
+
+- `inside`: Listenzeichen innerhalb des Listenelements.
+- `outside`: Listenzeichen außerhalb des Listenelements *(default)*.
+
+#### list-style
+
+Die `list-style` Eigenschaft kann verwendet werden, um alle Listenstileigenschaften in einer Deklaration festzulegen.
+
+[source, CSS]
+----
+list-style: square inside url('image.png');
+----
+
+### Custom List Style
+
+Benutzerdefinierte Listenstile können mit dem `::marker` Pseudo-Element erstellt werden.
+
+[source, CSS]
+----
+ul {
+  list-style: none;
+}
+
+li::marker {
+  content: '•';
+  color: red;
+}
+
+// oder
+
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: "\25a0"; /* Unicode-Symbol für "#" einsetzen */
+  margin-right: 10px;
+}
+----
+
+
+
+
+## Positionierung
+
+### Absolute
+
+Absolute positionierte Elemente werden relativ zum nächsten übergeordneten Element positioniert, das eine Positionierung hat. Wenn kein übergeordnetes Element eine Positionierung hat, wird das Element relativ zum `body` positioniert.
+
+### Fixed
+
+Fixed positionierte Elemente werden relativ zum Viewport positioniert. Das bedeutet, dass das Element immer sichtbar ist, auch wenn der Benutzer scrollt.
+Dies ist nützlich für Elemente wie Navigationsleisten oder Werbebanner.
+
+### Relative
+
+Relative positionierte Elemente werden relativ zu ihrer normalen Position positioniert. Das bedeutet, dass das Element verschoben werden kann, ohne den Platz um das Element herum zu ändern.       
+
+### Static
+
+Statisch positionierte Elemente sind standardmäßig positioniert. Das bedeutet, dass das Element
+an der Position bleibt, an der es im normalen Fluss des Dokuments angezeigt wird.
+
+## Overflow
+
+### Overflow
+
+Die Overflow-Eigenschaft legt fest, was passiert, wenn der Inhalt eines Elements über seine Größe hinausgeht.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| overflow | Legt fest, was passiert, wenn der Inhalt über die Größe hinausgeht. | visible, hidden, scroll, auto
+| overflow-x | Legt fest, was passiert, wenn der Inhalt horizontal über die Größe hinausgeht. | visible, hidden, scroll, auto
+| overflow-y | Legt fest, was passiert, wenn der Inhalt vertikal über die Größe hinausgeht. | visible, hidden, scroll, auto
+|===
+
+
+## Schatten
+
+### Boxschatten
+
+Boxschatten können verwendet werden, um Elemente hervorzuheben oder zu betonen.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| box-shadow | Legt den Schatten des Elements fest. | inset, x-offset y-offset blur-radius spread-radius color
+|===
+
+Um mehrere Schatten zu einem Element hinzuzufügen, können Sie die `box-shadow` Eigenschaft mehrmals verwenden.
+
+[source, CSS]
+----
+
+box-shadow: 1px 1px 2px black, 0 0 1em red;
+----
+
+### Textschatten
+
+Texte können mit einem Schatten versehen werden, um sie hervorzuheben oder zu betonen.
+Grundlegend ist der erste Schalter die Farbe oder als letztes. Der nach der Farbe schalter die x Cordinate <=> dann die Y ^v und der Letzte der Blur effect 
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| text-shadow | Legt den Schatten des Textes fest. | color x-offset y-offset blur-radius color
+|===
+
+Um mehrere Schatten zu einem Text hinzuzufügen, können Sie die `text-shadow` Eigenschaft mehrmals verwenden.
+
+[source, CSS]
+----
+text-shadow: 1px 1px 2px black, 0 0 1em red;
+----
+
+link:https://www.youtube.com/watch?v=0nP67G-ZiWQ&ab_channel=ColorCode[Video zu Textschatten]
+
+
+
+
+
+## Text Eigentschaften
+
+
+### Abstand
+
+Texte können in ihrer Groß- und Kleinschreibung verändert werden.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| letter-spacing | Legt den Abstand zwischen den Buchstaben fest. | normal, length
+| line-height | Legt die Höhe einer Zeile fest. | normal, number, length, percentage
+| word-spacing | Legt den Abstand zwischen den Wörtern fest. | normal, length
+|===
+
+### Ausrichtung
+
+Texte können horizontal und vertikal ausgerichtet werden.
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| text-align | Legt die horizontale Ausrichtung des Textes fest. | left, right, center, justify
+| vertical-align | Legt die vertikale Ausrichtung des Textes fest. | baseline, sub, super, top, text-top, middle, bottom, text-bottom
+|===
+
+[source, CSS]
+----
+text-align: center; // Zentriert den Text horizontal
+vertical-align: middle; // Zentriert den Text vertikal
+----
+
+### Dekorierung
+
+Texte können dekoriert werden, um sie hervorzuheben oder zu betonen.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| text-decoration | Legt die Dekoration des Textes fest. | none, underline, overline, line-through, blink
+| text-decoration-color | Legt die Farbe der Textdekoration fest. | color
+| text-decoration-line | Legt die Linie der Textdekoration fest. | none, underline, overline, line-through      
+| text-decoration-style | Legt den Stil der Textdekoration fest. | solid, double, dotted, dashed, wavy
+| text-decoration-thickness | Legt die Dicke der Textdekoration fest. | auto, from-font, length
+| text-underline-offset | Legt den Abstand zwischen dem Text und der Unterstreichung fest. | auto, length
+| text-underline-position | Legt die Position der Unterstreichung fest. | auto, under, left, right      
+| text-transform | Legt die Groß- und Kleinschreibung des Textes fest. | none, capitalize, uppercase, lowercase
+| text-shadow | Legt den Schatten des Textes fest. | x-offset y-offset blur-radius color
+|===
+
+### Font 
+
+Texte können mit verschiedenen Schriftarten, Schriftgrößen und Schriftstilen formatiert werden.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| font-family | Legt die Schriftart des Textes fest. | family-name, generic-family
+| font-size | Legt die Schriftgröße des Textes fest. | xx-small, x-small, small, medium, large, x-large, xx-large, smaller, larger, length, percentage
+| font-style | Legt den Schriftstil des Textes fest. | normal, italic, oblique
+| font-weight | Legt die Schriftstärke des Textes fest. | normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900
+| font-variant | Legt die Schriftvariante des Textes fest. | normal, small-caps
+| font-variant-caps | Legt die Schriftvariante der Großbuchstaben fest. | normal, small-caps, all-small-caps, petite-caps, all-petite-caps, unicase, titling-caps
+| font-variant-numeric | Legt die Schriftvariante der Zahlen fest. | normal, ordinal, slashed-zero, lining-nums, oldstyle-nums, proportional-nums, tabular-nums, diagonal-fractions, stacked-fractions
+| font-variant-ligatures | Legt die Schriftvariante der Ligaturen fest. | normal, none, common-ligatures, no-common-ligatures, discretionary-ligatures, no-discretionary-ligatures, historical-ligatures, no-historical-ligatures, contextual, no-contextual
+| font-variant-east-asian | Legt die Schriftvariante der asiatischen Schriftzeichen fest. | normal, ruby
+| font-variant-position | Legt die Position der Schriftvariante fest. | normal, sub, super
+| font-variation-settings | Legt die Schriftvariationen fest. | normal, <string>
+| font-size-adjust | Legt die Schriftgröße anhand der x-Höhe fest. | none, number
+| font-stretch | Legt die Schriftstreckung des Textes fest. | normal, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+| font-kerning | Legt das Schriftkerning des Textes fest. | auto, normal, none
+| font-optical-sizing | Legt die Schriftgröße für optische Größenanpassung fest. | auto, none
+| font-synthesis | Legt die Schriftsynthese fest. | none, weight, style
+| font-variant-alternates | Legt die Schriftvariante der Alternativen fest. | normal, historical-forms, stylistic(<string>), styleset(<string>), character-variant(<string>), swash(<string>), ornaments(<string>), annotation(<string>)
+| font-variant-caps | Legt die Schriftvariante der Großbuchstaben fest. | normal, small-caps, all-small-caps, petite-caps, all-petite-caps, unicase, titling-caps
+|===
+
+### Schriftart
+
+Die Schriftart eines Textes kann mit der `font-family` Eigenschaft festgelegt werden.
+
+[source, CSS]
+----
+font-family: Arial, sans-serif;
+----
+
+#### Lesbare Schriftarten
+
+- `serif`: Serifenschriftarten wie Times New Roman.
+- `sans-serif`: Serifenlose Schriftarten wie Arial.
+- `monospace`: Schriftarten mit fester Breite wie Courier New.
+- `cursive`: Schreibschriftarten wie Comic Sans MS.
+- `fantasy`: Fantasieschriftarten wie Impact.
+
+#### Schriftarten importieren
+
+Schriftarten können auch über `@import` oder `@font-face` importiert werden.
+
+[source, CSS]
+----
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-Regular.ttf') format('truetype'),
+       url('Roboto-Bold.ttf') format('truetype');
+}
+
+font-family: 'Roboto', sans-serif;
+----
+
+
+
+
+### Textumbruch
+
+Texte können umgebrochen werden, um sie besser lesbar zu machen.
+
+|===
+| Eigenschaft | Beschreibung | Wertebereich
+| overflow-wrap | Legt fest, wie Text umgebrochen wird. | normal, break-word
+| word-break | Legt fest, wie Wörter umgebrochen werden. | normal, break-all
+| word-wrap | Legt fest, wie Wörter umgebrochen werden. | normal, break-word
+| white-space | Legt fest, wie Leerzeichen behandelt werden. | normal, nowrap, pre, pre-line, pre-wrap
+|===

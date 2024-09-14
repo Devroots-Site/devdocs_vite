@@ -1,0 +1,8 @@
+{
+    "title": "DevTools Chrome",
+    "description": "DevTools ist ein Satz von Webentwicklertools, die in Google Chrome integriert sind. Sie ermöglichen es Entwicklern, Webseiten zu untersuchen, zu bearbeiten und zu debuggen.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/devtools/ascii.html"
+}

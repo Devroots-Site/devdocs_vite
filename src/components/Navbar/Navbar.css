@@ -1,0 +1,50 @@
+@keyframes glitchBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(45deg, #0978d3, #7004c9, #0978d3);
+  background-size: 400%;
+  animation: glitchBackground 3s infinite;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 25px rgba(255, 0, 255, 0.2);
+}
+
+.nav-item {
+  color: #fff;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-item:hover {
+  color: #f0f;
+  text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #f0f, 0 0 40px #f0f;
+}
+
+.title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}

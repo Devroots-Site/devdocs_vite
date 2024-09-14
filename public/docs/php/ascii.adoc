@@ -1,0 +1,696 @@
+:toc: left
+:author: Bichler Bastian
+:source-highlighter: highlight.js
+:toc-title: Inhalt
+:sectnums: section
+:icons: font
+= PHP 
+
+== Start
+
+Um PHP zu Programmieren brauchst du einen "Server" da nicht jeder einen Server hat kann das mit "Xamp" gemacht werden dieser erstellt einen Server der PHP kann auf deinen Locale Rechner. 
+link:https://www.apachefriends.org/de/download.html[Hier klicken]
+
+== Syntax 
+
+PHP muss in einer .php datei geschrieben werden. 
+Hier kann trotzdem auch HTML code Geschrieben werden. 
+
+Um hier PHP code dann zu schreiben müssen wir dies `<?php code ?>` deklaieren. 
+
+== Die erste Ausgabe 
+
+Um die erste Ausgabe zu machen können wir `echo` oder print benutzen. 
+
+[source, php]
+----
+<?php
+echo "Hello World";
+?>
+----
+
+Dies wird nun auf der Webseite angezeigt. 
+
+
+
+== Variablen 
+
+Variablen werden hier mit einen $ definiert und dann zugewiesen
+
+[source, php]
+----
+$name = "Hans"
+
+echo $name
+----
+
+== Numerische Arrays
+
+Numerische Arrays sind Listen von Werten, die durch numerische Indizes identifiziert werden.
+
+Beispiel:
+
+[source,php]
+----
+$zahlen = [1, 2, 3, 4, 5];
+// Zugriff auf ein Element
+echo $zahlen[2]; // Ausgabe: 3
+----
+
+== Assoziative Arrays
+
+Assoziative Arrays verwenden Schlüssel-Wert-Paare zur Identifikation von Elementen. Die Schlüssel können Strings oder Zahlen sein.
+
+Beispiel:
+
+[source,php]
+----
+$benutzer = [
+    "name" => "Max",
+    "alter" => 25,
+    "beruf" => "Entwickler"
+];
+// Zugriff auf ein Element
+echo $benutzer["name"]; // Ausgabe: Max
+----
+
+== Mehrdimensionale Arrays
+
+Mehrdimensionale Arrays ermöglichen das Verschachteln von Arrays. Dies ist nützlich, um komplexe Datenstrukturen zu erstellen.
+
+Beispiel:
+
+[source,php]
+----
+$matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+// Zugriff auf ein Element
+echo $matrix[1][2]; // Ausgabe: 6
+----
+
+== Funktionen für Arrays
+
+PHP bietet eine Vielzahl von Funktionen zum Arbeiten mit Arrays, darunter `count`, `array_push`, `array_pop`, `array_shift`, `array_unshift` und viele mehr.
+
+Beispiel:
+
+[source,php]
+----
+$fruechte = ["Apfel", "Banane", "Orange"];
+// Hinzufügen eines Elements
+array_push($fruechte, "Erdbeere");
+// Entfernen eines Elements
+array_pop($fruechte);
+----
+
+== Iteration über Arrays
+
+PHP bietet verschiedene Methoden zur Iteration über Arrays, darunter `foreach`, `for` und `while`.
+
+Beispiel:
+
+[source,php]
+----
+$farben = ["Rot", "Grün", "Blau"];
+// foreach-Schleife
+foreach ($farben as $farbe) {
+    echo $farbe . " ";
+}
+// Ausgabe: Rot Grün Blau
+----
+
+PHP bietet verschiedene Arten von Schleifen, um repetitive Aufgaben effizient zu erledigen. Schleifen ermöglichen es, einen Codeblock mehrmals auszuführen, basierend auf bestimmten Bedingungen.
+
+== Arten von Schleifen
+
+=== for-Schleife
+
+Die `for`-Schleife in PHP ermöglicht die Durchführung einer Codeausführung für eine festgelegte Anzahl von Iterationen. Sie besteht aus einer Initialisierung, einer Bedingung und einem Inkrement.
+
+Beispiel:
+
+[source,php]
+----
+for ($i = 0; $i < 5; $i++) {
+    // Code hier
+}
+----
+
+=== while-Schleife
+
+Die `while`-Schleife führt einen Codeblock aus, solange eine bestimmte Bedingung erfüllt ist. Die Bedingung wird vor der Ausführung des Codeblocks überprüft.
+
+Beispiel:
+
+[source,php]
+----
+$counter = 0;
+while ($counter < 3) {
+    // Code hier
+    $counter++;
+}
+----
+
+=== do-while-Schleife
+
+Die `do-while`-Schleife ist ähnlich wie die `while`-Schleife, mit dem Unterschied, dass die Bedingung nach der Ausführung des Codeblocks überprüft wird. Dadurch wird sichergestellt, dass der Codeblock mindestens einmal ausgeführt wird.
+
+Beispiel:
+
+[source,php]
+----
+$counter = 0;
+do {
+    // Code hier
+    $counter++;
+} while ($counter < 3);
+----
+
+== if-Abfrage
+
+Die `if`-Abfrage ist die grundlegende Form einer bedingten Anweisung in PHP. Sie ermöglicht es, einen Codeblock auszuführen, wenn eine bestimmte Bedingung wahr ist.
+
+Beispiel:
+
+[source,php]
+----
+$zahl = 10;
+if ($zahl > 5) {
+    // Code hier
+}
+----
+
+== else-Abfrage
+
+Die `else`-Abfrage wird in Verbindung mit `if` verwendet, um einen alternativen Codeblock auszuführen, wenn die Bedingung in der `if`-Anweisung falsch ist.
+
+Beispiel:
+
+[source,php]
+----
+$zahl = 3;
+if ($zahl > 5) {
+    // Code, wenn Bedingung wahr ist
+} else {
+    // Code, wenn Bedingung falsch ist
+}
+----
+
+== elseif-Abfrage
+
+Die `elseif`-Abfrage ermöglicht die Überprüfung mehrerer Bedingungen nacheinander und führt den Codeblock der ersten wahren Bedingung aus.
+
+Beispiel:
+
+[source,php]
+----
+$zahl = 7;
+if ($zahl > 10) {
+    // Code, wenn Bedingung 1 wahr ist
+} elseif ($zahl > 5) {
+    // Code, wenn Bedingung 2 wahr ist
+} else {
+    // Code, wenn keine der Bedingungen wahr ist
+}
+----
+
+== Ternärer Operator
+
+Der ternäre Operator ist eine verkürzte Form einer `if-else`-Anweisung und ermöglicht die Zuweisung eines Werts basierend auf einer Bedingung.
+
+Beispiel:
+
+[source,php]
+----
+$zahl = 8;
+$resultat = ($zahl > 5) ? "Größer als 5" : "Kleiner oder gleich 5";
+----
+
+== Funktionen definieren
+
+Um eine Funktion in PHP zu definieren, wird das Schlüsselwort `function` verwendet, gefolgt vom Funktionsnamen und den Klammern für Parameter und den Funktionskörper.
+
+Beispiel:
+
+[source,php]
+----
+function gruss($name) {
+    echo "Hallo, $name!";
+}
+----
+
+== Funktionen aufrufen
+
+Funktionen können durch ihren Namen mit den entsprechenden Argumenten aufgerufen werden.
+
+Beispiel:
+
+[source,php]
+----
+gruss("Max");
+// Ausgabe: Hallo, Max!
+----
+
+== Funktionen mit Rückgabewerten
+
+Eine Funktion kann auch einen Wert zurückgeben. Dies wird durch das Schlüsselwort `return` realisiert.
+
+Beispiel:
+
+[source,php]
+----
+function multipliziere($a, $b) {
+    $ergebnis = $a * $b;
+    return $ergebnis;
+}
+
+$produkt = multipliziere(5, 3);
+// $produkt enthält jetzt 15
+----
+
+== Optionale Parameter
+
+Funktionen können optionale Parameter haben, indem man ihnen einen Standardwert zuweist.
+
+Beispiel:
+
+[source,php]
+----
+function potenziere($basis, $exponent = 2) {
+    return pow($basis, $exponent);
+}
+
+$resultat = potenziere(4);
+// $resultat enthält jetzt 16
+----
+
+== Mehrere Rückgabewerte
+
+Eine Funktion kann auch mehrere Werte zurückgeben, indem sie diese als Array oder Objekt strukturiert.
+
+Beispiel:
+
+[source,php]
+----
+function berechne($a, $b) {
+    $summe = $a + $b;
+    $differenz = $a - $b;
+    return [$summe, $differenz];
+}
+
+list($summe, $differenz) = berechne(8, 3);
+// $summe enthält jetzt 11, $differenz enthält jetzt 5
+----
+
+
+== Einlesen von Benutzereingaben
+
+PHP bietet die Möglichkeit, Benutzereingaben aus Formularen oder der URL zu lesen. Dies erfolgt mithilfe der globalen Arrays `$_GET` und `$_POST` für Formulardaten sowie `$_REQUEST` für beide.
+
+Beispiel:
+
+[source,php]
+----
+$benutzername = $_POST['benutzername'];
+$passwort = $_POST['passwort'];
+// Verarbeitung der Benutzereingaben
+----
+
+== Lesen von Dateien
+
+PHP ermöglicht das Lesen von Dateiinhalten mit Funktionen wie `file_get_contents` oder `fread`.
+
+Beispiel:
+
+[source,php]
+----
+$dateiinhalt = file_get_contents('datei.txt');
+// Verarbeitung des Dateiinhalts
+----
+
+== Ändern von Daten
+
+Daten können in PHP durch direkte Zuweisung oder durch Verwendung von Funktionen wie `str_replace` oder `preg_replace` geändert werden.
+
+Beispiel:
+
+[source,php]
+----
+$text = "Hallo, Welt!";
+$text = str_replace("Welt", "PHP", $text);
+// $text enthält jetzt "Hallo, PHP!"
+----
+
+== Löschen von Daten
+
+Das Löschen von Daten kann auf verschiedene Weisen erfolgen, z. B. durch Entfernen von Elementen aus einem Array oder durch Verwendung von Funktionen wie `unlink` zum Löschen von Dateien.
+
+Beispiel:
+
+[source,php]
+----
+$fruechte = ["Apfel", "Banane", "Orange"];
+unset($fruechte[1]);
+// $fruechte enthält jetzt ["Apfel", "Orange"]
+----
+
+== Klassen und Objekte
+
+In der OOP werden Klassen als Baupläne für Objekte betrachtet. Ein Objekt ist eine Instanz einer Klasse.
+
+Beispiel:
+
+[source,php]
+----
+class Auto {
+    // Eigenschaften (Attribute)
+    public $marke;
+    public $farbe;
+
+    // Methoden
+    public function fahre() {
+        echo "Das Auto fährt.";
+    }
+}
+
+// Instanziierung eines Objekts
+$meinAuto = new Auto();
+$meinAuto->marke = "Toyota";
+$meinAuto->farbe = "Blau";
+$meinAuto->fahre();
+----
+
+== Konstruktor und Destruktor
+
+Ein Konstruktor wird aufgerufen, wenn ein Objekt erstellt wird, und ein Destruktor, wenn ein Objekt zerstört wird.
+
+Beispiel:
+
+[source,php]
+----
+class Buch {
+    public $titel;
+
+    // Konstruktor
+    public function __construct($titel) {
+        $this->titel = $titel;
+        echo "Ein neues Buch wurde erstellt: $titel";
+    }
+
+    // Destruktor
+    public function __destruct() {
+        echo "Das Buch wird zerstört: {$this->titel}";
+    }
+}
+
+$meinBuch = new Buch("Die Odyssee");
+// Ausgabe: Ein neues Buch wurde erstellt: Die Odyssee
+// ...
+
+// Das Buch wird automatisch zerstört, wenn der Code endet oder das Skript beendet wird.
+----
+
+== Vererbung
+
+Vererbung ermöglicht es, Eigenschaften und Methoden von einer Klasse zu einer anderen zu übernehmen.
+
+Beispiel:
+
+[source,php]
+----
+class Tier {
+    public $name;
+
+    public function sprechen() {
+        echo "Das Tier macht Geräusche.";
+    }
+}
+
+class Hund extends Tier {
+    public function bellen() {
+        echo "Der Hund bellt.";
+    }
+}
+
+$meinHund = new Hund();
+$meinHund->name = "Bello";
+$meinHund->sprechen();
+$meinHund->bellen();
+----
+
+== Abstrakte Klassen und Schnittstellen
+
+Abstrakte Klassen und Schnittstellen bieten eine Möglichkeit, gemeinsame Strukturen und Verhaltensweisen zu definieren.
+
+Beispiel:
+
+[source,php]
+----
+abstract class Form {
+    abstract public function berechneFlaeche();
+}
+
+interface Zeichenbar {
+    public function zeichne();
+}
+
+class Kreis extends Form implements Zeichenbar {
+    public function berechneFlaeche() {
+        // Berechnung der Fläche für einen Kreis
+    }
+
+    public function zeichne() {
+        // Zeichnen des Kreises
+    }
+}
+----
+
+
+
+
+
+== Verbindung zur MSSQL-Datenbank herstellen
+
+Für die Verbindung zu einer MSSQL-Datenbank in PHP wird die `sqlsrv`-Erweiterung verwendet. Zuerst muss die Erweiterung installiert und aktiviert werden. `$serverName` steht für den Servernamen, `Database` für den Datenbanknamen, `Uid` für den Benutzernamen und `PWD` für das Passwort.
+
+Beispiel:
+
+[source,php]
+----
+// Verbindung herstellen
+$serverName = "localhost";
+$connectionOptions = [
+    "Database" => "DeineDatenbank",
+    "Uid" => "DeinBenutzername",
+    "PWD" => "DeinPasswort"
+];
+
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+
+if (!$conn) {
+    die(print_r(sqlsrv_errors(), true));
+}
+----
+
+== SQL-Abfragen ausführen
+
+Nach erfolgreicher Verbindung können SQL-Abfragen mit der `sqlsrv_query`-Funktion ausgeführt werden. `$sql` repräsentiert die SQL-Abfrage, und `sqlsrv_fetch_array` wird verwendet, um die Ergebnisse zu durchlaufen.
+
+Beispiel:
+
+[source,php]
+----
+$sql = "SELECT * FROM DeineTabelle";
+$query = sqlsrv_query($conn, $sql);
+
+while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) {
+    // Verarbeitung der Ergebnisse
+}
+----
+
+Die Zeile while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) { in PHP wird verwendet, um durch die Ergebnisse einer SQL-Abfrage zu iterieren. Hier ist eine Erklärung, was diese Zeile macht:
+
+- sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC): Diese Funktion wird verwendet, um eine Zeile aus dem Ergebnisobjekt der SQL-Abfrage zu extrahieren. SQLSRV_FETCH_ASSOC gibt an, dass die Ergebnisse als assoziatives Array zurückgegeben werden sollen, wobei die Spaltennamen als Schlüssel verwendet werden.
+
+- $row = ...: Die extrahierte Zeile wird der Variablen $row zugewiesen. $row ist nun ein assoziatives Array, das die Daten der aktuellen Zeile enthält.
+
+- while ($row): Die while-Schleife wird solange ausgeführt, wie es weitere Zeilen im Ergebnis gibt. Wenn alle Zeilen durchlaufen wurden, wird die Schleife beendet.
+
+-// Verarbeitung der Ergebnisse: Der darunter stehende Codeblock wird für jede Zeile im Ergebnis ausgeführt. Innerhalb dieses Codeblocks kannst du auf die Daten der aktuellen Zeile über das Array $row zugreifen.
+
+
+
+== Verbindung zur MariaDB-Datenbank herstellen
+
+Für die Verbindung zu einer MariaDB-Datenbank in PHP wird die `mysqli`-Erweiterung verwendet. `$servername` steht für den Servernamen, `username` für den Benutzernamen, `password` für das Passwort und `dbname` für den Datenbanknamen.
+
+Beispiel:
+
+[source,php]
+----
+// Verbindung herstellen
+$servername = "localhost";
+$username = "DeinBenutzername";
+$password = "DeinPasswort";
+$dbname = "DeineDatenbank";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
+----
+
+== SQL-Abfragen ausführen
+
+Nach erfolgreicher Verbindung können SQL-Abfragen mit der `query`-Methode des `mysqli`-Objekts ausgeführt werden. `$sql` repräsentiert die SQL-Abfrage, und `fetch_assoc` wird verwendet, um die Ergebnisse zu durchlaufen.
+
+Beispiel:
+
+[source,php]
+----
+$sql = "SELECT * FROM DeineTabelle";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // Verarbeitung der Ergebnisse
+    }
+}
+----
+
+
+== Verwendung PDO 
+
+PDO ist eine Abstraktionsschicht, die es ermöglicht, mit verschiedenen Datenbanken zu arbeiten, ohne den Code zu ändern. PDO unterstützt MySQL, MSSQL, MariaDB, PostgreSQL und andere Datenbanken.
+[source,php]
+----
+try {
+    // Eine Verbindung zur MySQL-Datenbank herstellen
+    $pdo_mysql = new PDO('mysql:host=localhost;dbname=DeineDatenbank', 'DeinBenutzername', 'DeinPasswort');
+
+    // Fehlermodus auf Ausnahme setzen
+    $pdo_mysql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // Im Fehlerfall die Ausnahme anzeigen und das Skript beenden
+    die("Verbindung zu MySQL fehlgeschlagen: " . $e->getMessage());
+}
+----
+Mssql 
+[source, php]
+----
+try {
+    // Eine Verbindung zur MSSQL-Datenbank herstellen
+    $pdo_mssql = new PDO('sqlsrv:Server=localhost;Database=DeineDatenbank', 'DeinBenutzername', 'DeinPasswort');
+
+    // Fehlermodus auf Ausnahme setzen
+    $pdo_mssql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // Im Fehlerfall die Ausnahme anzeigen und das Skript beenden
+    die("Verbindung zu MSSQL fehlgeschlagen: " . $e->getMessage());
+}
+----
+
+
+== SQL in Array und mit Javascript abrufen 
+
+
+[source, php]
+----
+// ... (Vorherige PHP-Codeabschnitte für Verbindung und Abfrage bleiben unverändert)
+
+// MySQL-Ergebnisse in ein PHP-Array speichern
+$ergebnisse_mysql = [];
+while ($row_mysql = $stmt_mysql->fetch(PDO::FETCH_ASSOC)) {
+    $ergebnisse_mysql[] = $row_mysql;
+}
+
+// MSSQL-Ergebnisse in ein PHP-Array speichern
+$ergebnisse_mssql = [];
+while ($row_mssql = $stmt_mssql->fetch(PDO::FETCH_ASSOC)) {
+    $ergebnisse_mssql[] = $row_mssql;
+}
+
+// JSON-kodierte Daten in das $result-Array einfügen
+$result['mysqlData'] = json_encode($ergebnisse_mysql);
+$result['mssqlData'] = json_encode($ergebnisse_mssql);
+
+
+----
+
+[source, javascript]
+----
+let var = <?php echo json_encode($result['mysqlData']); ?>;
+let test = <?php echo $result ?>
+
+----
+
+
+== Prepared Statment
+
+Ein Prepared Statement ist eine vorbereitete SQL-Anweisung, die Platzhalter für Parameter verwendet, um sicherzustellen, dass Benutzereingaben sicher und effizient in Datenbankabfragen integriert werden können. Diese Technik wird häufig in Webanwendungen und anderen Systemen eingesetzt, um SQL-Injektionen zu verhindern und die Datenbankinteraktion zu optimieren.
+
+=== Warum Prepared Statements?
+
+Die Verwendung von Prepared Statements bietet mehrere Vorteile:
+
+1. *Sicherheit gegen SQL-Injektion:* Durch die Verwendung von Platzhaltern anstelle direkter Einfügung von Benutzereingaben in die SQL-Anweisung wird das Risiko von SQL-Injektionen erheblich reduziert. Dies schützt vor bösartigen Eingaben, die versuchen, die SQL-Anweisung zu manipulieren.
+
+2. *Performance-Optimierung:* Prepared Statements können vom Datenbankmanagementsystem optimiert werden, da sie die gleiche Anweisung wiederholt ausführen können, ohne den gesamten Abfrageoptimierungsprozess erneut durchlaufen zu müssen.
+
+=== Wie funktionieren Prepared Statements?
+
+Ein Prepared Statement durchläuft normalerweise die folgenden Schritte:
+
+1. *Vorbereitung:* Die SQL-Anweisung wird vor der Ausführung vorbereitet, wobei Platzhalter anstelle der tatsächlichen Werte stehen.
+
+2. *Binden von Parametern:* Die Platzhalter in der vorbereiteten Anweisung werden mit tatsächlichen Werten verknüpft. Dieser Schritt kann mehrfach durchgeführt werden, wenn die Anweisung wiederholt ausgeführt wird.
+
+3. *Ausführung:* Die vorbereitete Anweisung wird mit den gebundenen Parametern an die Datenbank gesendet und dort ausgeführt.
+
+Beispiel:
+
+[source,sql]
+----
+-- Vorbereitung
+PREPARE my_statement FROM 'SELECT * FROM Benutzer WHERE Benutzername = ?';
+
+-- Binden von Parametern
+SET @benutzername = 'JohnDoe';
+EXECUTE my_statement USING @benutzername;
+
+-- Ausführung
+DEALLOCATE PREPARE my_statement;
+----
+
+In diesem Beispiel wird ein Prepared Statement für die Abfrage von Benutzerdaten vorbereitet, ein Parameter (Benutzername) gebunden und die Anweisung ausgeführt. Der Einsatz von Prepared Statements kann je nach Datenbankmanagementsystem variieren, aber das Konzept bleibt im Wesentlichen dasselbe.
+
+
+== Ordner auflisten lassen 
+
+Manchmal möchten Sie alle Ordner in einem bestimmten Pfad in einem Array speichern. Dies kann ohne Verwendung von Rekursion durchgeführt werden.
+
+1. *Pfad angeben:* Geben Sie den Pfad zu dem Verzeichnis an, dessen Ordner Sie in einem Array speichern möchten.
+
+```asciidoc
+[source,php]
+----
+$verzeichnis = '/pfad/zum/ordner';
+-----
+Nun kann mit scandir der Ordner inhalt gescannt werden 
+
+[source,php]
+----
+$ordnerinhalt = scandir($verzeichnis);
+$ordnerArray = [];
+
+foreach ($ordnerinhalt as $element) {
+    $pfad = $verzeichnis . '/' . $element;
+    if (is_dir($pfad) && $element !== '.' && $element !== '..') {
+        $ordnerArray[] = $element;
+    }
+}
+Ergebnis verwenden: Das Ergebnis ist ein Array mit den Namen der Ordner im angegebenen Pfad.

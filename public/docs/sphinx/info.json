@@ -1,0 +1,8 @@
+{
+    "title": "Sphinx Docs",
+    "description": "Sphinx ist eine Documententation bassierend auf Pyhton linux und co",
+    "version": "0.1.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/sphinx/sphinx_docu/_build/html/index.html"
+}

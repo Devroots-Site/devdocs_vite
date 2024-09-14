@@ -1,0 +1,41 @@
+.card-container {
+  padding-top: 100px; /* Passt dies an die tatsächliche Höhe der Navbar an */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Vergrößert den Abstand zwischen den Karten */
+  justify-content: center;
+  margin: 0 auto;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  max-width: 100%; /* Begrenzt die Breite auf 100% des Viewports */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Platzierung von Elementen */
+  width: 85%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.card-content {
+  flex-grow: 1; /* Lässt den Inhalt den verfügbaren Platz nutzen */
+}
+
+.read_docu {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.read_docu:hover {
+  background-color: #0056b3;
+}

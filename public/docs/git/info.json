@@ -1,0 +1,8 @@
+{
+    "title": "Git",
+    "description": "Git ist ein verteiltes Versionsverwaltungssystem, das von Linus Torvalds entwickelt wurde, um den Linux-Kernel zu verwalten. Es ist ein Open-Source-Tool, das für die Verwaltung von Quellcode und anderen Dateien verwendet wird.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/git/ascii.html"
+}

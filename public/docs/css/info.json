@@ -1,0 +1,8 @@
+{
+    "title": "Css",
+    "description": "CSS (Cascading Style Sheets) ist eine Stylesheet-Sprache, die verwendet wird, um das Aussehen von Webseiten zu gestalten. Es wird häufig in Kombination mit HTML und JavaScript verwendet.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/css/ascii.html"
+}

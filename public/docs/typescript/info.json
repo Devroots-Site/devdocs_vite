@@ -1,0 +1,8 @@
+{
+    "title": "TypeScript",
+    "description": "TypeScript ist eine von Microsoft entwickelte Programmiersprache, die als Übermenge von JavaScript entwickelt wurde. Sie fügt optionale statische Typisierung und andere Funktionen hinzu, die die Entwicklung von JavaScript-Anwendungen erleichtern.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/typescript/ascii.html"
+}

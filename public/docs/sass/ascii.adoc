@@ -1,0 +1,530 @@
+:toc: left
+:author: Bichler Bastian
+:source-highlighter: highlight.js
+:toc-title: Inhalt
+:sectnums: section
+:icons: font
+:email: bichlerbastian@gmail.com
+
+= SASS - Syntactically Awesome Style Sheets / SCSS - Sassy CSS
+
+== Was ist SASS?
+
+SASS steht für Syntactically Awesome Style Sheets und ist eine Stylesheet-Sprache, die auf CSS aufbaut. SASS ist eine Metasprache, die in CSS kompiliert wird. SASS bietet viele Funktionen, die in *CSS* nicht vorhanden sind, wie *Variablen*, *Verschachtelung*, *Mixins*, *Vererbung* und vieles mehr. Diese Funktionen machen das Schreiben von CSS einfacher und effizienter.
+
+== Installation von SASS
+
+SASS kann auf verschiedene Arten installiert werden. Die einfachste Möglichkeit ist die Installation über den Node Package Manager (NPM). Dazu muss Node.js auf dem Rechner installiert sein. Mit dem folgenden Befehl wird SASS installiert:
+
+[source, shell]
+----
+npm install -g sass
+----
+
+Oder per Webseite 
+link:https://sass-lang.com/install[SASS Install]
+
+Der nachteil hier ist das man immer auf die Batch davon zugreifen muss dann 
+
+== SASS-Dateien erstellen
+
+SASS-Dateien haben die Dateiendung *.scss* oder *.sass*. Die Dateiendung *.scss* steht für Sassy CSS und ist die neueste Version von SASS. Die Dateiendung *.sass* ist die ältere Version von SASS. In diesem Tutorial verwenden wir die Dateiendung *.scss*.
+
+== SASS-Datei kompilieren
+
+SASS-Dateien müssen in CSS-Dateien kompiliert werden, damit sie im Browser angezeigt werden können. Dazu gibt es verschiedene Möglichkeiten:
+
+* Kompilierung mit der Kommandozeile
+* Kompilierung mit einem Task-Runner wie Gulp oder Grunt
+* Kompilierung mit einem Code-Editor wie Visual Studio Code
+
+In diesem Tutorial verwenden wir die Kompilierung mit der Kommandozeile.
+
+== Kompilierung mit der Kommandozeile
+
+Um eine SASS-Datei mit der Kommandozeile zu kompilieren, verwenden wir den Befehl *sass*. Der Befehl *sass* hat verschiedene Optionen, die wir verwenden können. Die wichtigsten Optionen sind:
+
+* *--watch*: Überwacht die SASS-Datei auf Änderungen und kompiliert sie automatisch in eine CSS-Datei.
+* *--style*: Gibt an, wie der kompilierte CSS-Code formatiert werden soll. Die möglichen Werte sind *nested*, *expanded*, *compact* und *compressed*.
+*nested*: Der Standardwert. Der kompilierte CSS-Code wird verschachtelt.
+*expanded*: Der kompilierte CSS-Code wird erweitert.
+*compact*: Der kompilierte CSS-Code wird kompakt.
+*compressed*: Der kompilierte CSS-Code wird komprimiert.
+
+== Beispiel
+
+Erstellen Sie eine neue Datei mit dem Namen *style.scss* und fügen Sie folgenden Code ein:
+
+[source, css]
+----
+$primary-color: #333;
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: $primary-color;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+----
+
+Speichern Sie die Datei und wechseln Sie in das Verzeichnis, in dem sich die Datei befindet. Öffnen Sie die Kommandozeile und geben Sie den folgenden Befehl ein:
+
+[source, shell]
+----
+sass style.scss style.css --style compressed
+----
+
+Der Befehl kompiliert die Datei *style.scss* in die Datei *style.css* und komprimiert den CSS-Code. Öffnen Sie die Datei *style.css* und überprüfen Sie den kompilierten CSS-Code.
+
+== Unterschied zwischen SASS und SCSS
+
+SASS hat zwei Syntaxen: SASS und SCSS. Die SASS-Syntax ist die ältere Version von SASS und verwendet Einrückungen, um Blöcke zu definieren. Die SCSS-Syntax ist die neueste Version von SASS und ähnelt CSS. In diesem Tutorial verwenden wir die SCSS-Syntax.
+
+Beispiel SASS-Syntax:
+
+[source, sass]
+----
+$primary-color: #333
+
+body
+  font: 100% Helvetica, sans-serif
+  color: $primary-color
+
+h1
+  color: $primary-color
+----
+
+Beispiel SCSS-Syntax:
+
+[source, scss]
+----
+$primary-color: #333;
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: $primary-color;
+}
+
+h1 {
+  color: $primary-color;
+}
+----
+
+
+
+== Funktionen von SASS
+
+=== Variablen
+
+Variablen in SASS beginnen mit einem Dollarzeichen ($). Sie können überall in Ihrem Stylesheet verwendet werden, um Werte wie Farben, Schriftarten, Abstände usw. zu speichern und zu wiederverwenden.
+
+Beispiel:
+
+[source, scss]
+----
+$primary-color: #333;
+
+body {
+  color: $primary-color;
+}
+----
+
+
+=== Verschachtelung
+
+Verschachtelung in SASS ermöglicht es Ihnen, CSS-Regeln zu verschachteln, um den Code übersichtlicher zu gestalten.
+
+Beispiel:
+
+[source, scss]
+----
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+----
+
+== Zusammenschreibung 
+
+Man kann Classennamen aufteilen so das man meherere in eine art schreiben kann 
+
+Beispiel:
+[source, html]
+----
+<p>Ich bin ein <span class="card card--blue">
+----
+
+[source, SCSS]
+----
+.card {
+  &--blue {
+    background-color: blue;
+  }
+}
+----
+
+Diese SASS-Regel definiert einen Stil für ein Element mit der Klasse .card und eine zusätzliche Modifikator-Klasse --blue. Wenn ein Element beide Klassen hat (z.B. <div class="card card--blue"></div>), wird der Hintergrund des Elements blau gefärbt. Die Verwendung von & ermöglicht es, den Modifikator direkt an den Hauptklassennamen anzuhängen, was eine saubere und modulare Struktur für CSS-Klassen bietet.
+
+== Mixins
+
+Mixins in SASS sind wiederverwendbare Code-Snippets, die in Ihrem Stylesheet definiert und wiederverwendet werden können.
+Es ist so eine Art Funktion
+
+Diese werden dann mit `@include` aufgerufen.
+
+=== Erstellen und aufruf eines Mixins
+
+[source, SCSS]
+----
+@mixin coolerBackground(){
+  background-color: #333;
+  color: #fff;
+}
+----
+
+
+
+=== Übergabe
+
+[source, SCSS]
+----
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+.box {
+  @include border-radius(10px);
+}
+----
+
+
+=== Festenwert festlegen bei nicht übergabe
+
+[source, SCSS]
+----
+@mixin border-radius($radius: 5px) {
+  border-radius: $radius;
+}
+
+.box {
+  @include border-radius;
+}
+----
+
+=== Mehrere Werte übergeben
+
+[source, SCSS]
+----
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+.box {
+  @include box-shadow(1px, 1px, 2px, #000);
+}
+
+----
+
+== Vererbung
+
+Vererbung in SASS ermöglicht es Ihnen, CSS-Regeln von einer Klasse zu einer anderen zu vererben.
+
+Beispiel:
+
+[source, css]
+----
+    .message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+    }
+
+    .success {
+    @extend .message;
+    border-color: green;
+    }
+
+    .error {
+    @extend .message;
+    border-color: red;
+    }
+----
+
+Hier wird die Klasse *.message* von den Klassen *.success* und *.error* geerbt.
+und alles andere wird auch von message übernommen. 
+
+Der Unterschied zwischen Mixins und Vererbung ist das Mixins den Code in die Klasse einfügt und Vererbung den Code in die Klasse einfügt und die Klasse erweitert
+
+Beispiel:
+
+[source, SCSS]
+----
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+----
+
+Wird zu 
+
+[source, CSS]
+----
+.message, .success, .error {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+----
+
+Mixin würde so aussehen
+
+[source, SCSS]
+
+----
+@mixin message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @include message;
+  border-color: green;
+}
+
+.error {
+  @include message;
+  border-color: red;
+}
+----
+
+Wird zu
+
+[source, CSS]
+
+----
+.success {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+  border-color: green;
+}
+
+.error {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+  border-color: red;
+}
+----
+
+=== Vorteil von Vererbung
+
+Der Vorteil von Vererbung ist das er den Code schöner und Comprimierter Darstellt 
+
+
+=== Die % Schreibweise 
+
+Die % Schreibweise ist eine Art von Vererbung die nicht in den CSS Code übernommen wird
+
+Beispiel:
+
+[source, SCSS]
+----
+%message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend %message;
+  border-color: green;
+}
+
+.error {
+  @extend %message;
+  border-color: red;
+}
+
+----
+
+Wird zu
+
+[source, CSS]
+----
+
+.success, .error {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+----
+
+heißt das %message wird nicht in den CSS Code übernommen
+
+== @Use 
+
+Mit @use können Sie Funktionen, Mixins und Variablen aus anderen SASS-Dateien importieren. Der @use-Befehl ersetzt den @import-Befehl, der in älteren Versionen von SASS verwendet wurde.
+
+Beispiel:
+
+Erstellen Sie eine neue Datei mit dem Namen *_variables.scss* und fügen Sie folgenden Code ein:
+
+[source, SCSS]
+----
+$primary-color: #333;
+$secondary-color: #666;
+----
+
+[source, SCSS]
+----
+@use 'variables';
+
+body {
+  color: variables.$primary-color;
+}
+----
+
+Der Vorteil hier ist das wir nun ganz viele Sass dateien erstellen können und diese dann in einer Datei zusammenführen können
+
+Hier gibt es auch den `as` Befehl mit wir die Datei umbenennen können wenn diese für uns zulang ist. 
+
+
+[IMPORTANT]
+====
+- Der @use-Befehl sollte muss am Anfang der SASS-Datei stehen.
+- Die Dateinamen sollten immer mit einen `_` beginnen. 
+====
+
+[TIP]
+====
+Man kann mit einer index.scss in einen Order alle dateinen zusammenführen und dann diese index.scss kompilieren
+Um dies zu Machen muss in der index.css folgendes stehen
+  [source, SCSS]
+  ----
+      @use '_textcolors';
+      @use '_backgroundcolors';
+  ----
+====
+
+Nun kann man einfach mit `@use styling` die Datei importieren und alle anderen Dateien werden auch importiert natürlich muss der ordner styling heißen 
+
+== Abfragen 
+
+Mit @if, @else if und @else können Sie Bedingungen in Ihrem Stylesheet definieren und basierend auf diesen Bedingungen unterschiedliche Stile anwenden.
+
+Beispiel:
+
+[source, SCSS]
+----
+$primary-color: #333;
+
+body {
+  @if $primary-color == #333 {
+    color: $primary-color;
+  } @else {
+    color: #000;
+  }
+}
+----
+
+== Schleifen
+
+Mit @for, @each und @while können Sie Schleifen in Ihrem Stylesheet definieren und wiederholte Stile anwenden.
+
+Beispiel:
+
+[source, SCSS]
+----
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+----
+
+== Funktionen
+
+Mit @function können Sie benutzerdefinierte Funktionen in Ihrem Stylesheet definieren und wiederverwenden.
+
+Beispiel:
+
+[source, SCSS]
+----
+@function divide($a, $b) {
+  @return $a / $b;
+}
+
+.container {
+  width: divide(1000px, 2);
+}
+----
+
+== sass:color 
+
+Mit sass:color können Sie Farben in SASS definieren und manipulieren.
+
+Um sass:color zu verwenden, müssen Wir ``@use 'sass:color'`` am Anfang der SASS-Datei hinzufügen.
+
+[source, SCSS]
+----
+color.adjust($color,
+  $red: null, $green: null, $blue: null,
+  $hue: null, $saturation: null, $lightness: null,
+  $whiteness: null, $blackness: null,
+  $alpha: null)
+adjust-color(...) //=> color
+----
+
+== Fazit
+
+SASS ist eine leistungsstarke Stylesheet-Sprache, die das Schreiben von CSS effizienter und einfacher macht. Mit Funktionen wie Variablen, Verschachtelung, Mixins, Vererbung, @use, @if

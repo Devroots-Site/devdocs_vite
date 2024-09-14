@@ -1,0 +1,8 @@
+{
+    "title": "Linux",
+    "description": "Eine Linux Documentation über die wichtigsten Befehle und Funktionen. Linux ist ein freies Betriebssystem, das von einer großen Anzahl von Personen entwickelt wird. Es ist ein Betriebssystem, das auf Unix basiert und in vielen verschiedenen Varianten erhältlich ist. Linux ist ein Betriebssystem, das auf Unix basiert und in vielen verschiedenen Varianten erhältlich ist.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-08",
+    "file": "docs/linux/sphinx_docu/_build/html/index.html"
+}

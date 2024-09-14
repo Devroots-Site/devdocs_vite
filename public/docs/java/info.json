@@ -1,0 +1,8 @@
+{
+    "title": "Java",
+    "description": "Eine Java Documentation über die wichtigsten Befehle und Funktionen. Java ist eine objektorientierte Programmiersprache und eine eingetragene Marke des Unternehmens Sun Microsystems. Sie wurde 1995 von Sun Microsystems veröffentlicht und ist eine der am häufigsten verwendeten Programmiersprachen. Java ist eine objektorientierte Programmiersprache und eine eingetragene Marke des Unternehmens Sun Microsystems. Sie wurde 1995 von Sun Microsystems veröffentlicht und ist eine der am häufigsten verwendeten Programmiersprachen.",
+    "version": "2.1.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-12",
+    "file": "docs/java/java_doc/_build/html/index.html"
+}

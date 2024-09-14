@@ -1,0 +1,8 @@
+{
+    "title": "PHP",
+    "description": "PHP ist eine serverseitige Skriptsprache, die hauptsächlich für die Webentwicklung verwendet wird. Es kann in HTML eingebettet werden und wird häufig mit MySQL-Datenbanken verwendet.",
+    "version": "1.0.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/php/ascii.html"
+}

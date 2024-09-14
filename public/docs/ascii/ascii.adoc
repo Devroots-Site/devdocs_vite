@@ -1,0 +1,584 @@
+:toc: left
+:icons: font
+:author: Bichler Bastian 
+:toc-title: Inhalt
+:sectnums: section
+:docinfo: shared
+= AsciDoc Syntax
+
+==  Starten mit Asciidoc
+Als erstes muss Ruby installiert sein das kannst du link:https://rubyinstaller.org/[hier] machen. 
+Wenn Ruby installiert ist führe diesen Befehl in der Console aus. 
+[source, batch]
+----
+gem install asciidoctor
+----
+
+Im anschluss die Ruby Cmd öffnen und 1 und 2 Installieren 
+
+==  Extensions Installieren 
+Mit dieser Extension kannst du sehen wie die Datei aussehen würde. 
+Installiere hierzu die Extensions für VS Code
+
+Um es nun zu verwenden verwende *STRG + SHIFT + V*
+
+image::img/Extensions.png[]
+
+==  Erstellen der Asciidoc Datei
+Erstelle eine Datei mit der Endung .adoc
+
+== Syntax == 
+Die Syntax ist sehr einfach und leicht zu verstehen.
+=== Formatierung
+
+image::img/Format.png[]
+
+=== Leerzeile 
+Um eine Leerzeile zu erstellen benutze einfach 2x Enter um einen Neuen Block zu erstellen 
+oder mit `pass` kann eine neue Zeile erstellt werden. 
+
+[source, adoc]
+----
+Ich bin Bastian  pass:[</br>]
+Und ich mache eine weiterbildung; 
+----
+
+Ich bin Bastian pass:[</br>]
+Und ich mache eine weiterbildung; 
+
+=== Pass Verwenden 
+
+Mit `pass` können wir Text so verwenden ohne das sie Formatiert werden
+[source, ascii] 
+----
+pass:[*Dies ist ein Text*]
+----
+pass:[*Dies ist ein Text*]
+
+Oder mit `pass` können wir auch HTML verwenden
+
+[source, ascii]
+----
+pass:[<span style="color:red;">Dies ist ein roter Text</span>]
+----
+pass:[<span style="color:red;">Dies ist ein roter Text</span>]
+
+== Farben 
+
+Um Farben zu verwenden können wir das hier verwenden
+
+[source, ascii]
+----
+[red]##Dies ist ein roter Text##
+[yellow]##Gelb##
+----
+
+[red]##Dies ist ein roter Text##
+[yellow]##Gelb##
+
+
+==== Farben in Worten 
+
+|===
+|Farbe | Beispiel 
+| Schwarz | [black]##Schwarz##
+| Weiß | [white]##Weiß##
+| Silber | [silver]##Silber##
+| Grau | [gray]##Grau##
+| Maroon | [maroon]##Maroon##
+| Rot | [red]##Rot##
+| Lila | [purple]##Lila##
+| Fuchsia | [fuchsia]##Fuchsia##
+| Grün | [green]##Grün##
+| Limette | [lime]##Limette##
+| Olive | [olive]##Olive##
+| Gelb | [yellow]##Gelb##
+| Navy | [navy]##Navy##
+| Blau | [blue]##Blau##
+| Teal | [teal]##Teal##
+| Aqua | [aqua]##Aqua##
+|===
+
+[NOTE]
+====
+[.red]##Rot## [.blue]##Blau##
+
+In diesem Beispiel wird das Wort “Rot” in roter Farbe und das Wort “Blau” in blauer Farbe dargestellt. Beachten Sie, dass die doppelte Raute (##) es Ihnen ermöglicht, mehrere Formatierungen auf denselben Text anzuwenden, ohne dass zusätzliche Leerzeichen hinzugefügt werden. Ohne die doppelte Raute würde AsciiDoc dies als zwei separate Wörter interpretieren: ein rotes “Rot” und ein normales “Rot”. Mit der doppelten Raute wird das gesamte Wort in roter Farbe dargestellt, ohne zusätzliche Leerzeichen.
+====
+
+
+==== Farben in Hex 
+Um Hex Codes zu verwendne müssen wir dies wieder mit der `pass` Funktion machen.
+
+|===
+| Farbe | Hex-Code 
+| Schwarz | #000000  
+| Weiß | #FFFFFF
+| Silber | #C0C0C0
+| Grau | #808080
+| Maroon | #800000
+| Rot | #FF0000
+| Lila | #800080
+| Fuchsia | #FF00FF
+| Grün | #008000
+| Limette | #00FF00
+| Olive | #808000
+| Gelb | #FFFF00
+| Navy | #000080
+| Blau | #0000FF
+| Teal | #008080
+| Aqua | #00FFFF
+|===
+
+
+[source, ascii]
+----
+ pass:[<span style="color:#800080;>Lila</span>]
+----
+
+Beispiel: pass:[<span style="color:#800080;">Lila</span>]
+
+
+==== Linien Farbig machen 
+
+pass:[<span style="border-bottom: 2px solid #800080;">Wort</span>]
+
+[source, ascii]
+----
+pass:[<span style="border-bottom: 2px solid #800080;">Wort</span>]
+----
+
+
+==  Überschriften 
+Die Überschriften werden mit einem = eingeleitet.
+je mehr = desto kleiner wird die Überschrift
+
+Mit 3x "*-*" Macht mein einen Unterschstrich dieser wird aber eh bei 2x= mitgemacht
+
+
+==  Checkboxen
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+
+Um Checkboxen zu erstellen machst du das hier
+
+|===
+|* [*] checked
+|* [x] also checked
+|* [ ] not checked
+|===
+
+Eine einrückung kannst du mit "::" machen hinter einen wort
+
+test::
+    der Test 
+
+==  Tabellen erstellen 
+
+Tabellen in Asciidoc sind flexibel und können mit verschiedenen Optionen angepasst werden. Hier sind einige der Möglichkeiten:
+
+* `cols` definiert die Spaltenbreite und -ausrichtung.
+* `frame` und `grid` steuern die Rahmen und Gitterlinien der Tabelle.
+* `stripes` fügt abwechselnde Hintergrundfarben zu den Zeilen hinzu.
+* `header` und `footer` ermöglichen es, Kopf- und Fußzeilen zu definieren.
+
+
+frame:
+[cols="1,1",options="header"]  
+|===
+| all | Zeichnet einen Rahmen um die gesamte Tabelle.
+| topbot | Zeichnet einen Rahmen um die ober und unterseite der Tabelle.
+| sides | Zeichnet einen Rahmen um die Seiten der Tabelle.
+| none | Zeichnet keinen Rahmen um die Tabelle.
+|===
+
+grid:
+[cols="1,1",options="header"]
+|===
+| all | Zeichnet ein Gitter um die gesamte Tabelle.
+| horiz | Zeichnet ein Gitter nur horizontal.
+| vert | Zeichnet ein Gitter nur vertikal.
+| rows | Zeichnet ein Gitter um jede Zeile.
+| cols | Zeichnet ein Gitter um jede Spalte.
+| none | Zeichnet kein Gitter.
+|===
+
+stripes:
+[cols="1,1",options="header" stripes="odd"]
+|===
+| odd | Fügt eine Hintergrundfarbe zu den ungeraden Zeilen hinzu.
+| even | Fügt eine Hintergrundfarbe zu den geraden Zeilen hinzu.
+| none | Fügt keine Hintergrundfarbe hinzu.
+| hover | Fügt eine Hintergrundfarbe hinzu, wenn der Benutzer mit der Maus über die Zeile fährt. ( Nur in HTML)
+|===
+
+
+
+[source]
+----
+|===
+|Column 1, Header Row |Column 2, Header Row :red 
+|Column 1, Row 1, hi
+|Column 2, Row 1, hi
+|Column 1, Row 2, max
+|Column 2, Row 2, max
+|===
+
+----
+Hier wird mit den "|===" das Ende und der Anfang definiert
+mit "|" wird eine neue Spalte erstellt
+
+ 
+
+==  Admonitions
+
+Es gibt bestimmte Aussagen, auf die Sie aufmerksam machen möchten, indem Sie sie aus dem Fluss des Inhalts herausnehmen und ihnen eine Priorität zuweisen. Man nennt sie Ermahnungen. Auf dieser Seite erfahren Sie, welche Hinweistypen AsciiDoc bereitstellt, wie Sie Ihrem Dokument Hinweise hinzufügen und wie Sie diese mithilfe von Symbolen oder Emojis verbessern.
+
+Liste von Admonitions:: 
+
+* NOTE
+* TIP
+* IMPORTANT
+* CAUTION
+* WARNING
+
+image::img/Admonitions.png[]
+
+Um diese Icons nun zu verwenden muss `icons` eingeschaltet sein sonst steht nur der Text da.
+
+[source, adoc]
+----
+:icosn: font
+
+[NOTE]
+====
+Das ist ein Notiz # oder eine andere aus der Liste
+====
+
+oder 
+WARNING: text
+----
+
+Bei den unteren wird es erst beendet wen eine leerzeile zwischen der Admonitions und den normalen Text 
+
+
+
+
+Verwendung: 
+[source, adoc]
+----
+[NOTE]
+====
+Ein Beispiel für eine Notiz.
+====
+----
+[NOTE]
+====
+Ein Beispiel für eine Notiz.
+====
+
+
+
+
+
+
+==  Links und Bilder
+Links und bilder werden mit einem *link:* eingeleitet und Bilder mit einen *image:*
+
+Beispiel::
+[source, target]
+----
+link:https://www.google.com[Klick mich] 
+image:pfad[alternativer Text]
+----
+link:https://www.google.com[Klick mich] 
+
+
+Natürlich können Lokale dateien Auch Verlinks sein oder Bilder
+
+==  Listen erstellen 
+
+um eine Auflistung zu erstellen brauchen wir das :: und ein * oder . 
+[source, target]
+----
+beispiel:: 
+* hi
+----
+
+beispiel:: 
+* hi
+
+[source, target]
+----
+beispiel:: 
+. hi
+.. hi
+... hi
+----
+
+beispiel:: 
+. hi
+.. hi
+... hi
+
+
+==  Umrandungen 
+[source, target]
+----
+====
+The book hit the floor with a *thud*.
+
+He could hear doves *cooing* in the pine trees`' branches.
+====
+----
+
+.Onomatopoeia
+====
+The book hit the floor with a *thud*.
+
+He could hear doves *cooing* in the pine trees`' branches.
+====
+
+== Einklapbare Blöcke == 
+
+
+[source, target]
+----
+[%collapsible]
+====
+*Hier steht Ihre Überschrift*
+
+Hier steht der Inhalt, der aufgeklappt wird.
+====
+----
+
+Um einen Einklappbaren bereich zu erstellen 
+
+[%collapsible]
+====
+*Hier steht Ihre Überschrift*
+
+Hier steht der Inhalt, der aufgeklappt wird.
+====
+
+Um die Überschrift zu ändern kann dies mit Html Code selbst geschehen 
+
+
+[source, target]
+----
+++++
+<details>
+  <summary>Aufklappbar</summary>
+  Hier steht der Inhalt, der aufgeklappt wird.
+</details>
+++++
+----
+
+
+++++
+<details>
+  <summary>Aufklappbar</summary>
+  Hier steht der Inhalt, der aufgeklappt wird.
+</details>
+++++
+
+== Code Block 
+[source, target]
+----
+[source, target]
+"----"
+
+Code Bla bla
+"----"
+
+----
+
+Hier im code Natürlich ohne die " "
+
+
+==  Verse Style 
+[verse,Carl Sandburg, two lines from the poem Fog]
+The fog comes
+on little cat feet.
+
+Hier sehen wir das die normalen Zeilen geschreiben wreden und unten ein Verse noch eingefügt wird. 
+
+[source, adoc]
+----
+[verse,Carl Sandburg, two lines from the poem Fog]
+The fog comes
+on little cat feet.
+----
+
+==  Open Blocks
+
+mit den `word` können wir "Öffnungsblöcke" erstellen. 
+
+[source, adoc]
+----
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+----
+
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+
+
+==  Kommentare 
+
+Kommentare sind abunzu sehr wichtig. 
+
+[source, adoc]
+----
+* first text
+
+// Commentar das ist ein Test 
+
+* second text
+----
+
+* first text
+
+// Commentar das ist ein Test 
+
+* second text
+
+oder in einen Code Block
+
+[source, adoc]
+----
+[comment]
+Das ist ein kommentar 
+----
+
+[comment]
+Das ist ein Kommetar 
+
+
+oder 
+
+[source, adoc]
+----
+////
+
+HIer kommen Kommentare 
+ ////
+----
+
+
+== Automatische Nummerierung
+
+Um eine Automatische Nummerierung zu erstellen können wir `:sectnums: section` verwenden. 
+
+Hier wird dann von oben nach unten die Nummerierung erstellt.
+
+Andere Übergabeparameter 
+
+== Source Code Highlighter
+
+Es gibt mehrere Highlighter die wir verwenden können.
+
+`:source-highlighter:`
+
+* coderay
+* highlight.js
+* pygments
+* rouge
+
+In meinen Fall benutze ich `highlight.js` diese muss nur ganz oben in der Datei eingefügt werden.
+
+[source , adoc]
+----
+:source-highlighter: highlight.js
+----
+
+== PDF einbinden
+
+Natürlich können wir hier auch pdfs einbinden mit 
+
+
+==  Navigation-Leiste 
+Um eine Navigation-Leiste zu erstellen brauchen wir das hier
+[source, adoc]
+----
+:toc: left
+----
+
+Um Links eine Navigations leiste zu erstellen diese Erekennt alle == und === und Verlinkt diese miteinander 
+
+Standart Gemäs ist dies auf `:toclevels: 4` Heißt wir können an der Seite nur bis einen Unterpunkt machen wenn wir dies Erhöhen können wir 5 angeben dann können wir bis zu `=====` 5 machen und diese So unterkatogerisieren. 
+
+== Eigene Style / CSS einbinden 
+Hier mit können wir Klassen schon im Voraus erstellen und diese dann verwenden. 
+Um den Style zu verbessern / zu Beeinflussen 
+
+Schritt 1:
+
+Erstellen der `docinfo.html` Datei in der gleichen Ebene wie die Asciidoc Datei. 
+
+Schritt 2:
+
+Dort dann die Klassen erstellen die wir verwenden wollen. 
+
+[source, html]
+----
+<style>
+.small-text {
+    font-size: 0.8em;
+}
+</style>
+----
+
+Schritt 3:
+
+In der Asciidoc Datei dann die `docinfo.html` einbinden. 
+
+[source, adoc]
+----
+:docinfo: shared
+----
+
+Schritt 4:
+
+pass:[<span class="small-text">Dies ist ein kleiner Text</span>]
+[source, adoc]
+----
+pass:[<span class="small-text">Dies ist ein kleiner Text</span>]
+----
+
+[IMPORTANT]
+====
+
+Um diese nun in der HMTL auch richtig zu sehen müssen  den umwandlungs Befehl  anpassen `asciidoctor --attribute docinfo=shared datei.adoc` 
+====
+
+
+[[Umwandeln]]
+== Umwandeln in HTML oder PDF 
+
+[source, code]
+----
+asciidoctor input.adoc
+----
+Um eine Asciidoctor zu erstellen in Html zu erstellen 
+
+[source, code]
+----
+asciidoctor-pdf beispiel.adoc
+----
+Gerne hier weiteres Zum Nachlesen zu Befehlen in Asciidoc 
+link:https://phlow.de/magazin/terminal/asciidoctor/[Klick Mich]
+

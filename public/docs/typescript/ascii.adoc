@@ -1,0 +1,263 @@
+:toc: left
+:author: Bichler Bastian
+:source-highlighter: highlight.js
+:toc-title: Inhalt
+:sectnums: section
+:icons: font
+
+= TypeScript
+
+[[warumtypescript]]
+== Warum TypeScript
+
+TypeScript ist ähnlich wie JavaScript. Es handelt sich um eine Erweiterung von JavaScript, die typisiert und objektorientiert ist. TypeScript wurde von Microsoft entwickelt und basiert auf JavaScript.
+
+Später wird TypeScript in JavaScript übersetzt. 
+*WICHTIG:* TypeScript unterstützt JavaScript, das bedeutet, dass du ganz normal JavaScript in TypeScript verwenden kannst.
+
+[[Vorbereitung]]
+== Vorbereitung
+
+Was brauchen wir, um TypeScript programmieren zu können? 
+Um TypeScript zu programmieren, benötigen wir einen Editor. Ich empfehle Visual Studio Code.
+Und Node.js.
+
+[[installation]]
+== Installation
+[source, bash]
+----
+npm install -g TypeScript
+----
+Der `-g` Schalter bedeutet global.
+
+[[firststeps]]
+== Erste Schritte
+Erstellen wir eine Datei `test.ts`.
+
+Dort schreiben wir mal 
+[source, javascript]
+----
+console.log("hi")
+----
+
+Hier kann nun mit Node.js auch der Code ausgeführt werden wie normale JavaScript-Dateien.
+[source, javascript]
+----
+node test.ts
+----
+
+TypeScript kann nur auf der Konsole ausgeführt werden. 
+
+Um nun TypeScript zu JavaScript umzuwandeln verwenden wir
+[source, javascript]
+----
+tsc test.ts
+----
+
+
+== Typen 
+
+Folgende Typen gibt es in TypeScript: 
+
+* `number`: Ganzzahlen und Fließkommazahlen
+* `string`: für Zeichenketten
+* `boolean`: für Wahrheiten
+* `any`: für beliebige Werte
+* `null`: für Null Werte
+* `undefined`: für undefined Werte // ist sicherer als `any`
+
+[source, typescript]
+----
+let x : string
+let y : number
+----
+
+Strukturierte Typen sind komplexere Datentypen, die mehrere Werte speichern können. Dazu gehören:
+
+* `object` für Objekte
+* `tuple` für Tupel
+* `interface` für Schnittstellen
+* `class` für Klassen
+
+[[arrays]]
+== Arrays
+
+TypeScript hat eine spezielle Syntax für das Typing von Arrays.
+[source, typescript]
+----
+const names: string[] = []
+names.push("Dylan")
+// names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
+----
+[[Typinferenz]]
+=== Typinferenz
+TypeScript kann den Typ eines Arrays ableiten, wenn es Werte enthält 
+
+[source, typescript]
+----
+const numbers = [1, 2, 3]; // inferred to type number[]
+numbers.push(4); // no error
+// comment line below out to see the successful assignment
+numbers.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+let head: number = numbers[0]; // no error
+----
+
+== Tuples
+[[]]
+== Tuples
+Ein Tupel ist ein typisiertes Array mit einer vordefinierten Länge und Typen für jeden Index.
+
+Tupel sind großartig, weil sie ermöglichen, dass jedes Element im Array ein bekannter Werttyp ist.
+
+Um ein Tupel zu definieren, geben Sie den Typ jedes Elements im Array an:
+
+[source, typescript]
+----
+// define our tuple
+let ourTuple: [number, boolean, string];
+
+// initialize correctly
+ourTuple = [5, false, 'Coding God was here'];
+----
+
+Wenn wir die Reihenfolge vertauschen, führt dies zu einem Fehler.
+
+=== Readonly Tupel
+[source, typescript]
+----
+// define our readonly tuple
+const ourReadonlyTuple: readonly [number, boolean, string] = [5, true, 'The Real Coding God'];
+// throws error as it is readonly.
+ourReadonlyTuple.push('Coding God took a day off');
+----
+
+Hier kommt ein Fehler, lassen wir readonly weg, schreibt er hier einfach danach noch einen String rein.
+
+=== Benannte Tupel
+Benannte Tupel ermöglichen es uns, an jedem Index Kontext für unsere Werte bereitzustellen.
+
+[source, typescript]
+----
+const graph: [x: number, y: number] = [55.2, 41.3];
+----
+
+=== Tupel zerstören
+Da Tupel Arrays sind, können wir sie auch destrukturieren.
+
+[source, typescript]
+----
+const graph: [number, number] = [55.2, 41.3];
+const [x, y] = graph;
+----
+
+[[Objekte_Types]]
+== Objekte Types
+
+TypeScript bietet eine spezielle Syntax für die Typisierung von Objekten.
+[source, typescript]
+----
+const car = {
+    type: string,
+    model: string,
+    color: string,
+    year: number,
+    price: number
+  } = {
+    type: "Fiat",
+    model: "500",
+    color: "white",
+    year: 2010,
+    price: 10000
+  };
+  
+  // Die Anweisung `console.log("hallo")` in die Objektdefinition von `car` verschieben
+  console.log(car.type);
+  console.log(car.model);
+  console.log(car.color);
+  console.log(car.year);
+  console.log(car.price);
+----
+Nicht wundern, dass Fehler angezeigt werden. Es sind keine Fehler.
+
+Wenn kein Datentyp zugewiesen wird, wird der Typ `any` verwendet und kann beliebig geändert werden. Wenn aber ein anderer Datentyp zugewiesen wird, wird dies zu einem Fehler führen, wenn eine andere Zuweisung vorgenommen wird.
+
+[source, typescript]
+----
+const car: {type: string, model: string, color: string, year: number, price: number} = {
+    type: "Fiat",
+    model: "500",
+    color: "white",
+    year: 2010,
+    price: 10000
+};
+console.log(car.type);
+----
+So schreiben Sie Objekte in TypeScript.
+
+== Schnittstellen
+[[Schnittstellen]]
+=== Schnittstellen
+Schnittstellen sind eine Möglichkeit, wiederholten Code zu vermeiden und Konsistenz in unserem Code zu gewährleisten.
+
+Verwenden Sie `interface` zum Erstellen einer Schnittstelle in TypeScript.
+
+[source, typescript]
+----
+interface Car {
+    type: string;
+    model: string;
+    color: string;
+    year: number;
+    price: number;
+}
+
+const car: Car = {
+    type: "Fiat",
+    model: "500",
+    color: "white",
+    year: 2010,
+    price: 10000
+};
+
+console.log(car.type);
+----
+== Klassen
+[[Klassen]]
+=== Klassen
+Klassen sind eine fortgeschrittene Möglichkeit, wiederholten Code zu vermeiden und unseren Code zu organisieren.
+
+Um eine Klasse zu erstellen, verwenden Sie das `class` Schlüsselwort.
+
+[source, typescript]
+----
+class Vehicle {
+    type: string;
+    model: string;
+    color: string;
+    year: number;
+    price: number;
+
+    constructor(type: string, model: string, color: string, year: number, price: number) {
+        this.type = type;
+        this.model = model;
+        this.color = color;
+        this.year = year;
+        this.price = price;
+    }
+
+    start() {
+        console.log(`${this.type} is starting...`);
+    }
+
+    stop() {
+        console.log(`${this.type} is stopping...`);
+    }
+}
+
+const car = new Vehicle("Fiat", "500", "white", 2010, 10000);
+car.start();
+car.stop();
+----
+Diese `Vehicle` Klasse kann nun für verschiedene Arten von Fahrzeugen wiederverwendet werden.
+
+Das sind die Grundlagen von TypeScript. Viel Erfolg beim Programmieren!

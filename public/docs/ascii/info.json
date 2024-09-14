@@ -1,0 +1,8 @@
+{
+    "title": "Asciidoc Dokumentation",
+    "description": "AsciiDoc ist eine einfache Markup-Sprache, die zur Erstellung von Dokumentationen und anderen textbasierten Inhalten verwendet wird, und dabei ähnlich wie Markdown funktioniert, aber umfangreichere Formatierungsoptionen bietet.",
+    "version": "1.2.0",
+    "author": "Bastian Bichler",
+    "lastUpdate": "2024-08-11",
+    "file": "docs/ascii/ascii.html"
+}
