@@ -1,5 +1,5 @@
 Variablen
-=========
+=============
 
 In diesem Bereich geht es um Variablen. Variablen sind Platzhalter für Werte. Sie können Werte speichern und verändern. In JavaScript gibt es verschiedene Arten von Variablen. In diesem Abschnitt werden wir uns mit den Grundlagen von Variablen in JavaScript befassen.
 

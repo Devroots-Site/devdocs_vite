@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="LocalStorage" href="localstorage.html" /><link rel="prev" title="DOM Modeling" href="dom-modeling.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Timeout" href="timeout.html" /><link rel="prev" title="regex" href="regex.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Json Server - 2.1.0</title>
+        <title>Spread und Rest Operatoren - 2.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -216,12 +216,12 @@
 <li class="toctree-l2"><a class="reference internal" href="async.html">Async und Await</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arrowfunktion.html">Arrow function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dom-modeling.html">DOM Modeling</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Json Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Json-server.html">Json Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localstorage.html">LocalStorage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module.html">Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="popups.html">Popup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regex.html">regex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="restAndSpread.html">Spread und Rest Operatoren</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Spread und Rest Operatoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timeout.html">Timeout</a></li>
 </ul>
 </li>
@@ -245,7 +245,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/erweiterte/Json-server.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/erweiterte/restAndSpread.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -265,61 +265,65 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="json-server">
-<h1>Json Server<a class="headerlink" href="#json-server" title="Link to this heading">¶</a></h1>
-<p>Json server ist ein einfacher Server, der auf JSON-Dateien basiert. Er kann verwendet werden, um eine REST-API zu erstellen, ohne eine Datenbank zu verwenden.</p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>json-server
+          <section id="spread-und-rest-operatoren">
+<h1>Spread und Rest Operatoren<a class="headerlink" href="#spread-und-rest-operatoren" title="Link to this heading">¶</a></h1>
+<p>In JavaScript sind sowohl der Spread- als auch der Rest-Operator moderne ES6-Funktionen, die oft verwendet werden, um Arrays und Objekte eleganter zu manipulieren. In diesem Dokument werden beide Operatoren anhand von Beispielen mit Obst und Essen erklärt. Du wirst verstehen, was sie tun und wie man sie in der Praxis einsetzt.</p>
+<section id="spread-operator">
+<h2>📖 <strong>Spread-Operator (`…`)</strong><a class="headerlink" href="#spread-operator" title="Link to this heading">¶</a></h2>
+<p>Der Spread-Operator wird verwendet, um Elemente eines Arrays oder Objekts zu „entpacken“ und in einem anderen Kontext zu verwenden. Er kann ein Array aufbrechen und seine Einzelteile an einer neuen Stelle einsetzen. Bei Objekten kann er ebenfalls die Eigenschaften entpacken und kopieren.</p>
+<p><strong>Beispiel:</strong>
+Stell dir vor, du hast zwei Arrays: eines mit Obst und eines mit verschiedenen Essenssorten. Du möchtest beide Arrays kombinieren.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">obst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Apfel&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Banane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Kirsche&#39;</span><span class="p">];</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">essen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Pizza&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Burger&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Salat&#39;</span><span class="p">];</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">kombination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">obst</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">essen</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kombination</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>📌 <strong>Ergebnis:</strong></p>
+<blockquote>
+<div><p>[‚Apfel‘, ‚Banane‘, ‚Kirsche‘, ‚Pizza‘, ‚Burger‘, ‚Salat‘]</p>
+</div></blockquote>
+<p>💡 <strong>Was passiert hier?</strong></p>
+<p>Der Spread-Operator <cite>…</cite> „entpackt“ die Inhalte der Arrays <cite>obst</cite> und <cite>essen</cite> und kombiniert sie in einem neuen Array. Es ist eine elegante Methode, um Arrays zusammenzuführen, ohne explizit eine Schleife zu verwenden.</p>
+<p>📝 <strong>Weitere Beispiele:</strong>
+- <strong>Kopieren eines Arrays:</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">obstKopie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">obst</span><span class="p">];</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Funktion mit mehreren Argumenten:</strong></p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">zahlenArray</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
-<section id="verwendung">
-<h2>Verwendung<a class="headerlink" href="#verwendung" title="Link to this heading">¶</a></h2>
-<p>Um Json Server zu starten, erstellen Sie eine JSON-Datei mit den gewünschten Daten und starten Sie den Server mit dem Befehl <cite>json-server</cite> gefolgt von dem Dateinamen.</p>
-<p>Beispiel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>json-server<span class="w"> </span>--watch<span class="w"> </span>db.json
+<section id="rest-operator">
+<h2>📖 <strong>Rest-Operator (`…`)</strong><a class="headerlink" href="#rest-operator" title="Link to this heading">¶</a></h2>
+<p>Der Rest-Operator wird verwendet, um mehrere Elemente zu einem einzigen Array zusammenzufassen. Dies geschieht häufig in Funktionsdefinitionen, wenn man eine unbestimmte Anzahl von Argumenten akzeptieren möchte.</p>
+<p><strong>Beispiel:</strong>
+Angenommen, du hast eine Funktion, die eine bestimmte Anzahl von Obstsorten entgegennimmt, aber du möchtest alle zusätzlichen Argumente als „Essen“ kategorisieren.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">kategorisiereObstUndEssen</span><span class="p">(</span><span class="nx">obst1</span><span class="p">,</span><span class="w"> </span><span class="nx">obst2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">essen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Obst: </span><span class="si">${</span><span class="nx">obst1</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">obst2</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Essen: </span><span class="si">${</span><span class="nx">essen</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">kategorisiereObstUndEssen</span><span class="p">(</span><span class="s1">&#39;Apfel&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Banane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pizza&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Burger&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Salat&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In diesem Beispiel wird der Json Server gestartet und die Daten aus der Datei <cite>db.json</cite> werden als REST-API verfügbar gemacht.</p>
-<p>Json Server kann verwendet werden, um Mock-Daten für Frontend-Entwicklung, Tests oder Demos bereitzustellen. Es ist eine einfache Möglichkeit, eine REST-API zu erstellen, ohne eine Datenbank oder einen Server einrichten zu müssen.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>json-server<span class="w"> </span>--watch<span class="w"> </span>db.json<span class="w"> </span>-s<span class="w"> </span>public
-</pre></div>
-</div>
-<p>In diesem Beispiel wird der Json Server gestartet und die Daten aus der Datei <cite>db.json</cite> werden als REST-API verfügbar gemacht. Die Dateien im Ordner <cite>public</cite> werden auch als statische Dateien bereitgestellt.</p>
-<p>Json Server ist ein nützliches Werkzeug, um eine REST-API schnell und einfach zu erstellen. Es kann verwendet werden, um Mock-Daten für Frontend-Entwicklung, Tests oder Demos bereitzustellen.</p>
-</section>
-<section id="verwendung-in-javascript">
-<h2>Verwendung in JavaScript<a class="headerlink" href="#verwendung-in-javascript" title="Link to this heading">¶</a></h2>
-<p>Json Server kann auch in JavaScript verwendet werden, um Daten von der REST-API abzurufen. Dazu kann die <cite>fetch</cite>-Funktion verwendet werden, um Daten von der Json Server-URL abzurufen.</p>
-<p>Beispiel:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Daten abrufen</span>
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/personen&#39;</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<dl class="simple">
+<dt>📌 <strong>Ergebnis:</strong></dt><dd><p>Obst: Apfel, Banane Essen: [‚Pizza‘, ‚Burger‘, ‚Salat‘]</p>
+</dd>
+</dl>
+<p>💡 <strong>Was passiert hier?</strong></p>
+<p>In diesem Fall werden die ersten beiden Argumente (<cite>obst1</cite> und <cite>obst2</cite>) als feste Werte für Obst verwendet, während der Rest-Operator <cite>…essen</cite> den Rest der übergebenen Argumente in ein Array namens <cite>essen</cite> aufnimmt. So können wir eine flexible Anzahl von Argumenten übergeben, ohne sie manuell aufteilen zu müssen.</p>
+<p>📝 <strong>Weitere Beispiele:</strong>
+- <strong>Summieren einer beliebigen Anzahl von Zahlen:</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">summe</span><span class="p">(...</span><span class="nx">zahlen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">zahlen</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="c1">// Daten erstellen</span>
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/personen&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
-<span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
-<span class="p">},</span>
-<span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Peter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">alter</span><span class="o">:</span><span class="w"> </span><span class="mf">35</span><span class="w"> </span><span class="p">})</span>
-<span class="p">});</span>
-
-<span class="c1">// Daten aktualisieren</span>
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/personen/1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span>
-<span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
-<span class="p">},</span>
-<span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">alter</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="w"> </span><span class="p">})</span>
-<span class="p">});</span>
-
-<span class="c1">// Daten löschen</span>
-<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/personen/2&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DELETE&#39;</span>
-<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">summe</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">));</span><span class="w"> </span><span class="c1">// Ausgabe: 10</span>
 </pre></div>
 </div>
 </section>
@@ -330,23 +334,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="localstorage.html">
+          <a class="next-page" href="timeout.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">LocalStorage</div>
+                <div class="title">Timeout</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="dom-modeling.html">
+          <a class="prev-page" href="regex.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">DOM Modeling</div>
+                <div class="title">regex</div>
                 
               </div>
             </a>
@@ -380,10 +384,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Json Server</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#verwendung">Verwendung</a></li>
-<li><a class="reference internal" href="#verwendung-in-javascript">Verwendung in JavaScript</a></li>
+<li><a class="reference internal" href="#">Spread und Rest Operatoren</a><ul>
+<li><a class="reference internal" href="#spread-operator">📖 <strong>Spread-Operator (`…`)</strong></a></li>
+<li><a class="reference internal" href="#rest-operator">📖 <strong>Rest-Operator (`…`)</strong></a></li>
 </ul>
 </li>
 </ul>

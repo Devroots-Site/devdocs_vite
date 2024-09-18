@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="DOM Modeling" href="dom-modeling.html" /><link rel="prev" title="Arrow function" href="arrowfunktion.html" />
 
-    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
         <title>Datum und Zeit - 2.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -223,6 +223,7 @@
 <li class="toctree-l2"><a class="reference internal" href="popups.html">Popup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rechnen.html">Rechnen mit Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regex.html">regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restAndSpread.html">Spread und Rest Operatoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timeout.html">Timeout</a></li>
 </ul>
 </li>
@@ -274,7 +275,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2021-07-01T10:00:00.000Z</span>
 </pre></div>
 </div>
-<p>Das Standart format ist <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SS.MMMZ</span></code>.</p>
+<p>Das Standardformat ist <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDTHH:MM:SS.MMMZ</span></code>.</p>
 <section id="datum-und-zeit-ausgeben">
 <h2>Datum und Zeit ausgeben<a class="headerlink" href="#datum-und-zeit-ausgeben" title="Link to this heading">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span>
@@ -294,11 +295,9 @@
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span>
 
 <span class="nx">date</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="mf">2022</span><span class="p">);</span>
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2022</span>
 
 <span class="nx">date</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="mf">11</span><span class="p">);</span>
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">());</span><span class="w"> </span><span class="c1">// 11</span>
 <span class="c1">// usw</span>
 </pre></div>
@@ -307,7 +306,6 @@
 <section id="datum-aus-string-erstellen">
 <h2>Datum aus String erstellen<a class="headerlink" href="#datum-aus-string-erstellen" title="Link to this heading">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2021-07-01&#39;</span><span class="p">);</span>
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">);</span><span class="w"> </span><span class="c1">// 2021-07-01T00:00:00.000Z</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">deutschesDatum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;01.07.2021&#39;</span><span class="p">);</span>
@@ -339,18 +337,15 @@
 <span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">&#39;de-DE&#39;</span><span class="w"> </span><span class="p">));</span><span class="w"> </span><span class="c1">// 01.07.2021, 12:00:00</span>
-
-
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">(</span><span class="s1">&#39;de-DE&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">));</span><span class="w"> </span><span class="c1">// 01.07.2021, 12:00:00</span>
 </pre></div>
 </div>
 <p>Das <code class="docutils literal notranslate"><span class="pre">toLocaleString</span></code> Methode nimmt als ersten Parameter die Sprache und als zweiten Parameter die Optionen. Die Optionen sind optional.
-Das 1 de DE steht für die Sprache und das 2 de DE steht für die Region.</p>
+Das erste <code class="docutils literal notranslate"><span class="pre">de-DE</span></code> steht für die Sprache und das zweite <code class="docutils literal notranslate"><span class="pre">de-DE</span></code> für die Region.</p>
 </section>
 <section id="methoden">
 <h2>Methoden<a class="headerlink" href="#methoden" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-auto docutils container">
+<div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Methode</p></th>
@@ -361,61 +356,60 @@ Das 1 de DE steht für die Sprache und das 2 de DE steht für die Region.</p>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getTime()</span></code></p></td>
 <td><p>Gibt die Anzahl der Millisekunden seit dem 1. Januar 1970 zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">date.getTime();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let time = date.getTime();``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getFullYear()</span></code></p></td>
 <td><p>Gibt das Jahr eines Datums als vierstellige Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">year</span> <span class="pre">=</span> <span class="pre">date.getFullYear();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let year = date.getFullYear();``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getMonth()</span></code></p></td>
 <td><p>Gibt den Monat eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">month</span> <span class="pre">=</span> <span class="pre">date.getMonth();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let month = date.getMonth();``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getDate()</span></code></p></td>
 <td><p>Gibt den Tag eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">day</span> <span class="pre">=</span> <span class="pre">date.getDate();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let day = date.getDate();``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getHours()</span></code></p></td>
 <td><p>Gibt die Stunden eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">hours</span> <span class="pre">=</span> <span class="pre">date.getHours();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let hours = date.getHours();``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMinutes()</span></code></p></td>
 <td><p>Gibt die Minuten eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">minutes</span> <span class="pre">=</span> <span class="pre">date.getMinutes();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let minutes = date.getMinutes();``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getSeconds()</span></code></p></td>
 <td><p>Gibt die Sekunden eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">seconds</span> <span class="pre">=</span> <span class="pre">date.getSeconds();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let seconds = date.getSeconds();``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">getMilliseconds()</span></code></p></td>
 <td><p>Gibt die Millisekunden eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">milliseconds</span> <span class="pre">=</span> <span class="pre">date.getMilliseconds();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let milliseconds = date.getMilliseconds();``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getDay()</span></code></p></td>
 <td><p>Gibt den Wochentag eines Datums als Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">day</span> <span class="pre">=</span> <span class="pre">date.getDay();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let day = date.getDay();``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">toDateString()</span></code></p></td>
 <td><p>Gibt das Datum eines Datums als lesbares Datum zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">dateStr</span> <span class="pre">=</span> <span class="pre">date.toDateString();</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">date</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Date();</span></code>n``let dateStr = date.toDateString();``</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<blockquote>
-<div><p>💡 <strong>Hinweis</strong> bei gehts wird immer 0 als Startwert verwendet!</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>💡 <strong>Hinweis:</strong> Es wird immer <code class="docutils literal notranslate"><span class="pre">0</span></code> als Startwert verwendet!</p>
+</div>
 </section>
 <section id="rechnen-mit-datum-und-zeit">
 <h2>Rechnen mit Datum und Zeit<a class="headerlink" href="#rechnen-mit-datum-und-zeit" title="Link to this heading">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span>
 
 <span class="nx">date</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">());</span><span class="w"> </span><span class="c1">// 2022</span>
 
 <span class="nx">date</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">());</span><span class="w"> </span><span class="c1">// 7</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">termin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2024-08-25&#39;</span><span class="p">);</span>

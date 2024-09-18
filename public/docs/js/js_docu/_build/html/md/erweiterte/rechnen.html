@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="regex" href="regex.html" /><link rel="prev" title="Popup" href="popups.html" />
 
-    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
         <title>Rechnen mit Math - 2.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -223,6 +223,7 @@
 <li class="toctree-l2"><a class="reference internal" href="popups.html">Popup</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Rechnen mit Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regex.html">regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restAndSpread.html">Spread und Rest Operatoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timeout.html">Timeout</a></li>
 </ul>
 </li>
@@ -271,7 +272,7 @@
 <p>Die <code class="docutils literal notranslate"><span class="pre">Math</span></code> Klasse wird verwendet, um mathematische Operationen durchzuführen.</p>
 <section id="math-methoden">
 <h2>Math Methoden<a class="headerlink" href="#math-methoden" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-auto docutils container">
+<div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Methode</p></th>
@@ -282,31 +283,31 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code></p></td>
 <td><p>Gibt den absoluten Wert einer Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">-5;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">Math.abs(a);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">-5;</span></code>n``let b = Math.abs(a);``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ceil()</span></code></p></td>
 <td><p>Rundet eine Zahl auf die nächste Ganzzahl auf</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.1;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">Math.ceil(a);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.1;</span></code>n``let b = Math.ceil(a);``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">floor()</span></code></p></td>
 <td><p>Rundet eine Zahl auf die nächste Ganzzahl ab</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.9;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">Math.floor(a);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.9;</span></code>n``let b = Math.floor(a);``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">round()</span></code></p></td>
 <td><p>Rundet eine Zahl auf die nächste Ganzzahl</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.5;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">Math.round(a);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.5;</span></code>n``let b = Math.round(a);``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max()</span></code></p></td>
 <td><p>Gibt die größte Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">10;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">Math.max(a,</span> <span class="pre">b);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code>n``let b = 10;``n``let c = Math.max(a, b);``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min()</span></code></p></td>
 <td><p>Gibt die kleinste Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">10;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">Math.min(a,</span> <span class="pre">b);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code>n``let b = 10;``n``let c = Math.min(a, b);``</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code></p></td>
 <td><p>Gibt die Potenz einer Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">2;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">3;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">Math.pow(a,</span> <span class="pre">b);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">2;</span></code>n``let b = 3;``n``let c = Math.pow(a, b);``</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">random()</span></code></p></td>
 <td><p>Gibt eine zufällige Zahl zwischen 0 und 1 zurück</p></td>
@@ -314,7 +315,7 @@
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></p></td>
 <td><p>Gibt die Quadratwurzel einer Zahl zurück</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">16;</span></code><br><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">Math.sqrt(a);</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">16;</span></code>n``let b = Math.sqrt(a);``</p></td>
 </tr>
 </tbody>
 </table>
@@ -322,7 +323,7 @@
 </section>
 <section id="konstanten">
 <h2>Konstanten<a class="headerlink" href="#konstanten" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper colwidths-auto docutils container">
+<div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Konstante</p></th>
@@ -346,7 +347,6 @@
 <section id="beispiele">
 <h2>Beispiele<a class="headerlink" href="#beispiele" title="Link to this heading">¶</a></h2>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span><span class="p">;</span>
-
 <span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>

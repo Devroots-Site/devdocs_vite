@@ -18,6 +18,8 @@ Hier sind einige Beispiele für die Verwendung von erweiterte Verwendung von Jav
     popups
     rechnen
     regex
+    restAndSpread
     timeout
+
 
     
