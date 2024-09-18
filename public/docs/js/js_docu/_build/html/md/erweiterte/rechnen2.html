@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Rechnen mit Math" href="rechnen.html" /><link rel="prev" title="Module" href="module.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="regex" href="regex.html" /><link rel="prev" title="Rechnen mit Math" href="rechnen.html" />
 
     <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
-        <title>Popup - 2.1.0</title>
+        <title>Rechnen mit Math - 2.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -220,9 +220,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Json-server.html">Json Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localstorage.html">LocalStorage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module.html">Module</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Popup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="popups.html">Popup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rechnen.html">Rechnen mit Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rechnen2.html">test</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Rechnen mit Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regex.html">regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="restAndSpread.html">Spread und Rest Operatoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="timeout.html">Timeout</a></li>
@@ -248,7 +248,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/erweiterte/popups.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/erweiterte/rechnen2.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -262,33 +262,98 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="popup">
-<h1>Popup<a class="headerlink" href="#popup" title="Link to this heading">¶</a></h1>
-<p>Ein Popup ist ein Fenster, das über dem aktuellen Fenster geöffnet wird. Es wird verwendet, um zusätzliche Informationen anzuzeigen, die nicht auf der Seite sichtbar sind. Ein Popup kann auch verwendet werden, um eine Eingabeaufforderung anzuzeigen, in der der Benutzer aufgefordert wird, Informationen einzugeben.</p>
-<p>Es gibt verschiedene Arten von Popups, die in Webanwendungen verwendet werden können:</p>
-<ul class="simple">
-<li><p><strong>Alert-Popup</strong> - zeigt eine Meldung an, die den Benutzer informiert</p></li>
-<li><p><strong>Prompt-Popup</strong> - fordert den Benutzer auf, eine Eingabe zu machen</p></li>
-<li><p><strong>Confirm-Popup</strong> - fordert den Benutzer auf, eine Bestätigung zu geben</p></li>
-</ul>
-<p>Beispiel:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Alert-Popup</span>
-<span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+          <section id="rechnen-mit-math">
+<h1>Rechnen mit Math<a class="headerlink" href="#rechnen-mit-math" title="Link to this heading">¶</a></h1>
+<p>Die <code class="docutils literal notranslate"><span class="pre">Math</span></code> Klasse wird verwendet, um mathematische Operationen durchzuführen.</p>
+<section id="math-methoden">
+<h2>Math Methoden<a class="headerlink" href="#math-methoden" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methode</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code></p></td>
+<td><p>Gibt den absoluten Wert einer Zahl zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">-5;</span></code>n``let b = Math.abs(a);``</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ceil()</span></code></p></td>
+<td><p>Rundet eine Zahl auf die nächste Ganzzahl auf</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.1;</span></code>n``let b = Math.ceil(a);``</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">floor()</span></code></p></td>
+<td><p>Rundet eine Zahl auf die nächste Ganzzahl ab</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.9;</span></code>n``let b = Math.floor(a);``</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">round()</span></code></p></td>
+<td><p>Rundet eine Zahl auf die nächste Ganzzahl</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5.5;</span></code>n``let b = Math.round(a);``</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max()</span></code></p></td>
+<td><p>Gibt die größte Zahl zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code>n``let b = 10;``n``let c = Math.max(a, b);``</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min()</span></code></p></td>
+<td><p>Gibt die kleinste Zahl zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">5;</span></code>n``let b = 10;``n``let c = Math.min(a, b);``</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code></p></td>
+<td><p>Gibt die Potenz einer Zahl zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">2;</span></code>n``let b = 3;``n``let c = Math.pow(a, b);``</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">random()</span></code></p></td>
+<td><p>Gibt eine zufällige Zahl zwischen 0 und 1 zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">Math.random();</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></p></td>
+<td><p>Gibt die Quadratwurzel einer Zahl zurück</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">16;</span></code>n``let b = Math.sqrt(a);``</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="konstanten">
+<h2>Konstanten<a class="headerlink" href="#konstanten" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Konstante</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PI</span></code></p></td>
+<td><p>Die Kreiszahl Pi</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">pi</span> <span class="pre">=</span> <span class="pre">Math.PI;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">E</span></code></p></td>
+<td><p>Die Eulersche Zahl e</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">e</span> <span class="pre">=</span> <span class="pre">Math.E;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="beispiele">
+<h2>Beispiele<a class="headerlink" href="#beispiele" title="Link to this heading">¶</a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 
-<span class="c1">// Prompt-Popup</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;Please enter your name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">);</span>
-
-<span class="c1">// Confirm-Popup</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">confirm</span><span class="p">(</span><span class="s2">&quot;Do you want to continue?&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5</span>
 </pre></div>
 </div>
-<p>Popups können verwendet werden, um Benutzerinteraktionen zu erleichtern und wichtige Informationen anzuzeigen. Sie sind eine nützliche Möglichkeit, um die Benutzererfahrung zu verbessern und die Funktionalität einer Webanwendung zu erweitern.</p>
+</section>
 </section>
 
         </article>
@@ -296,23 +361,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="rechnen.html">
+          <a class="next-page" href="regex.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Rechnen mit Math</div>
+                <div class="title">regex</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="module.html">
+          <a class="prev-page" href="rechnen.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Module</div>
+                <div class="title">Rechnen mit Math</div>
                 
               </div>
             </a>
@@ -334,8 +399,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Rechnen mit Math</a><ul>
+<li><a class="reference internal" href="#math-methoden">Math Methoden</a></li>
+<li><a class="reference internal" href="#konstanten">Konstanten</a></li>
+<li><a class="reference internal" href="#beispiele">Beispiele</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
