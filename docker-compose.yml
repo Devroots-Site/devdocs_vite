@@ -1,0 +1,11 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./dist:/app  # Mountet das dist-Verzeichnis aus WSL in den Container
+    ports:
+      - "3110:8080"  # Mappt den Container-Port 8080 auf den Host-Port 8080
+    command: http-server -p 8080  # Startet den http-server auf Port 8080
