@@ -1,4 +1,3 @@
-# 1. Verwende ein Node.js-Image als Basis
 FROM node:18-alpine AS builder
 
 # 2. Setze das Arbeitsverzeichnis im Container
@@ -29,7 +28,7 @@ WORKDIR /app
 COPY --from=builder /usr/src/app/dist /app
 
 # 11. Exponiere den Port 8080
-EXPOSE 8080
+EXPOSE 80
 
 # 12. Starte den HTTP-Server
-CMD ["http-server", "-p", "8080"]
+CMD ["http-server", "-p", "80"]
