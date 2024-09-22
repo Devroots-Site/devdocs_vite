@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  vite:
+    image: node:18-alpine
+    container_name: vite_dev
+    working_dir: /var/www/docker/devdocs_vite
+    volumes:
+      - /var/www/docker/devdocs_vite:/var/www/docker/devdocs_vite
+    ports:
+      - "3110:3110"
+    command: sh -c "npm install && npm run dev -- --port 3110"
+
+  build:
+    image: node:18-alpine
+    container_name: vite_build
+    working_dir: /var/www/docker/devdocs_vite
+    volumes:
+      - /var/www/docker/devdocs_vite:/var/www/docker/devdocs_vite
+    command: sh -c "npm run build"
+
+  http-server:
+    image: nginx:alpine
+    container_name: vite_http_server
+    ports:
+      - "80:80"
+    volumes:
+      - /var/www/docker/devdocs_vite/dist:/usr/share/nginx/html
+    depends_on:
+      - build
