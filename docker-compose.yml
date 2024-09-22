@@ -1,11 +1,16 @@
 version: '3'
 services:
   react-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: node:18-alpine
+    working_dir: /app
     volumes:
-      - ./dist:/app  # Mountet das dist-Verzeichnis aus WSL in den Container
+      - .:/app  # Mountet das gesamte Projektverzeichnis in den Container
     ports:
-      - "3110:80"  # Mappt den Container-Port 8080 auf den Host-Port 8080
-
+      - "3110:3110"  # Mappt den Container-Port 3110 auf den Host-Port 3110
+    command: >
+      sh -c "
+        npm install &&
+        npm run build &&
+        npm install -g http-server &&
+        http-server -p 3110 /app/dist
+      "
