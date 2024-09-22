@@ -13,6 +13,9 @@ RUN npm install
 # 5. Kopiere den Rest des Projekts in das Arbeitsverzeichnis
 COPY . .
 
+# Stelle sicher, dass das dist-Verzeichnis existiert und die richtigen Berechtigungen hat
+RUN mkdir -p /usr/src/app/dist/docs && chown -R node:node /usr/src/app/dist
+
 # 6. Baue das React-Projekt für die Produktion
 RUN npm run build
 
