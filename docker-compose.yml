@@ -8,4 +8,4 @@ services:
       - ./dist:/app  # Mountet das dist-Verzeichnis aus WSL in den Container
     ports:
       - "3110:80"  # Mappt den Container-Port 8080 auf den Host-Port 8080
-    command: http-server -p 80  # Startet den http-server auf Port 8080
+
