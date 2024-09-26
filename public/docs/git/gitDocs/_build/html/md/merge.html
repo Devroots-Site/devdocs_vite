@@ -1,0 +1,490 @@
+<!doctype html>
+<html class="no-js" lang="de" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Stichwortverzeichnis" href="../genindex.html" /><link rel="search" title="Suche" href="../search.html" /><link rel="next" title="Push 🎚️" href="push.html" /><link rel="prev" title="Git Installation" href="install.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Merge 🙏 - gitDoc 0.0.0 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">gitDoc 0.0.0 Dokumentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">gitDoc 0.0.0 Dokumentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Suche" name="q" aria-label="Suche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="add.html">Add</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branchAndCheckout.html">Branch &amp; Checkout 🌴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit.html">Commit 📦</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetchAndpull.html">Fetch vs.  Pull 🫀</a></li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Init &amp; Repository Setup mit SSH ⬛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Git Installation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Merge 🙏</a></li>
+<li class="toctree-l1"><a class="reference internal" href="push.html">Push 🎚️</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebase.html">Rebase  ⚾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote.html">Remote 💻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">Status 🟢</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/md/merge.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="merge">
+<h1>Merge 🙏<a class="headerlink" href="#merge" title="Link to this heading">¶</a></h1>
+<p>Der Befehl <strong>git merge</strong> wird verwendet, um die Änderungen aus einem Branch mit einem anderen Branch zusammenzuführen. Typischerweise werden Feature-Branches in den Hauptbranch (<cite>main</cite> oder <cite>master</cite>) gemergt, nachdem die Entwicklung eines Features abgeschlossen ist. Der Merge-Befehl spielt eine zentrale Rolle bei der Integration von parallelen Arbeitsabläufen und der Zusammenführung der Arbeit mehrerer Entwickler.</p>
+<section id="grundfunktion">
+<h2>Grundfunktion 🤌<a class="headerlink" href="#grundfunktion" title="Link to this heading">¶</a></h2>
+<p>Ein Merge kombiniert die Änderungen eines Ziel-Branches (z.B. <cite>feature-login</cite>) in den aktuellen Branch (z.B. <cite>main</cite>).</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature-login
+</pre></div>
+</div>
+<p>Dieser Befehl führt den <cite>feature-login</cite> Branch in den <cite>main</cite> Branch zusammen. Dabei bleiben die Commit-Historien beider Branches erhalten.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Im generell muss man den Branch auschecken in den man Mergen will</p>
+</div>
+</section>
+<section id="vorteile">
+<h2>Vorteile 🏆<a class="headerlink" href="#vorteile" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Zusammenführung paralleler Entwicklung:</strong> Entwickler können unabhängig voneinander arbeiten und ihre Änderungen später zusammenführen.</p></li>
+<li><p><strong>Kontrollierte Integration:</strong> Nur getestete und abgeschlossene Features werden in den Hauptbranch gemergt, was die Stabilität des Codes sicherstellt.</p></li>
+<li><p><strong>Nachverfolgbare Historie:</strong> Der Merge-Befehl behält die Commit-Historie beider Branches, was eine detaillierte Versionskontrolle ermöglicht.</p></li>
+</ul>
+</section>
+<section id="arten-von-merges">
+<h2>Arten von Merges 🔀<a class="headerlink" href="#arten-von-merges" title="Link to this heading">¶</a></h2>
+<section id="fast-forward-merge">
+<h3>Fast-Forward Merge 🎢<a class="headerlink" href="#fast-forward-merge" title="Link to this heading">¶</a></h3>
+<p>Ein <strong>Fast-Forward Merge</strong> passiert, wenn der Ziel-Branch (z.B. <cite>main</cite>) keine zusätzlichen Commits hat, die nicht auch im Branch sind, der gemergt wird. In diesem Fall bewegt Git einfach den Zeiger des <cite>main</cite> Branches auf den neuesten Commit des <cite>feature</cite> Branches.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature-login
+</pre></div>
+</div>
+<p>Wenn keine Konflikte oder Zwischencommits im <cite>main</cite> Branch vorhanden sind, wird Git den Fast-Forward Merge durchführen. Dieser Typ des Merges ist einfach und hinterlässt keine Merge-Commits.</p>
+</section>
+<section id="three-way-merge">
+<h3>Three-Way Merge 💨<a class="headerlink" href="#three-way-merge" title="Link to this heading">¶</a></h3>
+<p>Ein <strong>Three-Way Merge</strong> wird verwendet, wenn beide Branches (z.B. <cite>main</cite> und <cite>feature-login</cite>) zusätzliche Commits haben, die im jeweils anderen Branch nicht vorhanden sind. Git vergleicht den gemeinsamen Vorfahren beider Branches und kombiniert die Änderungen.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature-login
+</pre></div>
+</div>
+<p>In diesem Fall erstellt Git einen <strong>Merge-Commit</strong>, der die Änderungen beider Branches zusammenführt. Die Historie bleibt vollständig erhalten, da die Commit-Verläufe beider Branches erhalten bleiben.</p>
+</section>
+<section id="merge-commit">
+<h3>Merge-Commit 📦<a class="headerlink" href="#merge-commit" title="Link to this heading">¶</a></h3>
+<p>Bei einem Three-Way-Merge wird automatisch ein Merge-Commit erstellt, um die Zusammenführung der beiden Branches zu dokumentieren. Ein Merge-Commit enthält beide Eltern-Commits und führt die Änderungen in einen neuen Commit zusammen.</p>
+</section>
+</section>
+<section id="wichtige-optionen">
+<h2>Wichtige Optionen 🔘<a class="headerlink" href="#wichtige-optionen" title="Link to this heading">¶</a></h2>
+<section id="no-ff-kein-fast-forward-merge">
+<h3>–no-ff (Kein Fast-Forward Merge) 🦺<a class="headerlink" href="#no-ff-kein-fast-forward-merge" title="Link to this heading">¶</a></h3>
+<p>Um immer einen Merge-Commit zu erzwingen, selbst wenn ein Fast-Forward Merge möglich wäre, verwendet man die Option <cite>–no-ff</cite>. Dies sorgt dafür, dass ein Merge-Commit erstellt wird, selbst wenn Git die Branches einfach zusammenführen könnte.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>--no-ff<span class="w"> </span>feature-login
+</pre></div>
+</div>
+<p>Mit dieser Option bleibt in der Historie klar erkennbar, wann ein Branch zusammengeführt wurde, was für die Nachvollziehbarkeit nützlich ist.</p>
+</section>
+<section id="squash-anderungen-zusammenfassen">
+<h3>–squash (Änderungen zusammenfassen) 💀<a class="headerlink" href="#squash-anderungen-zusammenfassen" title="Link to this heading">¶</a></h3>
+<p>Der <strong>Squash Merge</strong> fasst alle Commits eines Branches zu einem einzigen Commit zusammen, ohne die Commit-Historie des Branches zu erhalten. Dies wird oft verwendet, um kleinere oder nichtssagende Commits in einem Feature-Branch zu einem einzigen, sauberen Commit zu konsolidieren.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>feature-login
+</pre></div>
+</div>
+<p>Nach dem Zusammenfassen muss man den Commit manuell ausführen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Füge Feature-Login hinzu&quot;</span>
+</pre></div>
+</div>
+<p>Mit diesem Befehl wird die gesamte Arbeit des Branches in einem einzigen Commit in den Hauptbranch übernommen.</p>
+</section>
+<section id="abort-merge-abbrechen">
+<h3>–abort (Merge abbrechen) ❌<a class="headerlink" href="#abort-merge-abbrechen" title="Link to this heading">¶</a></h3>
+<p>Falls während eines Merges Konflikte auftreten oder man den Merge nicht mehr fortsetzen möchte, kann der Befehl <cite>–abort</cite> verwendet werden, um den Merge abzubrechen und den Zustand vor dem Merge wiederherzustellen.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>merge<span class="w"> </span>--abort
+</pre></div>
+</div>
+<p>Dieser Befehl stellt sicher, dass keine Änderungen aus dem Merge übernommen werden und der Branch in seinen ursprünglichen Zustand zurückgesetzt wird.</p>
+</section>
+</section>
+<section id="konflikte-beim-merge">
+<h2>Konflikte beim Merge 💢<a class="headerlink" href="#konflikte-beim-merge" title="Link to this heading">¶</a></h2>
+<p>Beim Zusammenführen zweier Branches kann es zu <strong>Merge-Konflikten</strong> kommen, wenn dieselbe Datei an verschiedenen Stellen in beiden Branches verändert wurde. Git erkennt solche Konflikte und markiert die problematischen Stellen in den Dateien.</p>
+<section id="merge-konflikte-losen">
+<h3>Merge-Konflikte lösen 🚒<a class="headerlink" href="#merge-konflikte-losen" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Git gibt eine Liste der Dateien aus, die in Konflikt stehen. Diese Dateien werden mit Konflikt-Markierungen (&lt;&lt;&lt;&lt;&lt;&lt; und &gt;&gt;&gt;&gt;&gt;&gt;) versehen.</p></li>
+<li><p>Man muss die Datei manuell bearbeiten und entscheiden, welche Änderungen beibehalten werden sollen.</p></li>
+<li><p>Nach dem Lösen der Konflikte markiert man die Datei als gelöst:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>&lt;konflikt-datei&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Sobald alle Konflikte gelöst wurden, schließt man den Merge mit einem Commit ab:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="konflikte-anzeigen">
+<h3>Konflikte anzeigen 👀<a class="headerlink" href="#konflikte-anzeigen" title="Link to this heading">¶</a></h3>
+<p>Um eine Liste der Dateien anzuzeigen, die während eines Merges in Konflikt stehen, verwendet man:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<p>Die Konfliktdateien werden als „unmerged“ markiert. Sie müssen manuell bearbeitet und dann als gelöst hinzugefügt werden.</p>
+</section>
+</section>
+<section id="wann-sollte-man-merges-durchfuhren">
+<h2>Wann sollte man Merges durchführen? 😣<a class="headerlink" href="#wann-sollte-man-merges-durchfuhren" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Feature abgeschlossen:</strong> Sobald ein Feature in einem separaten Branch entwickelt wurde, kann es in den Hauptbranch gemergt werden.</p></li>
+<li><p><strong>Stabile Zwischenstände:</strong> Wenn ein Branch wichtige stabile Änderungen enthält, die auch auf anderen Branches benötigt werden, kann ein Merge durchgeführt werden.</p></li>
+<li><p><strong>Vor wichtigen Releases:</strong> Bevor ein Release erstellt wird, sollten alle relevanten Feature-Branches in den Hauptbranch gemergt werden, um die finale Version zu erstellen.</p></li>
+</ul>
+</section>
+<section id="best-practices-fur-merges">
+<h2>Best Practices für Merges 🤌<a class="headerlink" href="#best-practices-fur-merges" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Regelmäßige Merges:</strong> Es ist empfehlenswert, regelmäßig zu mergen, um Konflikte gering zu halten.</p></li>
+<li><p><strong>Kleine Branches:</strong> Arbeite in kleineren Branches, die spezifische Features oder Fixes enthalten. Dies reduziert die Komplexität beim Merge.</p></li>
+<li><p><strong>Merge-Konflikte sofort lösen:</strong> Wenn es zu Konflikten kommt, sollten diese zeitnah und sorgfältig gelöst werden, um die Stabilität des Codes zu gewährleisten.</p></li>
+<li><p><strong>Merge-Commits beibehalten:</strong> Vermeide es, die Commit-Historie zu stark zu vereinfachen, indem du Merge-Commits beibehältst (besonders bei Teamprojekten).</p></li>
+</ul>
+</section>
+<section id="fazit">
+<h2>Fazit 🤓<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Der Befehl <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> ist unverzichtbar, um parallele Entwicklungen in Git zusammenzuführen. Verschiedene Merge-Strategien wie Fast-Forward, Three-Way und Squash Merges bieten Flexibilität, je nachdem, ob die Historie beibehalten oder konsolidiert werden soll. Durch das richtige Anwenden des Merge-Befehls und das frühzeitige Lösen von Konflikten kann die Zusammenarbeit in Teams effizient und produktiv gestaltet werden.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="push.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Push 🎚️</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="install.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Git Installation</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Bichler Bastian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Merge 🙏</a><ul>
+<li><a class="reference internal" href="#grundfunktion">Grundfunktion 🤌</a></li>
+<li><a class="reference internal" href="#vorteile">Vorteile 🏆</a></li>
+<li><a class="reference internal" href="#arten-von-merges">Arten von Merges 🔀</a><ul>
+<li><a class="reference internal" href="#fast-forward-merge">Fast-Forward Merge 🎢</a></li>
+<li><a class="reference internal" href="#three-way-merge">Three-Way Merge 💨</a></li>
+<li><a class="reference internal" href="#merge-commit">Merge-Commit 📦</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wichtige-optionen">Wichtige Optionen 🔘</a><ul>
+<li><a class="reference internal" href="#no-ff-kein-fast-forward-merge">–no-ff (Kein Fast-Forward Merge) 🦺</a></li>
+<li><a class="reference internal" href="#squash-anderungen-zusammenfassen">–squash (Änderungen zusammenfassen) 💀</a></li>
+<li><a class="reference internal" href="#abort-merge-abbrechen">–abort (Merge abbrechen) ❌</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#konflikte-beim-merge">Konflikte beim Merge 💢</a><ul>
+<li><a class="reference internal" href="#merge-konflikte-losen">Merge-Konflikte lösen 🚒</a></li>
+<li><a class="reference internal" href="#konflikte-anzeigen">Konflikte anzeigen 👀</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wann-sollte-man-merges-durchfuhren">Wann sollte man Merges durchführen? 😣</a></li>
+<li><a class="reference internal" href="#best-practices-fur-merges">Best Practices für Merges 🤌</a></li>
+<li><a class="reference internal" href="#fazit">Fazit 🤓</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=0d59d374"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    </body>
+</html>

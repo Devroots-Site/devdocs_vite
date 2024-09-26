@@ -1,0 +1,543 @@
+<!doctype html>
+<html class="no-js" lang="de" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Stichwortverzeichnis" href="../genindex.html" /><link rel="search" title="Suche" href="../search.html" /><link rel="next" title="Init &amp; Repository Setup mit SSH ⬛" href="init.html" /><link rel="prev" title="Commit 📦" href="commit.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Fetch vs. Pull 🫀 - gitDoc 0.0.0 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">gitDoc 0.0.0 Dokumentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">gitDoc 0.0.0 Dokumentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Suche" name="q" aria-label="Suche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="add.html">Add</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branchAndCheckout.html">Branch &amp; Checkout 🌴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit.html">Commit 📦</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Fetch vs.  Pull 🫀</a></li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Init &amp; Repository Setup mit SSH ⬛</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Git Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">Merge 🙏</a></li>
+<li class="toctree-l1"><a class="reference internal" href="push.html">Push 🎚️</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebase.html">Rebase  ⚾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote.html">Remote 💻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">Status 🟢</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/md/fetchAndpull.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="fetch-vs-pull">
+<h1>Fetch vs.  Pull 🫀<a class="headerlink" href="#fetch-vs-pull" title="Link to this heading">¶</a></h1>
+<p><strong>git fetch</strong> und <strong>git pull</strong> sind zwei wichtige Befehle in Git, die verwendet werden, um Änderungen von einem Remote-Repository in ein lokales Repository zu holen. Obwohl beide Befehle zur Synchronisation verwendet werden, gibt es wesentliche Unterschiede in ihrer Funktionsweise und in den Situationen, in denen sie angewendet werden sollten.</p>
+<section id="grundfunktion-von-git-fetch">
+<h2>Grundfunktion von Git Fetch 🏠<a class="headerlink" href="#grundfunktion-von-git-fetch" title="Link to this heading">¶</a></h2>
+<p><strong>git fetch</strong> holt alle Änderungen vom Remote-Repository, ohne sie in den aktuellen Branch zu integrieren. Es lädt die neuesten Commits, Branches und Tags herunter und aktualisiert die Remote-Tracking-Branches, aber es ändert nichts am aktuellen Arbeitsverzeichnis oder an den aktiven lokalen Branches.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</pre></div>
+</div>
+<p>Dieser Befehl lädt alle Änderungen von <cite>origin</cite> (dem Remote-Repository) herunter, ohne sie mit dem aktuellen Branch zu mergen oder zu verändern.</p>
+<section id="vorteile-von-fetch">
+<h3>Vorteile von Fetch 🏆<a class="headerlink" href="#vorteile-von-fetch" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Sichere Vorschau:</strong> Mit <cite>git fetch</cite> kann man die neuesten Änderungen vom Remote-Repository abrufen und sich diese ansehen, bevor man entscheidet, ob und wann man sie in den eigenen Branch integriert.</p></li>
+<li><p><strong>Keine Änderungen am Arbeitsverzeichnis:</strong> Da der aktuelle Arbeitsstand nicht beeinflusst wird, kann man in Ruhe die Änderungen prüfen oder sogar gezielt bestimmte Branches aktualisieren.</p></li>
+<li><p><strong>Übersicht über Remote-Änderungen:</strong> Git-Fetch aktualisiert die Informationen über alle Remote-Branches, sodass man stets einen Überblick über den aktuellen Stand des Remote-Repositories hat.</p></li>
+</ul>
+</section>
+</section>
+<section id="grundfunktion-von-git-pull">
+<h2>Grundfunktion von Git Pull  🏠<a class="headerlink" href="#grundfunktion-von-git-pull" title="Link to this heading">¶</a></h2>
+<p><strong>git pull</strong> kombiniert zwei Schritte: Zuerst führt es einen <cite>git fetch</cite> durch, um die neuesten Änderungen vom Remote-Repository herunterzuladen. Anschließend wird ein <strong>Merge</strong> oder <strong>Rebase</strong> durchgeführt, um die heruntergeladenen Änderungen sofort in den aktuellen Branch zu integrieren.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Dieser Befehl holt alle Änderungen des <cite>main</cite> Branches vom Remote-Repository <cite>origin</cite> und führt diese in den lokalen <cite>main</cite> Branch zusammen.</p>
+<section id="vorteile-von-pull">
+<h3>Vorteile von Pull 🏆<a class="headerlink" href="#vorteile-von-pull" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Schnell und effizient:</strong> <cite>git pull</cite> holt die Änderungen und integriert sie in einem einzigen Schritt, was die Synchronisation beschleunigt.</p></li>
+<li><p><strong>Automatisierter Merge/Rebase:</strong> Nach dem Abrufen der Änderungen werden sie sofort mit dem aktuellen Branch zusammengeführt, was den Prozess vereinfacht.</p></li>
+<li><p><strong>Ideal für einfache Synchronisation:</strong> Wenn man sicher ist, dass keine Konflikte auftreten oder man direkt auf dem aktuellen Branch weiterarbeiten möchte, ist <cite>git pull</cite> die schnellste Option.</p></li>
+</ul>
+</section>
+</section>
+<section id="unterschiede-zwischen-git-fetch-und-git-pull">
+<h2>Unterschiede zwischen Git Fetch und Git Pull 🆚<a class="headerlink" href="#unterschiede-zwischen-git-fetch-und-git-pull" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Fetch lädt nur herunter, Pull integriert sofort:</strong>
+- <strong>git fetch</strong> lädt nur die Änderungen herunter und lässt den aktuellen Branch unangetastet.
+- <strong>git pull</strong> lädt die Änderungen herunter und integriert sie sofort in den aktuellen Branch (via Merge oder Rebase).</p></li>
+<li><p><strong>Sicherheit und Kontrolle:</strong>
+- <strong>git fetch</strong> ist sicherer, weil man die Änderungen vor der Integration prüfen kann. Es erlaubt, den aktuellen Stand zu sehen, ohne gleich die Änderungen in den eigenen Code zu übernehmen.
+- <strong>git pull</strong> ist schneller, weil es die Änderungen sofort übernimmt. Dies kann jedoch problematisch sein, wenn es zu Konflikten kommt, die unvorbereitet auftreten.</p></li>
+<li><p><strong>Konflikte vermeiden:</strong>
+- Mit <strong>git fetch</strong> kann man die Änderungen vom Remote prüfen und eventuelle Konflikte manuell und kontrolliert lösen.
+- <strong>git pull</strong> kann Konflikte sofort verursachen, da es die Änderungen ohne Vorwarnung integriert. Dies kann den Arbeitsfluss stören, wenn man mitten in einer Entwicklung steckt.</p></li>
+</ol>
+</section>
+<section id="wann-verwendet-man-git-fetch">
+<h2>Wann verwendet man Git Fetch? ⚗️<a class="headerlink" href="#wann-verwendet-man-git-fetch" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Vorbereitung vor dem Mergen:</strong> Wenn du die Änderungen vom Remote-Repository überprüfen möchtest, bevor du sie in deinen lokalen Branch übernimmst, ist <cite>git fetch</cite> die bessere Wahl.</p></li>
+<li><p><strong>Überblick über die Remote-Änderungen:</strong> Fetch ist nützlich, um regelmäßig den Stand des Remote-Repositories zu verfolgen, ohne dein eigenes Arbeitsverzeichnis zu verändern.</p></li>
+<li><p><strong>Konflikte vermeiden:</strong> Wenn du viele lokale Änderungen hast und dir nicht sicher bist, ob diese mit den Remote-Änderungen konfliktfrei gemerged werden können, ist ein <cite>git fetch</cite> der sichere Weg, um die Remote-Änderungen zuerst zu sehen.</p></li>
+</ul>
+</section>
+<section id="wann-verwendet-man-git-pull">
+<h2>Wann verwendet man Git Pull? 📦<a class="headerlink" href="#wann-verwendet-man-git-pull" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Schnelle Synchronisation:</strong> Wenn du sicher bist, dass es keine Konflikte gibt und du die neuesten Änderungen schnell in deinen aktuellen Branch integrieren möchtest, ist <cite>git pull</cite> die schnellere Option.</p></li>
+<li><p><strong>Regelmäßige Updates:</strong> Wenn du in einem Team arbeitest und dein lokaler Branch immer auf dem neuesten Stand sein soll, kann <cite>git pull</cite> regelmäßig verwendet werden.</p></li>
+<li><p><strong>Keine aktiven lokalen Änderungen:</strong> <cite>git pull</cite> ist besonders nützlich, wenn du keine laufenden Änderungen im aktuellen Branch hast, da es die Änderungen direkt integriert, ohne potenzielle Konflikte zu verursachen.</p></li>
+</ul>
+</section>
+<section id="wichtige-optionen">
+<h2>Wichtige Optionen 🔘<a class="headerlink" href="#wichtige-optionen" title="Link to this heading">¶</a></h2>
+<section id="git-fetch-optionen">
+<h3>Git Fetch Optionen<a class="headerlink" href="#git-fetch-optionen" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><cite>git fetch –all</cite>: Lädt die Änderungen von <strong>allen</strong> Remote-Repositories herunter.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+</pre></div>
+</div>
+<p>Dieser Befehl aktualisiert alle Remotes (z.B. <cite>origin</cite>, <cite>upstream</cite> etc.).</p>
+</li>
+<li><p><cite>git fetch &lt;remote&gt; &lt;branch&gt;</cite>: Lädt die Änderungen eines spezifischen Branches von einem Remote herunter.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Dieser Befehl lädt nur die Änderungen des <cite>main</cite> Branches von <cite>origin</cite>.</p>
+</li>
+</ul>
+</section>
+<section id="git-pull-optionen">
+<h3>Git Pull Optionen<a class="headerlink" href="#git-pull-optionen" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><cite>git pull –rebase</cite>: Statt einen Merge durchzuführen, wendet <cite>git pull –rebase</cite> die Änderungen aus dem Remote-Repository auf deinen lokalen Branch an und setzt danach deine lokalen Änderungen oben drauf.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Dieser Befehl führt einen Rebase anstelle eines Merges durch, was eine lineare Commit-Historie bewahrt.</p>
+</li>
+<li><p><cite>git pull –no-commit</cite>: Mit dieser Option wird der Pull-Prozess ausgeführt, aber es wird kein Commit erstellt. Dies erlaubt dir, die Änderungen manuell zu überprüfen, bevor du den Merge abschließt.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>--no-commit<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Dieser Befehl lädt die Änderungen herunter, führt den Merge durch, erstellt aber keinen automatischen Merge-Commit.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="wichtige-schalter-fur-fetch-und-pull">
+<h2>Wichtige Schalter für Fetch und Pull<a class="headerlink" href="#wichtige-schalter-fur-fetch-und-pull" title="Link to this heading">¶</a></h2>
+<section id="all">
+<h3>–all<a class="headerlink" href="#all" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Verfügbar für: <cite>git fetch</cite>, <cite>git pull</cite></p></li>
+<li><p>Lädt Änderungen von <strong>allen</strong> Remote-Repositories (nicht nur von <cite>origin</cite>) herunter.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="prune">
+<h3>–prune<a class="headerlink" href="#prune" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Verfügbar für: <cite>git fetch</cite>, <cite>git pull</cite></p></li>
+<li><p>Entfernt lokale Referenzen zu Remote-Branches, die auf dem Remote-Repository gelöscht wurden. Hilft, das lokale Repository sauber zu halten.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--prune
+</pre></div>
+</div>
+<p>Dies löscht lokale Branch-Referenzen, die nicht mehr auf dem Remote-Repository existieren.</p>
+</li>
+</ul>
+</section>
+<section id="dry-run">
+<h3>–dry-run<a class="headerlink" href="#dry-run" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Verfügbar für: <cite>git fetch</cite>, <cite>git pull</cite></p></li>
+<li><p>Führt den Befehl „trocken“ aus, d.h. es wird angezeigt, was heruntergeladen werden würde, ohne tatsächlich etwas zu verändern.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>--dry-run
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="rebase">
+<h3>–rebase<a class="headerlink" href="#rebase" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Verfügbar für: <cite>git pull</cite></p></li>
+<li><p>Stellt sicher, dass nach dem Abrufen der Änderungen der aktuelle Branch per <strong>Rebase</strong> aktualisiert wird, anstatt einen Merge-Commit zu erzeugen. Dies sorgt für eine lineare Commit-Historie.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="no-commit">
+<h3>–no-commit<a class="headerlink" href="#no-commit" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Verfügbar für: <cite>git pull</cite></p></li>
+<li><p>Führt den Pull-Vorgang durch, ohne direkt einen Merge-Commit zu erstellen. Dies ermöglicht es, den Merge manuell zu prüfen, bevor der Commit abgeschlossen wird.</p>
+<p>Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>pull<span class="w"> </span>--no-commit<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices 🤌<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Verwende `git fetch`, wenn du Kontrolle über den Integrationsprozess behalten möchtest:</strong> <cite>git fetch</cite> gibt dir die Möglichkeit, die heruntergeladenen Änderungen zu prüfen, bevor sie in deinen Branch integriert werden. Dies ist besonders nützlich, wenn du sicherstellen möchtest, dass du Konflikte vermeidest.</p></li>
+<li><p><strong>Verwende `git pull`, wenn du sicher bist, dass es keine Konflikte gibt und eine schnelle Synchronisation brauchst:</strong> <cite>git pull</cite> eignet sich gut für Fälle, in denen du schnell auf den neuesten Stand kommen willst und keine offenen Änderungen hast, die zu Konflikten führen könnten.</p></li>
+<li><p><strong>Verwende `git fetch` regelmäßig, um den Überblick zu behalten:</strong> Auch wenn du keine unmittelbaren Änderungen integrieren willst, hilft dir <cite>git fetch</cite>, über den Stand des Remote-Repositories informiert zu bleiben.</p></li>
+<li><p><strong>Verwende `git pull –rebase` für eine saubere Historie:</strong> Wenn du eine lineare Commit-Historie ohne Merge-Commits bevorzugst, ist <cite>git pull –rebase</cite> die bessere Wahl.</p></li>
+</ul>
+</section>
+<section id="fazit">
+<h2>Fazit 🤓<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Der wesentliche Unterschied zwischen <strong>git fetch</strong> und <strong>git pull</strong> liegt darin, dass <cite>git fetch</cite> die Änderungen vom Remote-Repository herunterlädt, ohne sie direkt zu integrieren, während <cite>git pull</cite> die Änderungen sowohl herunterlädt als auch sofort in den aktuellen Branch integriert. <strong>Git fetch</strong> bietet mehr Kontrolle und ist nützlich, um Konflikte zu vermeiden, während <strong>git pull</strong> eine schnellere Synchronisation ermöglicht. Beide Befehle sind wichtige Werkzeuge in der Zusammenarbeit mit Remote-Repositories, und das Verständnis ihrer Unterschiede hilft, die richtigen Entscheidungen für den Arbeitsfluss zu treffen.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="init.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Init &amp; Repository Setup mit SSH ⬛</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="commit.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Commit 📦</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Bichler Bastian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Fetch vs.  Pull 🫀</a><ul>
+<li><a class="reference internal" href="#grundfunktion-von-git-fetch">Grundfunktion von Git Fetch 🏠</a><ul>
+<li><a class="reference internal" href="#vorteile-von-fetch">Vorteile von Fetch 🏆</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grundfunktion-von-git-pull">Grundfunktion von Git Pull  🏠</a><ul>
+<li><a class="reference internal" href="#vorteile-von-pull">Vorteile von Pull 🏆</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unterschiede-zwischen-git-fetch-und-git-pull">Unterschiede zwischen Git Fetch und Git Pull 🆚</a></li>
+<li><a class="reference internal" href="#wann-verwendet-man-git-fetch">Wann verwendet man Git Fetch? ⚗️</a></li>
+<li><a class="reference internal" href="#wann-verwendet-man-git-pull">Wann verwendet man Git Pull? 📦</a></li>
+<li><a class="reference internal" href="#wichtige-optionen">Wichtige Optionen 🔘</a><ul>
+<li><a class="reference internal" href="#git-fetch-optionen">Git Fetch Optionen</a></li>
+<li><a class="reference internal" href="#git-pull-optionen">Git Pull Optionen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#wichtige-schalter-fur-fetch-und-pull">Wichtige Schalter für Fetch und Pull</a><ul>
+<li><a class="reference internal" href="#all">–all</a></li>
+<li><a class="reference internal" href="#prune">–prune</a></li>
+<li><a class="reference internal" href="#dry-run">–dry-run</a></li>
+<li><a class="reference internal" href="#rebase">–rebase</a></li>
+<li><a class="reference internal" href="#no-commit">–no-commit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices 🤌</a></li>
+<li><a class="reference internal" href="#fazit">Fazit 🤓</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=0d59d374"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    </body>
+</html>
