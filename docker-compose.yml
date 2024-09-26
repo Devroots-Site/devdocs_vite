@@ -1,6 +1,7 @@
 version: '3'
 services:
   react-app:
+    container_name: docs_devroots
     image: node:18-alpine
     working_dir: /app
     volumes:
