@@ -48,7 +48,7 @@
             "name": "typescript",
             "path": "typescript"
         },
-        {
+       {
             "name": "Ai Working",
             "path": "ai_gen"
         }
