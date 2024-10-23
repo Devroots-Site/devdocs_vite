@@ -1,4 +1,5 @@
-# Ausnahmen
+Ausnahmen
+===========================
 
 In Python gibt es verschiedene Arten von Ausnahmen. Eine Ausnahme ist ein Ereignis, das während der Ausführung eines Programms auftritt und das normale Verhalten des Programms unterbricht. Wenn ein Fehler auftritt, wird eine Ausnahme erzeugt, die das Programm stoppt und eine Fehlermeldung ausgibt.
 
@@ -18,19 +19,20 @@ Einige der häufigsten Arten von Ausnahmen in Python sind:
 - `ImportError`: Ein Modul kann nicht importiert werden
 - `AttributeError`: Ein Attribut wird auf einem Objekt nicht gefunden
 
-## Behandlung von Ausnahmen
+Behandlung von Ausnahmen
+---------------------------------------
 
 In Python können Sie Ausnahmen mit `try`, `except` und `finally` behandeln. Der `try`-Block enthält den Code, der ausgeführt werden soll, und der `except`-Block enthält den Code, der ausgeführt werden soll, wenn eine Ausnahme auftritt. Der `finally`-Block enthält den Code, der immer ausgeführt werden soll, unabhängig davon, ob eine Ausnahme auftritt oder nicht.
 
-```python
+.. code-block:: python
+    
+    try:
+        # Code, der möglicherweise eine Ausnahme auslöst
+        x = 5 / 0
+    except ValueError as e:
+        # Code, der ausgeführt wird, wenn eine ZeroDivisionError-Ausnahme auftritt
+        print("eine ZeroDivisionError-Ausnahme ist aufgetreten")
+    finally:
+        # Code, der immer ausgeführt wird
+        print("Das Programm wurde beendet")
 
-try:
-    # Code, der möglicherweise eine Ausnahme auslöst
-    x = 5 / 0
-except ValueError as e:
-    # Code, der ausgeführt wird, wenn eine ZeroDivisionError-Ausnahme auftritt
-    print("eine ZeroDivisionError-Ausnahme ist aufgetreten")
-finally:
-    # Code, der immer ausgeführt wird
-    print("Das Programm wurde beendet")
-```

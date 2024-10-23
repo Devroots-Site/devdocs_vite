@@ -3,12 +3,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Bedinungen und Schleifen" href="bedingungen.html" /><link rel="prev" title="py-docs documentation" href="../../index.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Bedinungen und Schleifen 🎗️" href="bedingungen.html" /><link rel="prev" title="py-docs documentation" href="../../index.html" />
 
-    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
         <title>Ausnahmen - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -205,9 +205,9 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Ausnahmen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bedingungen.html">Bedinungen und Schleifen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="funktionen.html">Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="in_output.html">Eingaben / Ausgaben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedingungen.html">Bedinungen und Schleifen 🎗️</a></li>
+<li class="toctree-l1"><a class="reference internal" href="funktionen.html">Funktionen ✨</a></li>
+<li class="toctree-l1"><a class="reference internal" href="in_output.html">Eingaben / Ausgaben 📨</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Listen_und_so.html">Listen &amp; Co</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Sequentielle_Datentypen.html">Sequentielle Datentypen &amp; Listen Manipulieren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="start.html">Start von python</a></li>
@@ -239,7 +239,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/grundlagen/ausnahmen.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/grundlagen/ausnahmen.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -262,28 +262,25 @@
           <section id="ausnahmen">
 <h1>Ausnahmen<a class="headerlink" href="#ausnahmen" title="Link to this heading">¶</a></h1>
 <p>In Python gibt es verschiedene Arten von Ausnahmen. Eine Ausnahme ist ein Ereignis, das während der Ausführung eines Programms auftritt und das normale Verhalten des Programms unterbricht. Wenn ein Fehler auftritt, wird eine Ausnahme erzeugt, die das Programm stoppt und eine Fehlermeldung ausgibt.</p>
-<section id="arten-von-ausnahmen">
-<h2>Arten von Ausnahmen<a class="headerlink" href="#arten-von-ausnahmen" title="Link to this heading">¶</a></h2>
+<p>## Arten von Ausnahmen</p>
 <p>Einige der häufigsten Arten von Ausnahmen in Python sind:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>: Ein Fehler in der Syntax des Codes</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>: Einrückungsfehler im Code</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NameError</span></code>: Eine nicht definierte Variable wird verwendet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TypeError</span></code>: Ein unerwarteter Datentyp wird verwendet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ValueError</span></code>: Ein unerwarteter Wert wird verwendet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>: Eine Division durch Null wird versucht</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IndexError</span></code>: Ein ungültiger Index wird verwendet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">KeyError</span></code>: Ein ungültiger Schlüssel wird verwendet</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>: Eine Datei kann nicht gefunden werden</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ImportError</span></code>: Ein Modul kann nicht importiert werden</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>: Ein Attribut wird auf einem Objekt nicht gefunden</p></li>
+<li><p><cite>SyntaxError</cite>: Ein Fehler in der Syntax des Codes</p></li>
+<li><p><cite>IndentationError</cite>: Einrückungsfehler im Code</p></li>
+<li><p><cite>NameError</cite>: Eine nicht definierte Variable wird verwendet</p></li>
+<li><p><cite>TypeError</cite>: Ein unerwarteter Datentyp wird verwendet</p></li>
+<li><p><cite>ValueError</cite>: Ein unerwarteter Wert wird verwendet</p></li>
+<li><p><cite>ZeroDivisionError</cite>: Eine Division durch Null wird versucht</p></li>
+<li><p><cite>IndexError</cite>: Ein ungültiger Index wird verwendet</p></li>
+<li><p><cite>KeyError</cite>: Ein ungültiger Schlüssel wird verwendet</p></li>
+<li><p><cite>FileNotFoundError</cite>: Eine Datei kann nicht gefunden werden</p></li>
+<li><p><cite>ImportError</cite>: Ein Modul kann nicht importiert werden</p></li>
+<li><p><cite>AttributeError</cite>: Ein Attribut wird auf einem Objekt nicht gefunden</p></li>
 </ul>
-</section>
 <section id="behandlung-von-ausnahmen">
 <h2>Behandlung von Ausnahmen<a class="headerlink" href="#behandlung-von-ausnahmen" title="Link to this heading">¶</a></h2>
-<p>In Python können Sie Ausnahmen mit <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">except</span></code> und <code class="docutils literal notranslate"><span class="pre">finally</span></code> behandeln. Der <code class="docutils literal notranslate"><span class="pre">try</span></code>-Block enthält den Code, der ausgeführt werden soll, und der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block enthält den Code, der ausgeführt werden soll, wenn eine Ausnahme auftritt. Der <code class="docutils literal notranslate"><span class="pre">finally</span></code>-Block enthält den Code, der immer ausgeführt werden soll, unabhängig davon, ob eine Ausnahme auftritt oder nicht.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">try</span><span class="p">:</span>
+<p>In Python können Sie Ausnahmen mit <cite>try</cite>, <cite>except</cite> und <cite>finally</cite> behandeln. Der <cite>try</cite>-Block enthält den Code, der ausgeführt werden soll, und der <cite>except</cite>-Block enthält den Code, der ausgeführt werden soll, wenn eine Ausnahme auftritt. Der <cite>finally</cite>-Block enthält den Code, der immer ausgeführt werden soll, unabhängig davon, ob eine Ausnahme auftritt oder nicht.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="c1"># Code, der möglicherweise eine Ausnahme auslöst</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">0</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -307,7 +304,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Bedinungen und Schleifen</div>
+                <div class="title">Bedinungen und Schleifen 🎗️</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -353,7 +350,6 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Ausnahmen</a><ul>
-<li><a class="reference internal" href="#arten-von-ausnahmen">Arten von Ausnahmen</a></li>
 <li><a class="reference internal" href="#behandlung-von-ausnahmen">Behandlung von Ausnahmen</a></li>
 </ul>
 </li>

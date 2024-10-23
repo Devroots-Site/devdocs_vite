@@ -3,12 +3,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Eingaben / Ausgaben" href="in_output.html" /><link rel="prev" title="Bedinungen und Schleifen" href="bedingungen.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Eingaben / Ausgaben 📨" href="in_output.html" /><link rel="prev" title="Bedinungen und Schleifen 🎗️" href="bedingungen.html" />
 
-    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
-        <title>Funktionen - py-docs 2.1.0 Dokumentation</title>
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Funktionen ✨ - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -205,9 +205,9 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ausnahmen.html">Ausnahmen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bedingungen.html">Bedinungen und Schleifen</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="in_output.html">Eingaben / Ausgaben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bedingungen.html">Bedinungen und Schleifen 🎗️</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Funktionen ✨</a></li>
+<li class="toctree-l1"><a class="reference internal" href="in_output.html">Eingaben / Ausgaben 📨</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Listen_und_so.html">Listen &amp; Co</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Sequentielle_Datentypen.html">Sequentielle Datentypen &amp; Listen Manipulieren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="start.html">Start von python</a></li>
@@ -239,7 +239,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/grundlagen/funktionen.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/grundlagen/funktionen.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -260,27 +260,25 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="funktionen">
-<h1>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">¶</a></h1>
+<h1>Funktionen ✨<a class="headerlink" href="#funktionen" title="Link to this heading">¶</a></h1>
 <p>In diesem Kapitel geht es um Funktionen in Python. Wir werden uns damit beschäftigen, wie Funktionen definiert und aufgerufen werden, wie Argumente übergeben werden und wie Funktionen Werte zurückgeben können.</p>
-<section id="funktionen-definieren">
-<h2>Funktionen definieren<a class="headerlink" href="#funktionen-definieren" title="Link to this heading">¶</a></h2>
-<p>In Python können Sie Funktionen definieren, um Code zu organisieren und wiederzuverwenden. Eine Funktion ist eine benannte Sequenz von Anweisungen, die eine bestimmte Aufgabe ausführen. Sie können Funktionen definieren, indem Sie das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code> gefolgt von dem Funktionsnamen und den Argumenten verwenden.</p>
+<p>## Funktionen definieren</p>
+<p>In Python können Sie Funktionen definieren, um Code zu organisieren und wiederzuverwenden. Eine Funktion ist eine benannte Sequenz von Anweisungen, die eine bestimmte Aufgabe ausführen. Sie können Funktionen definieren, indem Sie das Schlüsselwort <cite>def</cite> gefolgt von dem Funktionsnamen und den Argumenten verwenden.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In diesem Beispiel wird eine Funktion <code class="docutils literal notranslate"><span class="pre">greet</span></code> definiert, die einen Namen als Argument erwartet und eine Begrüßung ausgibt.</p>
-</section>
+<p>In diesem Beispiel wird eine Funktion <cite>greet</cite> definiert, die einen Namen als Argument erwartet und eine Begrüßung ausgibt.</p>
 <section id="funktionen-aufrufen">
-<h2>Funktionen aufrufen<a class="headerlink" href="#funktionen-aufrufen" title="Link to this heading">¶</a></h2>
+<h2>Funktionen aufrufen 🤙<a class="headerlink" href="#funktionen-aufrufen" title="Link to this heading">¶</a></h2>
 <p>Nachdem Sie eine Funktion definiert haben, können Sie sie aufrufen, indem Sie den Funktionsnamen gefolgt von Klammern verwenden. Wenn die Funktion Argumente erwartet, müssen Sie die Argumente in den Klammern angeben.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In diesem Beispiel wird die Funktion <code class="docutils literal notranslate"><span class="pre">greet</span></code> mit dem Argument <code class="docutils literal notranslate"><span class="pre">&quot;Alice&quot;</span></code> aufgerufen, was die Ausgabe <code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">Alice!&quot;</span></code> erzeugt.</p>
+<p>In diesem Beispiel wird die Funktion <cite>greet</cite> mit dem Argument <cite>„Alice“</cite> aufgerufen, was die Ausgabe <cite>„Hello, Alice!“</cite> erzeugt.</p>
 </section>
 <section id="argumente-ubergeben">
-<h2>Argumente übergeben<a class="headerlink" href="#argumente-ubergeben" title="Link to this heading">¶</a></h2>
+<h2>Argumente übergeben 🫱<a class="headerlink" href="#argumente-ubergeben" title="Link to this heading">¶</a></h2>
 <p>Sie können Funktionen Argumente übergeben, um Werte an die Funktion zu übergeben, die sie verarbeiten kann. Sie können Argumente an Funktionen übergeben, indem Sie sie in den Klammern angeben, wenn Sie die Funktion aufrufen.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -289,7 +287,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In diesem Beispiel wird eine Funktion <code class="docutils literal notranslate"><span class="pre">add</span></code> definiert, die zwei Argumente <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> erwartet und die Summe der beiden Argumente zurückgibt. Die Funktion wird dann mit den Argumenten <code class="docutils literal notranslate"><span class="pre">5</span></code> und <code class="docutils literal notranslate"><span class="pre">3</span></code> aufgerufen, was <code class="docutils literal notranslate"><span class="pre">8</span></code> zurückgibt.</p>
+<p>In diesem Beispiel wird eine Funktion <cite>add</cite> definiert, die zwei Argumente <cite>x</cite> und <cite>y</cite> erwartet und die Summe der beiden Argumente zurückgibt. Die Funktion wird dann mit den Argumenten <cite>5</cite> und <cite>3</cite> aufgerufen, was <cite>8</cite> zurückgibt.</p>
 </section>
 </section>
 
@@ -303,7 +301,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Eingaben / Ausgaben</div>
+                <div class="title">Eingaben / Ausgaben 📨</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -314,7 +312,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Bedinungen und Schleifen</div>
+                <div class="title">Bedinungen und Schleifen 🎗️</div>
                 
               </div>
             </a>
@@ -348,10 +346,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Funktionen</a><ul>
-<li><a class="reference internal" href="#funktionen-definieren">Funktionen definieren</a></li>
-<li><a class="reference internal" href="#funktionen-aufrufen">Funktionen aufrufen</a></li>
-<li><a class="reference internal" href="#argumente-ubergeben">Argumente übergeben</a></li>
+<li><a class="reference internal" href="#">Funktionen ✨</a><ul>
+<li><a class="reference internal" href="#funktionen-aufrufen">Funktionen aufrufen 🤙</a></li>
+<li><a class="reference internal" href="#argumente-ubergeben">Argumente übergeben 🫱</a></li>
 </ul>
 </li>
 </ul>

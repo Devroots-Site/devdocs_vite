@@ -13,7 +13,6 @@ function App() {
         <Route path="/" element={<Body />} />
         <Route path="/rechtliches" element={<Rechtliches />} />
         <Route path='*' element={<NoPageFound />} />
-        {/* Weitere Routen können hier hinzugefügt werden */}
       </Routes>
     </Router>
   );

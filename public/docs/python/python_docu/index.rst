@@ -12,21 +12,11 @@ py-docs documentation
    :maxdepth: 2
    :caption: Contents:
 
-   md/grundlagen/ausnahmen
-   md/grundlagen/bedingungen
-   md/grundlagen/funktionen
-   md/grundlagen/in_output
-   md/grundlagen/Listen_und_so
-   md/grundlagen/Sequentielle_Datentypen.md
-   md/grundlagen/start
-   md/grundlagen/variablen
 
-   md/lesen_schreiben/dateinverarbeitung.md
+   md/grundlagen/index
 
-   md/pakete/datetime
-   md/pakete/erstellen_und_einbinden
-   md/pakete/math
-   md/pakete/os
-   md/pakete/regex
-   md/pakete/sys
+
+   md/pakete/index
+   md/pip/index
+
 

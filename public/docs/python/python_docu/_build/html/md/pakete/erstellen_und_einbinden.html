@@ -3,12 +3,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Math" href="math.html" /><link rel="prev" title="Datetime" href="datetime.html" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" />
 
-    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
         <title>Erstellen und Einbinden von Paketen - py-docs 2.1.0 Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
     
@@ -203,22 +203,19 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/ausnahmen.html">Ausnahmen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/bedingungen.html">Bedinungen und Schleifen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/funktionen.html">Funktionen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/in_output.html">Eingaben / Ausgaben</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/Listen_und_so.html">Listen &amp; Co</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/Sequentielle_Datentypen.html">Sequentielle Datentypen &amp; Listen Manipulieren</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/start.html">Start von python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grundlagen/variablen.html">Variablen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lesen_schreiben/dateinverarbeitung.html">Dateiverwaltung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datetime.html">Datetime</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Erstellen und Einbinden von Paketen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="math.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="os.html">OS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regex.html"><code class="docutils literal notranslate"><span class="pre">re</span></code> Modul</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sys.html">Sys</a></li>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grundlagen/index.html">Python grundlagen</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Python grundlagen</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/ausnahmen.html">Ausnahmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/bedingungen.html">Bedinungen und Schleifen 🎗️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/dateinverarbeitung.html">Dateiverwaltung 🔨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/funktionen.html">Funktionen ✨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/in_output.html">Eingaben / Ausgaben 📨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/Listen_und_so.html">Listen &amp; Co. :sparkles:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/Sequentielle_Datentypen.html">Sequentielle Datentypen &amp; Listen Manipulieren :sparkles:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/start.html">Start von Python 🏁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grundlagen/variablen.html">Variablen</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -239,7 +236,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/md/pakete/erstellen_und_einbinden.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/md/pakete/erstellen_und_einbinden.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -311,8 +308,7 @@
 </pre></div>
 </div>
 <p>In diesem Beispiel werden die Module <code class="docutils literal notranslate"><span class="pre">module1</span></code> und <code class="docutils literal notranslate"><span class="pre">module2</span></code> aus dem Paket <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> importiert und als <code class="docutils literal notranslate"><span class="pre">m1</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">m2</span></code> umbenannt. Sie können dann auf die Funktionen, Klassen und Variablen in den Modulen zugreifen, indem Sie den Aliasnamen gefolgt von einem Punkt und dem Namen der Funktion, Klasse oder Variablen verwenden.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">m1</span><span class="o">.</span><span class="n">function1</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m1</span><span class="o">.</span><span class="n">function1</span><span class="p">()</span>
 <span class="n">m2</span><span class="o">.</span><span class="n">function2</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -332,26 +328,8 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="math.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Math</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="datetime.html">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Datetime</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
