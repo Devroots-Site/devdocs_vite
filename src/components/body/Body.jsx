@@ -48,7 +48,7 @@ function Body() {
   useEffect(() => {
     const fetchDocs = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/languages');
+        const response = await fetch('http://38.242.136.128:3111/api/languages');
         if (!response.ok) {
           throw new Error(`HTTP-Fehler! Status: ${response.status}`);
         }

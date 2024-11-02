@@ -1,5 +1,7 @@
 FROM node:18-alpine AS builder
 
+Run git clone https://github.com/Devroots-Site/devdocs_vite
+
 WORKDIR /app
 
 COPY . .
