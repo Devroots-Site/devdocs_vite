@@ -39,7 +39,7 @@ function Body() {
 
   const keywords = Array.from(new Set(docs.flatMap(doc => doc.keywords)));
   const keywordColorMap = {};
-  const docstring = '/public/docs/'
+  const docstring = '/docs/'
   const logoString = 'logo.png'
   keywords.forEach((keyword, index) => {
     keywordColorMap[keyword] = keywordColors[index % keywordColors.length];
