@@ -1,0 +1,667 @@
+<!doctype html>
+<html class="no-js" lang="de" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Installation und Einrichtung von Vitest 🛠️" href="installationAndSetUp.html" /><link rel="prev" title="fireEvent vs userEvent 🎆" href="fireeventVsUserEvent.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Einführung in Vitest ⚙️ - Vite React + Typescript</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Vite React + Typescript</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Vite React + Typescript</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Suche" name="q" aria-label="Suche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../react/react.index.html">React</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../react/classVsFunctComponents.html">Class 🆚 Function Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/components.html">Komponenten Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../react/hooks/index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/customHook.html">Custom Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useContext.html">React Kontext-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useEffect.html"><cite>useEffect</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useParams.html"><cite>useParams</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useReducer.html">useReducer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useRef.html">UseRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../react/hooks/useState.html"><cite>useState</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../react/lazyloading.html">Lazy Loading  🚀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/liftup.html">Lift Up 🛗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/modals.html">Modals  📊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/produktivServer.html">Produktiv Server 🔨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../react/routes.html">Routing 🧭</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mui/index.html">Material-UI (MUI) 🎨</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Material-UI (MUI) 🎨</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mui/customComponentenBauen.html">Custom Componenten Bauen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mui/themes.html">Material-UI Theme und Typography 💡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mui/groesenUndAnpassung.html">Größen und Passung ↕️</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bibliothek/index.html">Bibliothek 📕</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Bibliothek 📕</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bibliothek/zod.html">Zod in React 👾</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../bibliothek/reactHookForm/index.html">React Hook Form ✍️</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of React Hook Form ✍️</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactHookForm/indroduction.html">Einführung &amp; Installation  🤖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactHookForm/useWatch.html">useWatch &amp; watch</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../bibliothek/reactQuery/index.html">React Query</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of React Query</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactQuery/gen.html">React Query 🕵🏻‍♂️</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliothek/sentry/index.html">Sentry-Integration mit React</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typescript/index.html">Typescript 🦖</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Typescript 🦖</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/void_vs_async.html">Void vs. Async - Wann welche Funktion sinnvoll ist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/typen.html">Typen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/typen_vs_interface.html">TypeScript: Unterschied zwischen Type und Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Vitest ⚡</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Vitest ⚡</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="typesOfTesting.html">Arten zum Testen ⚖️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fireeventVsUserEvent.html">fireEvent vs userEvent 🎆</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Einführung in Vitest ⚙️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installationAndSetUp.html">Installation und Einrichtung von Vitest 🛠️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submitButton.html">SubmitButton 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testwrapper.html">TestWrapper 🧨</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../_sources/md/vitest/introduction.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="einfuhrung-in-vitest">
+<h1>Einführung in Vitest ⚙️<a class="headerlink" href="#einfuhrung-in-vitest" title="Link to this heading">¶</a></h1>
+<p>Diese Dokumentation beschreibt, wie man <strong>Vitest</strong> zusammen mit <strong>React Hook Form</strong> einsetzt, um Unit-Tests für eine Formular-Komponente in einer React-Anwendung zu schreiben. Wir gehen detailliert auf die verschiedenen Tests ein, erklären, wann und warum bestimmte Methoden verwendet werden und wie man auf verschiedene Elemente der Komponente zugreifen kann.</p>
+<section id="wichtige-konzepte">
+<h2>Wichtige Konzepte<a class="headerlink" href="#wichtige-konzepte" title="Link to this heading">¶</a></h2>
+<p>Bevor wir tiefer einsteigen, sollten einige grundlegende Konzepte geklärt werden:</p>
+<ul class="simple">
+<li><p><strong>Vitest</strong>: Ein schnelles Unit-Test-Framework, das speziell für moderne JavaScript-Frameworks wie React entwickelt wurde.</p></li>
+<li><p><strong>React Hook Form</strong>: Ein beliebtes Formular-Handling-Paket für React, das es ermöglicht, Formulare einfach zu erstellen und zu validieren.</p></li>
+<li><p><strong>TestWrapper</strong>: Eine Hilfskomponente, die React Hook Form in unseren Tests bereitstellt.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Die richtige Einrichtung und Nutzung von Hilfskomponenten wie <cite>TestWrapper</cite> ist entscheidend für das Testen von Formularen, da sie sicherstellt, dass alle Hook-Formulare korrekt gemanaged werden. 🎯</p>
+</div>
+<section id="vorgehen">
+<h3>Vorgehen ⚙️<a class="headerlink" href="#vorgehen" title="Link to this heading">¶</a></h3>
+<p>Beim Testen wird nach dem 3-Schritte-Prinzip vorgegangen 🚶</p>
+<ol class="arabic">
+<li><p><strong>Arrange</strong>
+Vorbereitung und Initialisierung der notwendigen Voraussetzungen für den Test:</p>
+<ul class="simple">
+<li><p>Testdaten oder Objekte erstellen</p></li>
+<li><p>Testumgebung konfigurieren</p></li>
+<li><p>Externe Abhängigkeiten (Mocks, Stubs, etc.) vorbereiten</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">calculator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Calculator</span><span class="p">();</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Act</strong>
+Ausführung der zu testenden Aktion:</p>
+<ul class="simple">
+<li><p>Die spezifische Methode oder Funktion aufrufen</p></li>
+<li><p>Interaktionen simulieren</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">calculator</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Assert</strong>
+Überprüfung, ob das erwartete Ergebnis mit dem tatsächlichen Ergebnis übereinstimmt:</p>
+<ul class="simple">
+<li><p>Ergebnisse validieren</p></li>
+<li><p>Sicherstellen, dass der Test erfolgreich verläuft oder fehlgeschlagen ist</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel:</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mf">15</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="wichtige-gets">
+<h3>Wichtige Gets 🕵️‍♂️<a class="headerlink" href="#wichtige-gets" title="Link to this heading">¶</a></h3>
+<p>Beim Testen von UI-Komponenten gibt es verschiedene Möglichkeiten, um Elemente zu selektieren. Hier sind einige der wichtigsten Methoden, die häufig verwendet werden:</p>
+<ol class="arabic">
+<li><p><strong>getByRole</strong>
+Sucht nach einem Element basierend auf seiner Rolle (z.B. Button, Checkbox, etc.).</p>
+<ul class="simple">
+<li><p>Verwendung, wenn du nach spezifischen semantischen Rollen suchst.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel: Suche nach einem Button-Element</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">submitButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/submit/i</span><span class="w"> </span><span class="p">});</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>getByText</strong>
+Sucht nach einem Element, das einen bestimmten Text enthält.</p>
+<ul class="simple">
+<li><p>Besonders nützlich, um Elemente anhand ihres sichtbaren Textinhalts zu finden.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel: Suche nach einem Element mit Text &quot;Login&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">loginLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="s1">&#39;Login&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>getByLabelText</strong>
+Sucht nach einem Formular-Element basierend auf seinem zugehörigen Label.</p>
+<ul class="simple">
+<li><p>Optimal für Formularfelder wie Input, Textareas, etc.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel: Suche nach einem Eingabefeld mit Label &quot;Username&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">usernameInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>getByPlaceholderText</strong>
+Sucht nach einem Input-Element, das den angegebenen Platzhaltertext enthält.</p>
+<ul class="simple">
+<li><p>Hilfreich, wenn Labels nicht verfügbar sind, aber Platzhalter verwendet werden.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel: Suche nach einem Input-Element mit Platzhalter &quot;Passwort eingeben&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">passwordInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByPlaceholderText</span><span class="p">(</span><span class="s1">&#39;Passwort eingeben&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>getByTestId</strong>
+Sucht nach einem Element, das ein spezifisches <cite>data-testid</cite> Attribut besitzt.</p>
+<ul class="simple">
+<li><p>Gut geeignet, um spezifische Elemente zu testen, die keine klaren Labels oder Texte haben.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Beispiel: Suche nach einem Element mit Test-ID &quot;submit-button&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">submitButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByTestId</span><span class="p">(</span><span class="s1">&#39;submit-button&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="queries">
+<h2>Queries<a class="headerlink" href="#queries" title="Link to this heading">¶</a></h2>
+<img alt="../../_images/queries.png" src="../../_images/queries.png" />
+<section id="tests-im-detail">
+<h3>Tests im Detail<a class="headerlink" href="#tests-im-detail" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="test-uberschrift-wird-korrekt-gerendert">
+<h2>1. <strong>Test: Überschrift wird korrekt gerendert</strong> 💡<a class="headerlink" href="#test-uberschrift-wird-korrekt-gerendert" title="Link to this heading">¶</a></h2>
+<p>Der erste Test überprüft, ob die Überschrift „Kundendaten“ korrekt angezeigt wird. Hier ein Beispiel, wie man die Komponente rendert und dann die Überschrift im DOM sucht:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;CustomerData.tsx&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;renders subheading &quot;Kundendaten&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">render</span><span class="p">(</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">CustomerData</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">headingElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Kundendaten/i</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">headingElement</span><span class="p">).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<ul class="simple">
+<li><p><strong>screen.getByText()</strong>: Diese Methode durchsucht den DOM nach einem Textinhalt, der dem übergebenen Wert entspricht. Hier wird nach „Kundendaten“ gesucht.</p></li>
+<li><p><strong>expect(…).toBeInTheDocument()</strong>: Überprüft, ob das Element wirklich im DOM existiert.</p></li>
+</ul>
+</div>
+<p>Wenn du eine Überschrift oder einen bestimmten Text in deiner Komponente testen möchtest, ist dies die einfachste und präziseste Methode. 🎯</p>
+</section>
+<section id="test-alle-eingabefelder-werden-korrekt-gerendert">
+<h2>2. <strong>Test: Alle Eingabefelder werden korrekt gerendert</strong> 📋<a class="headerlink" href="#test-alle-eingabefelder-werden-korrekt-gerendert" title="Link to this heading">¶</a></h2>
+<p>Dieser Test überprüft, ob alle erwarteten Eingabefelder (z.B. Kundennummer, Vorname, Nachname) vorhanden sind. Es wird eine Liste von Feldbezeichnern durchsucht und jedes dieser Felder im DOM überprüft:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;renders all input fields&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">render</span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">CustomerData</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Kundennummer/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Vorname/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Nachname/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Geburtsdatum/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Straße und Hausnummer/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/PLZ/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Stadt/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Land/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/Telefon/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="sr">/E-Mail Adresse/i</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">];</span>
+
+<span class="w">  </span><span class="nx">fields</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(({</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">field</span><span class="p">).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<ul class="simple">
+<li><p><strong>screen.getByLabelText()</strong>: Hier wird nach Eingabefeldern gesucht, die mit einem bestimmten Label (z.B. „Vorname“) assoziiert sind.</p></li>
+<li><p>Die Verwendung von Regex (<cite>/Vorname/i</cite>) macht die Suche nach Labels flexibler, da Groß- und Kleinschreibung ignoriert werden.</p></li>
+</ul>
+</div>
+<p>Dieser Test stellt sicher, dass das Formular alle erforderlichen Felder korrekt rendert, was für die Benutzerfreundlichkeit des Formulars entscheidend ist. 📄</p>
+</section>
+<section id="test-hilfetext-fur-kundennummer">
+<h2>3. <strong>Test: Hilfetext für Kundennummer</strong> 📝<a class="headerlink" href="#test-hilfetext-fur-kundennummer" title="Link to this heading">¶</a></h2>
+<p>Der dritte Test prüft, ob der richtige Hilfetext für das Feld „Kundennummer“ angezeigt wird, falls der Benutzer noch keine Kundennummer besitzt. Dieser Text informiert den Benutzer, was zu tun ist, wenn er keine gültige Nummer hat.</p>
+<div class="highlight-React notranslate"><div class="highlight"><pre><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;testing for customerNumber helperText&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">render</span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">CustomerData</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">customerNumberHelperText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span>
+<span class="w">    </span><span class="sr">/Falls keine vorhanden, „NEU“ eingeben. Bitte nachreichen./i</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">customerNumberHelperText</span><span class="p">).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<ul class="simple">
+<li><p><strong>screen.getByText()</strong>: Hier wird erneut nach einem Textinhalt gesucht, in diesem Fall der Hinweistext für das Kundennummernfeld.</p></li>
+<li><p>Hilfetexte sind wichtig, um Benutzer bei der Eingabe ihrer Daten zu unterstützen und Missverständnisse zu vermeiden. 😊</p></li>
+</ul>
+</div>
+<p><strong>Warum ist das wichtig?</strong>
+Dieser Test stellt sicher, dass der Benutzer bei der Eingabe seiner Daten die richtigen Anweisungen erhält. Wenn Benutzer unklare oder fehlende Anweisungen sehen, könnten sie Fehler machen, was zu Problemen in der Datenverarbeitung führen könnte. 🛠️</p>
+<section id="testaufbau-und-wichtige-hilfsmittel">
+<h3>Testaufbau und wichtige Hilfsmittel ⛑️<a class="headerlink" href="#testaufbau-und-wichtige-hilfsmittel" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>TestWrapper</strong>:
+Der <cite>TestWrapper</cite> wird verwendet, um React Hook Form in den Tests zu integrieren. Da React Hook Form auf interne Formulareinstellungen zugreift, müssen diese auch während der Tests korrekt bereitgestellt werden. Der <cite>TestWrapper</cite> stellt sicher, dass alle Formulareinstellungen während der Testlaufzeit verfügbar sind.</p></li>
+</ul>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">TestWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="nx">ReactNode</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">methods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useForm</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">FormProvider</span><span class="w"> </span><span class="p">{</span><span class="na">...methods</span><span class="p">}&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">FormProvider</span><span class="p">&gt;;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Ohne den <cite>TestWrapper</cite> könnten viele Formular-bezogene Tests fehlschlagen, da die Formulare nicht korrekt initialisiert wären.</p>
+</div>
+<ul class="simple">
+<li><p><strong>screen.debug()</strong>:
+Diese Funktion gibt den aktuellen DOM-Baum im Test-Output aus. Es ist ein nützliches Werkzeug, wenn du dich wunderst, warum ein bestimmtes Element im Test nicht gefunden wird. Durch den DOM-Output kannst du schnell erkennen, ob das Element tatsächlich existiert oder warum es nicht gefunden wurde.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Benutze <cite>screen.debug()</cite>, um einen Blick auf den DOM zu werfen, wenn etwas nicht wie erwartet funktioniert. Das erleichtert die Fehlersuche erheblich. 🔍</p>
+</div>
+</section>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Das Testen von Formularen und Komponenten mit <strong>Vitest</strong> und <strong>React Hook Form</strong> ermöglicht es dir, sicherzustellen, dass deine Benutzeroberflächen wie erwartet funktionieren. Durch gezielte Tests auf Überschriften, Eingabefelder und Hilfetexte kannst du sicherstellen, dass das Formular korrekt funktioniert und die Benutzer klare Anweisungen erhalten.</p>
+<p>Für weitere Informationen über <strong>Vitest</strong> und dessen Einsatzmöglichkeiten kannst du die offizielle Dokumentation unter <a class="reference external" href="https://vitest.dev/">https://vitest.dev/</a> besuchen. 🎉</p>
+<section id="der-tipp-mit-rendercomponent">
+<h3>Der Tipp mit RenderComponent 💡<a class="headerlink" href="#der-tipp-mit-rendercomponent" title="Link to this heading">¶</a></h3>
+<p>Die Funktion <cite>renderComponent</cite> ist eine bewährte Methode, um eine Komponente in einer Testumgebung mit den notwendigen Wrappern bereitzustellen. Dies ermöglicht es dir, die Komponente in isolierten Tests zu rendern und gleichzeitig den Kontext oder Provider (wie Redux oder React Router) zu berücksichtigen.</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">renderComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">render</span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">CompanyData</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">TestWrapper</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Vorteile:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Wiederverwendbarkeit</strong>:
+Diese Funktion kann in mehreren Tests verwendet werden, um Konsistenz zu gewährleisten und Redundanz zu vermeiden.</p></li>
+<li><p><strong>Testkontext</strong>:
+Der Einsatz eines Wrappers wie <cite>TestWrapper</cite> erlaubt es dir, globale Kontexte (z.B. Thema, Zustand) für deine Komponente bereitzustellen, was für tiefere Integrationstests notwendig ist.</p></li>
+<li><p><strong>Saubere Struktur</strong>:
+Durch das Auslagern der Rendering-Logik in eine Hilfsfunktion bleibt der eigentliche Testcode klar und fokussiert auf das Verhalten der Komponente.</p></li>
+</ol>
+<p><strong>Beispielnutzung in einem Test:</strong></p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;renders company data correctly&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">renderComponent</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">companyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/Company Name/i</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">expect</span><span class="p">(</span><span class="nx">companyName</span><span class="p">).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Dieser Ansatz stellt sicher, dass die Komponente in einer kontrollierten Umgebung gerendert wird und erleichtert die Testbarkeit komplexer Szenarien.</p>
+<img alt="../../_images/renderComponent.png" src="../../_images/renderComponent.png" />
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="installationAndSetUp.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Installation und Einrichtung von Vitest 🛠️</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="fireeventVsUserEvent.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">fireEvent vs userEvent 🎆</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Bichler Bastian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Einführung in Vitest ⚙️</a><ul>
+<li><a class="reference internal" href="#wichtige-konzepte">Wichtige Konzepte</a><ul>
+<li><a class="reference internal" href="#vorgehen">Vorgehen ⚙️</a></li>
+<li><a class="reference internal" href="#wichtige-gets">Wichtige Gets 🕵️‍♂️</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#queries">Queries</a><ul>
+<li><a class="reference internal" href="#tests-im-detail">Tests im Detail</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-uberschrift-wird-korrekt-gerendert">1. <strong>Test: Überschrift wird korrekt gerendert</strong> 💡</a></li>
+<li><a class="reference internal" href="#test-alle-eingabefelder-werden-korrekt-gerendert">2. <strong>Test: Alle Eingabefelder werden korrekt gerendert</strong> 📋</a></li>
+<li><a class="reference internal" href="#test-hilfetext-fur-kundennummer">3. <strong>Test: Hilfetext für Kundennummer</strong> 📝</a><ul>
+<li><a class="reference internal" href="#testaufbau-und-wichtige-hilfsmittel">Testaufbau und wichtige Hilfsmittel ⛑️</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fazit">Fazit</a><ul>
+<li><a class="reference internal" href="#der-tipp-mit-rendercomponent">Der Tipp mit RenderComponent 💡</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=a921576d"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    </body>
+</html>
