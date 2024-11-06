@@ -22,8 +22,7 @@ RUN npm install -g http-server
 # Wechsle in das Verzeichnis mit dem Build
 WORKDIR /app/dist
 
-# Exponiere den Port
-EXPOSE 3110
+
 
 # Starte den Server
-CMD ["http-server", "-p", "3110"]
+CMD ["sh", "-c", "npm start -- -p ${PORT:-3000}"]
