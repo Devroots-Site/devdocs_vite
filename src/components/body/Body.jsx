@@ -45,10 +45,14 @@ function Body() {
     keywordColorMap[keyword] = keywordColors[index % keywordColors.length];
   });
 
+  const BE_IP = import.meta.env.VITE_BE_IP;
+  const BE_PORT = import.meta.env.VITE_BE_PORT;
+  const API_URL = `${BE_IP}:${BE_PORT}`;
+
   useEffect(() => {
     const fetchDocs = async () => {
       try {
-        const response = await fetch('http://38.242.136.128:3111/api/languages');
+        const response = await fetch(`${API_URL}/api/languages`);
         if (!response.ok) {
           throw new Error(`HTTP-Fehler! Status: ${response.status}`);
         }

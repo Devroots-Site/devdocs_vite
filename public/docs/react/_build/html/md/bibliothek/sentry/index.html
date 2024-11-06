@@ -1,0 +1,607 @@
+<!doctype html>
+<html class="no-js" lang="de" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" /><link rel="search" title="Suche" href="../../../search.html" /><link rel="next" title="Typescript 🦖" href="../../typescript/index.html" /><link rel="prev" title="React Query 🕵🏻‍♂️" href="../reactQuery/gen.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Sentry-Integration mit React - Vite React + Typescript</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Vite React + Typescript</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Vite React + Typescript</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Suche" name="q" aria-label="Suche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../react/react.index.html">React</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../react/classVsFunctComponents.html">Class 🆚 Function Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/components.html">Komponenten Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../react/hooks/index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/customHook.html">Custom Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useContext.html">React Kontext-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useEffect.html"><cite>useEffect</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useParams.html"><cite>useParams</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useReducer.html">useReducer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useRef.html">UseRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../react/hooks/useState.html"><cite>useState</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/lazyloading.html">Lazy Loading  🚀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/liftup.html">Lift Up 🛗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/modals.html">Modals  📊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/produktivServer.html">Produktiv Server 🔨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../react/routes.html">Routing 🧭</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../mui/index.html">Material-UI (MUI) 🎨</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Material-UI (MUI) 🎨</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../mui/customComponentenBauen.html">Custom Componenten Bauen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mui/themes.html">Material-UI Theme und Typography 💡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mui/groesenUndAnpassung.html">Größen und Passung ↕️</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Bibliothek 📕</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Bibliothek 📕</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../zod.html">Zod in React 👾</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reactHookForm/index.html">React Hook Form ✍️</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of React Hook Form ✍️</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reactHookForm/indroduction.html">Einführung &amp; Installation  🤖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reactHookForm/useWatch.html">useWatch &amp; watch</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reactQuery/index.html">React Query</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of React Query</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reactQuery/gen.html">React Query 🕵🏻‍♂️</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Sentry-Integration mit React</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../typescript/index.html">Typescript 🦖</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Typescript 🦖</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../typescript/void_vs_async.html">Void vs. Async - Wann welche Funktion sinnvoll ist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../typescript/typen.html">Typen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../typescript/typen_vs_interface.html">TypeScript: Unterschied zwischen Type und Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vitest/index.html">Vitest ⚡</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Vitest ⚡</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/typesOfTesting.html">Arten zum Testen ⚖️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/fireeventVsUserEvent.html">fireEvent vs userEvent 🎆</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/introduction.html">Einführung in Vitest ⚙️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/installationAndSetUp.html">Installation und Einrichtung von Vitest 🛠️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/submitButton.html">SubmitButton 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vitest/testwrapper.html">TestWrapper 🧨</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../../_sources/md/bibliothek/sentry/index.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="sentry-integration-mit-react">
+<h1>Sentry-Integration mit React<a class="headerlink" href="#sentry-integration-mit-react" title="Link to this heading">¶</a></h1>
+<section id="einleitung">
+<h2>Einleitung<a class="headerlink" href="#einleitung" title="Link to this heading">¶</a></h2>
+<p>Sentry ist ein Echtzeit-Fehlerverfolgungs-Tool, das Entwickler dabei unterstützt, Fehler in ihren Anwendungen effizient zu identifizieren, zu diagnostizieren und zu beheben. Es hilft Ihnen dabei, Probleme frühzeitig zu erkennen, bevor Ihre Benutzer darauf stoßen, und gibt detaillierte Informationen über Fehler, sodass Sie die Ursache schnell verstehen können. In dieser Dokumentation erklären wir, wie Sie Sentry in einer React-Anwendung einrichten und verwenden können.</p>
+<p><strong>Hinweis</strong>: Obwohl sich diese Anleitung speziell auf die Integration von Sentry in React bezieht, kann Sentry auch mit anderen Plattformen und Frameworks wie Vue.js, Angular, Node.js und mehr genutzt werden. Für weitere Informationen dazu besuchen Sie die [offizielle Sentry-Dokumentation](<a class="reference external" href="https://docs.sentry.io/">https://docs.sentry.io/</a>).</p>
+</section>
+<section id="was-ist-sentry">
+<h2>Was ist Sentry?<a class="headerlink" href="#was-ist-sentry" title="Link to this heading">¶</a></h2>
+<p>Sentry ist ein Open-Source-Tool zur Überwachung und Fehlerverfolgung, das sich nahtlos in Ihre Anwendung integrieren lässt. Es unterstützt Sie dabei, Fehler, Abstürze und Leistungsprobleme automatisch zu protokollieren. Die gesammelten Informationen helfen Entwicklern, das Verhalten der Anwendung besser zu verstehen, Fehler zu reproduzieren und zeitnah zu beheben.</p>
+<p>Hauptfunktionen von Sentry:</p>
+<ul class="simple">
+<li><p>Fehlererfassung (Error Tracking)</p></li>
+<li><p>Performance-Monitoring</p></li>
+<li><p>Issue-Management</p></li>
+<li><p>Detaillierte Fehlerberichte inklusive Stack-Traces, Benutzerinformationen und mehr</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>Um Sentry in Ihrer React-Anwendung zu verwenden, müssen Sie das Sentry-Paket installieren. Sie können dies mit dem folgenden Befehl tun:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@sentry/react<span class="w"> </span>--save
+</pre></div>
+</div>
+</section>
+<section id="setup-in-react">
+<h2>Setup in React<a class="headerlink" href="#setup-in-react" title="Link to this heading">¶</a></h2>
+<p>Nach der Installation können Sie Sentry in Ihrer Anwendung konfigurieren. Fügen Sie die Initialisierung von Sentry in Ihrer <cite>index.js</cite>- oder <cite>App.js</cite>-Datei hinzu, wie unten gezeigt:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+<span class="nx">dsn</span><span class="o">:</span><span class="w"> </span><span class="nx">sentryDsn</span><span class="p">,</span>
+<span class="nx">inteSentry</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+<span class="c1">// Der DSN (Data Source Name) verbindet deine Anwendung mit deinem Sentry-Projekt</span>
+<span class="nx">dsn</span><span class="o">:</span><span class="w"> </span><span class="nx">sentryDsn</span><span class="p">,</span>
+
+<span class="nx">integrations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// Integration von Sentry für das Tracing in React Router v6-Anwendungen.</span>
+<span class="w">    </span><span class="c1">// Diese Integration überwacht Navigationsereignisse und Seitenwechsel,</span>
+<span class="w">    </span><span class="c1">// um Performance-Daten und Fehler besser nachzuverfolgen.</span>
+<span class="w">    </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">reactRouterV6BrowserTracingIntegration</span><span class="p">({</span>
+<span class="w">        </span><span class="c1">// React Hook, um Nebenwirkungen zu verwalten. Wird benötigt, um zu tracken,</span>
+<span class="w">        </span><span class="c1">// wann die Komponenten gemountet/unmounted werden, um so Navigation zu erfassen.</span>
+<span class="w">        </span><span class="nx">useEffect</span><span class="p">,</span>
+
+<span class="w">        </span><span class="c1">// Ermöglicht die Erfassung der aktuellen URL und Parameter bei jeder Navigation,</span>
+<span class="w">        </span><span class="c1">// um zu sehen, wo sich der Benutzer auf der Webseite befindet.</span>
+<span class="w">        </span><span class="nx">useLocation</span><span class="p">,</span>
+
+<span class="w">        </span><span class="c1">// Verwendet, um zu bestimmen, wie die Navigation stattfindet (z.B. vorwärts, rückwärts).</span>
+<span class="w">        </span><span class="c1">// Dies hilft Sentry, festzustellen, welche Art von Navigationsereignis ausgelöst wurde.</span>
+<span class="w">        </span><span class="nx">useNavigationType</span><span class="p">,</span>
+
+<span class="w">        </span><span class="c1">// Wird verwendet, um Routen aus den Kinderkomponenten zu erstellen.</span>
+<span class="w">        </span><span class="c1">// Dies stellt sicher, dass alle Routen und Unterrouten erfasst werden.</span>
+<span class="w">        </span><span class="nx">createRoutesFromChildren</span><span class="p">,</span>
+
+<span class="w">        </span><span class="c1">// Wird verwendet, um festzustellen, welche Route in den aktuellen Routing-Einstellungen aktiv ist.</span>
+<span class="w">        </span><span class="c1">// Dies hilft, die korrekte Route in Fehler- oder Performance-Logs zu identifizieren.</span>
+<span class="w">        </span><span class="nx">matchRoutes</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}),</span>
+
+<span class="w">    </span><span class="c1">// Integration für das Sentry-Replay-Feature.</span>
+<span class="w">    </span><span class="c1">// Diese Funktion erlaubt es, Sitzungen aufzuzeichnen und nachzuvollziehen,</span>
+<span class="w">    </span><span class="c1">// was der Benutzer vor einem Fehler gemacht hat (Replay der Aktionen).</span>
+<span class="w">    </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">replayIntegration</span><span class="p">(),</span>
+<span class="p">],</span>
+
+<span class="c1">// Tracing-Prozentsatz für Performance-Monitoring.</span>
+<span class="c1">// 1.0 bedeutet, dass 100% der Transaktionen überwacht werden (sehr genau, aber kann viele Daten erzeugen).</span>
+<span class="nx">tracesSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+
+<span class="c1">// Ziel-URLs, auf die das Trace-Propagations-Feature angewendet wird.</span>
+<span class="c1">// Hier wird es auf &#39;localhost&#39; und alle URLs, die dem Backend-API entsprechen, angewendet.</span>
+<span class="nx">tracePropagationTargets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="sb">`^</span><span class="si">${</span><span class="nx">urlBackendAPI</span><span class="si">}</span><span class="sb">`</span><span class="p">)],</span>
+
+<span class="c1">// Wie oft eine Sitzung für Replay-Funktionen aufgezeichnet wird.</span>
+<span class="c1">// 0.1 bedeutet, dass 10% der Sitzungen erfasst werden.</span>
+<span class="nx">replaysSessionSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+
+<span class="c1">// Wenn ein Fehler auftritt, wird die Sitzung zu 100% für das Replay aufgezeichnet.</span>
+<span class="nx">replaysOnErrorSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">});</span><span class="nx">grations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">reactRouterV6BrowserTracingIntegration</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">useEffect</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">useLocation</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">useNavigationType</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">createRoutesFromChildren</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">matchRoutes</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}),</span>
+<span class="w">        </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">replayIntegration</span><span class="p">(),</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nx">tracesSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tracePropagationTargets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">RegExp</span><span class="p">(</span><span class="sb">`^</span><span class="si">${</span><span class="nx">urlBackendAPI</span><span class="si">}</span><span class="sb">`</span><span class="p">)],</span>
+<span class="w">    </span><span class="nx">replaysSessionSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">replaysOnErrorSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="p">});</span>
+</pre></div>
+</div>
+<p>Der <cite>dsn</cite> ist der „Data Source Name“ für Ihre spezifische Sentry-Instanz und kann im Sentry-Dashboard gefunden werden.</p>
+</section>
+<section id="fehlerverfolgung-in-react-komponenten">
+<h2>Fehlerverfolgung in React-Komponenten<a class="headerlink" href="#fehlerverfolgung-in-react-komponenten" title="Link to this heading">¶</a></h2>
+<p>Sentry bietet eine HOC (Higher-Order Component) namens <cite>withErrorBoundary</cite>, mit der Sie Fehler in React-Komponenten abfangen können. Beispiel:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Sentry</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@sentry/react&quot;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">MyComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Eine normale React-Komponente</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">Hallo</span><span class="p">,</span><span class="w"> </span><span class="nx">Welt</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">withErrorBoundary</span><span class="p">(</span><span class="nx">MyComponent</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">fallback</span><span class="o">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Es</span><span class="w"> </span><span class="nx">ist</span><span class="w"> </span><span class="nx">ein</span><span class="w"> </span><span class="nx">Fehler</span><span class="w"> </span><span class="nx">aufgetreten</span><span class="p">.&lt;/</span><span class="nt">p</span><span class="p">&gt;,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Mit dieser Methode können Sie sicherstellen, dass Fehler in einer Komponente nicht die gesamte Anwendung beeinträchtigen und dass sie stattdessen von einem benutzerdefinierten Fallback angezeigt werden.</p>
+</section>
+<section id="routenuberwachung-navigation-tracking">
+<h2>Routenüberwachung (Navigation Tracking)<a class="headerlink" href="#routenuberwachung-navigation-tracking" title="Link to this heading">¶</a></h2>
+<p>Um auch die Navigation innerhalb Ihrer React-Anwendung zu überwachen, können Sie React Router zusammen mit Sentry verwenden. Fügen Sie dazu die Navigationserfassung zu Ihrer Sentry-Initialisierung hinzu:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Box</span><span class="p">,</span><span class="w"> </span><span class="nx">Container</span><span class="p">,</span><span class="w"> </span><span class="nx">CssBaseline</span><span class="p">,</span><span class="w"> </span><span class="nx">ThemeProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@mui/material&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">theme</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App.theme&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ProtectionForm</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../features/ProtectionForm&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Header</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/features/Header/Header&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Background</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/features/Background/Background&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SnackbarProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;notistack&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="p">,</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">NotFoundPage</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/features/NotFoundPage/NotFoundPage&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Sentry</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@sentry/react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ErrorFallback</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/features/ErrorFallBack&#39;</span><span class="p">;</span>
+<span class="cm">/**</span>
+<span class="cm">* App component serves as the root of the application.</span>
+<span class="cm">* It provides the global theme and layout for the application, including the `ProtectionForm` component.</span>
+<span class="cm">*</span>
+<span class="cm">* - `ThemeProvider` applies the custom Material UI theme defined in `App.theme`.</span>
+<span class="cm">* - `CssBaseline` normalizes styles across browsers.</span>
+<span class="cm">* - `Typography` is used to display the main heading with primary color and bold styling.</span>
+<span class="cm">* - `ProtectionForm` is the main form component for legal protection insurance requests.</span>
+<span class="cm">* @see https://mui.com/material-ui/</span>
+<span class="cm">*/</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">SentryRoutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">withSentryReactRouterV6Routing</span><span class="p">(</span><span class="nx">Routes</span><span class="p">);</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">Sentry</span><span class="p">.</span><span class="na">ErrorBoundary</span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="na">eslint</span><span class="err">-</span><span class="na">disable</span><span class="err">-</span><span class="na">next</span><span class="err">-</span><span class="na">line</span><span class="w"> </span><span class="err">@</span><span class="na">typescript</span><span class="err">-</span><span class="na">eslint</span><span class="err">/</span><span class="na">unbound</span><span class="err">-</span><span class="na">method</span>
+<span class="w">    </span><span class="na">fallback</span><span class="o">=</span><span class="p">{({</span><span class="w"> </span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">componentStack</span><span class="p">,</span><span class="w"> </span><span class="nx">resetError</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">ErrorFallback</span>
+<span class="w">        </span><span class="na">error</span><span class="o">=</span><span class="p">{</span><span class="nx">error</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="ne">Error</span><span class="p">}</span>
+<span class="w">        </span><span class="na">componentStack</span><span class="o">=</span><span class="p">{</span><span class="nx">componentStack</span><span class="p">}</span>
+<span class="w">        </span><span class="na">resetError</span><span class="o">=</span><span class="p">{</span><span class="nx">resetError</span><span class="p">}</span>
+<span class="w">        </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">)}</span>
+<span class="w">    </span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">ThemeProvider</span><span class="w"> </span><span class="na">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">theme</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="p">{</span><span class="cm">/* CssBaseline ensures consistent baseline styles across browsers */</span><span class="p">}</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">CssBaseline</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">SnackbarProvider</span>
+<span class="w">        </span><span class="na">maxSnack</span><span class="o">=</span><span class="p">{</span><span class="mf">4</span><span class="p">}</span>
+<span class="w">        </span><span class="na">anchorOrigin</span><span class="o">=</span><span class="p">{{</span>
+<span class="w">            </span><span class="nx">vertical</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">horizontal</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}}</span>
+<span class="w">        </span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">SentryRoutes</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">Route</span>
+<span class="w">                </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span>
+<span class="w">                </span><span class="na">element</span><span class="o">=</span><span class="p">{</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">Box</span><span class="p">&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Background</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Container</span><span class="w"> </span><span class="na">maxWidth</span><span class="o">=</span><span class="s">&quot;lg&quot;</span><span class="p">&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">Header</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                    </span><span class="p">&lt;</span><span class="nt">ProtectionForm</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">                    </span><span class="p">&lt;/</span><span class="nt">Container</span><span class="p">&gt;</span>
+<span class="w">                </span><span class="p">&lt;/</span><span class="nt">Box</span><span class="p">&gt;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">/&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">NotFoundPage</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">SentryRoutes</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">SnackbarProvider</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">ThemeProvider</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">Sentry</span><span class="p">.</span><span class="na">ErrorBoundary</span><span class="p">&gt;</span>
+<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Mit dieser Konfiguration können Sie die Performance und Navigation innerhalb Ihrer React-App verfolgen, sodass Sie wertvolle Einblicke in die Benutzerinteraktion und mögliche Engpässe erhalten.</p>
+</section>
+<section id="zusatzliche-funktionen">
+<h2>Zusätzliche Funktionen<a class="headerlink" href="#zusatzliche-funktionen" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><strong>Benutzerdefinierte Fehlerberichte</strong>: Wenn Sie benutzerdefinierte Fehlerberichte an Sentry senden möchten, können Sie <cite>Sentry.captureException(error)</cite> verwenden, um einen spezifischen Fehler zu protokollieren.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Code, der Fehler auslösen könnte</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">captureException</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Release-Tracking</strong>: Durch die Angabe eines Releases in der Sentry-Konfiguration können Sie Fehler besser gruppieren und nachvollziehen, in welcher Version der Fehler aufgetreten ist. Fügen Sie die <cite>release</cite>-Eigenschaft bei der Initialisierung hinzu:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Sentry</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">dsn</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://&lt;your-public-dsn&gt;@oXXXXXXX.ingest.sentry.io/XXXXXXX&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">release</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-project-name@1.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">integrations</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">BrowserTracing</span><span class="p">()],</span>
+<span class="w">  </span><span class="nx">tracesSampleRate</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link to this heading">¶</a></h2>
+<p>Sentry bietet eine umfassende Lösung für das Fehler- und Performance-Monitoring in React-Anwendungen. Durch die einfache Integration und die umfangreichen Funktionen können Sie Fehler proaktiv erkennen, reproduzieren und lösen. Neben React bietet Sentry eine breite Plattformunterstützung, die Ihnen hilft, eine konsistente Fehlerüberwachung über Ihre gesamte Anwendung hinweg zu gewährleisten.</p>
+<p>Weitere Informationen finden Sie in der [offiziellen Sentry-Dokumentation](<a class="reference external" href="https://docs.sentry.io/">https://docs.sentry.io/</a>).</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../typescript/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Typescript 🦖</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../reactQuery/gen.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">React Query 🕵🏻‍♂️</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Bichler Bastian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Sentry-Integration mit React</a><ul>
+<li><a class="reference internal" href="#einleitung">Einleitung</a></li>
+<li><a class="reference internal" href="#was-ist-sentry">Was ist Sentry?</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#setup-in-react">Setup in React</a></li>
+<li><a class="reference internal" href="#fehlerverfolgung-in-react-komponenten">Fehlerverfolgung in React-Komponenten</a></li>
+<li><a class="reference internal" href="#routenuberwachung-navigation-tracking">Routenüberwachung (Navigation Tracking)</a></li>
+<li><a class="reference internal" href="#zusatzliche-funktionen">Zusätzliche Funktionen</a></li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=a921576d"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/translations.js?v=79cc9f76"></script>
+    </body>
+</html>
