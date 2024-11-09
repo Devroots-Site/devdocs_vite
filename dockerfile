@@ -24,4 +24,4 @@ WORKDIR /app/dist
 
 
 # Starte den Server
-CMD ["sh", "-c", "http-server -p ${PORT}"]
+CMD ["sh", "-c", "http-server dist"]
