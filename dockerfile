@@ -1,28 +1,27 @@
-# Verwende node:18-alpine als Basis-Image
+# Verwende node:18-alpine als Basis-Image für den Build
 FROM node:18-alpine AS builder
-
-# Installiere Git, da es in Alpine-Images nicht enthalten ist
-RUN apk add --no-cache git
 
 # Setze das Arbeitsverzeichnis
 WORKDIR /app
 
-# Klone das Repository direkt in das Arbeitsverzeichnis
-RUN git clone https://github.com/Devroots-Site/devdocs_vite .
+# Kopiere den gesamten Code in das Arbeitsverzeichnis
+COPY . .
 
-# Installiere Abhängigkeiten im geklonten Repository
-RUN npm install
+# Installiere Abhängigkeiten und baue die Anwendung
+RUN npm install && npm run build
 
-# Baue die Anwendung
-RUN npm run build
+# Zweites, schlankes Image für den Server
+FROM alpine:latest
 
-# Installiere http-server global für den statischen Build
-RUN npm install -g http-server
+# Installiere http-server für den statischen Build
+RUN apk add --no-cache nodejs npm && npm install -g http-server
 
-# Wechsle in das Verzeichnis mit dem Build
+# Kopiere das Build-Verzeichnis aus dem vorherigen Schritt
+COPY --from=builder /app/dist /app/dist
+
+# Setze das Arbeitsverzeichnis auf das Build-Verzeichnis
 WORKDIR /app/dist
 
 
-
 # Starte den Server
-CMD ["sh", "-c", "npm start -- -p ${PORT:-3000}"]
+CMD ["sh", "-c", "http-server -p ${PORT}"]
