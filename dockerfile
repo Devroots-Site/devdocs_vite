@@ -1,11 +1,17 @@
 # Verwende node:18-alpine als Basis-Image für den Build
 FROM node:18-alpine AS builder
 
+# Installiere Git, um das Repository zu klonen
+RUN apk add --no-cache git
+
 # Setze das Arbeitsverzeichnis
 WORKDIR /app
 
-# Kopiere den gesamten Code in das Arbeitsverzeichnis
-COPY . .
+# Klone das Repository
+RUN git clone https://github.com/Devroots-Site/devdocs_vite .
+
+# Überprüfen, ob package.json vorhanden ist
+RUN ls -la /app/package.json
 
 # Installiere Abhängigkeiten und baue die Anwendung
 RUN npm install && npm run build
@@ -22,6 +28,5 @@ COPY --from=builder /app/dist /app/dist
 # Setze das Arbeitsverzeichnis auf das Build-Verzeichnis
 WORKDIR /app/dist
 
-
 # Starte den Server
-CMD ["sh", "-c", "http-server dist"]
+CMD ["http-server", "-p", "3000", "-a", "0.0.0.0"]
