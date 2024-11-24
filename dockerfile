@@ -1,32 +1,32 @@
-# Verwende node:18-alpine als Basis-Image
+# Verwende node:18-alpine als Basis-Image für den Build
 FROM node:18-alpine AS builder
 
-# Installiere Git, da es standardmäßig in alpine Images nicht enthalten ist
+# Installiere Git, um das Repository zu klonen
 RUN apk add --no-cache git
-
-# Klone das Repository
-RUN git clone https://github.com/Devroots-Site/devdocs_vite
 
 # Setze das Arbeitsverzeichnis
 WORKDIR /app
 
-# Kopiere den Inhalt des geklonten Repos ins Arbeitsverzeichnis
-COPY . .
+# Klone das Repository
+RUN git clone https://github.com/Devroots-Site/devdocs_vite .
 
-# Installiere Abhängigkeiten
-RUN npm install
+# Überprüfen, ob package.json vorhanden ist
+RUN ls -la /app/package.json
 
-# Baue die Anwendung
-RUN npm run build
+# Installiere Abhängigkeiten und baue die Anwendung
+RUN npm install && npm run build
 
-# Installiere http-server global
-RUN npm install -g http-server
+# Zweites, schlankes Image für den Server
+FROM alpine:latest
 
-# Wechsle in das Build-Verzeichnis
+# Installiere http-server für den statischen Build
+RUN apk add --no-cache nodejs npm && npm install -g http-server
+
+# Kopiere das Build-Verzeichnis aus dem vorherigen Schritt
+COPY --from=builder /app/dist /app/dist
+
+# Setze das Arbeitsverzeichnis auf das Build-Verzeichnis
 WORKDIR /app/dist
 
-# Exponiere den Port
-EXPOSE 3110
-
 # Starte den Server
-CMD ["http-server", "-p", "3110"]
+CMD ["http-server", "-p", "3000", "-a", "0.0.0.0"]

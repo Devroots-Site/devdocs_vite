@@ -1,0 +1,579 @@
+<!doctype html>
+<html class="no-js" lang="de" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" /><link rel="search" title="Suche" href="../../search.html" /><link rel="next" title="Material-UI (MUI) 🎨" href="../mui/index.html" /><link rel="prev" title="Produktiv Server 🔨" href="produktivServer.html" />
+
+    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+        <title>Routing 🧭 - Vite React + Typescript</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Vite React + Typescript</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Vite React + Typescript</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Suche" name="q" aria-label="Suche">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="react.index.html">React</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of React</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="classVsFunctComponents.html">Class 🆚 Function Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">Komponenten Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.tsx.html"><cite>index.tsx</cite> Datei 📝</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="hooks/index.html">Hooks 🪝</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Hooks 🪝</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="hooks/customHook.html">Custom Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useContext.html">React Kontext-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useEffect.html"><cite>useEffect</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useParams.html"><cite>useParams</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useReducer.html">useReducer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useRef.html">UseRef</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks/useState.html"><cite>useState</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lazyloading.html">Lazy Loading  🚀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="liftup.html">Lift Up 🛗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modals.html">Modals  📊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="produktivServer.html">Produktiv Server 🔨</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Routing 🧭</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mui/index.html">Material-UI (MUI) 🎨</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Material-UI (MUI) 🎨</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mui/customComponentenBauen.html">Custom Componenten Bauen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mui/themes.html">Material-UI Theme und Typography 💡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mui/groesenUndAnpassung.html">Größen und Passung ↕️</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bibliothek/index.html">Bibliothek 📕</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Bibliothek 📕</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bibliothek/zod.html">Zod in React 👾</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../bibliothek/reactHookForm/index.html">React Hook Form ✍️</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of React Hook Form ✍️</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactHookForm/indroduction.html">Einführung &amp; Installation  🤖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactHookForm/useWatch.html">useWatch &amp; watch</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../bibliothek/reactQuery/index.html">React Query</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of React Query</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bibliothek/reactQuery/gen.html">React Query 🕵🏻‍♂️</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliothek/sentry/index.html">Sentry-Integration mit React</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typescript/index.html">Typescript 🦖</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Typescript 🦖</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/void_vs_async.html">Void vs. Async - Wann welche Funktion sinnvoll ist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/typen.html">Typen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../typescript/typen_vs_interface.html">TypeScript: Unterschied zwischen Type und Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vitest/index.html">Vitest ⚡</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Vitest ⚡</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/typesOfTesting.html">Arten zum Testen ⚖️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/fireeventVsUserEvent.html">fireEvent vs userEvent 🎆</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/introduction.html">Einführung in Vitest ⚙️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/installationAndSetUp.html">Installation und Einrichtung von Vitest 🛠️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/submitButton.html">SubmitButton 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vitest/testwrapper.html">TestWrapper 🧨</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../_sources/md/react/routes.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="routing">
+<h1>Routing 🧭<a class="headerlink" href="#routing" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Diese Dokumentation bietet eine detaillierte Übersicht zum <cite>react-router-dom</cite> Package, insbesondere zu <cite>BrowserRouter</cite>. Sie erklärt, wie man Routing in einer React-Applikation installiert und verwendet, um Seiten dynamisch basierend auf der URL zu wechseln.</p>
+</div>
+<section id="einfuhrung">
+<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">¶</a></h2>
+<p>React Router ist eine Bibliothek, die das Routing in React-Anwendungen ermöglicht. Dies erlaubt es, verschiedene <strong>Seiten</strong> oder <strong>Ansichten</strong> basierend auf der URL anzuzeigen, ohne die Seite neu zu laden. Es gibt verschiedene Router in React Router, aber wir konzentrieren uns hier auf <cite>BrowserRouter</cite>, der für die meisten Webanwendungen verwendet wird.</p>
+<section id="installation">
+<h3>Installation 🛠️<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
+<p>Um React Router in deiner React-Applikation zu verwenden, musst du es zuerst installieren. Führe den folgenden Befehl in deinem Projektverzeichnis aus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>react-router-dom
+</pre></div>
+</div>
+<p>Dieser Befehl installiert das React Router Paket, das du benötigst, um Routing in deiner App zu implementieren.</p>
+</section>
+<section id="grundlegende-verwendung-von-browserrouter">
+<h3>Grundlegende Verwendung von <cite>BrowserRouter</cite> 🔨<a class="headerlink" href="#grundlegende-verwendung-von-browserrouter" title="Link to this heading">¶</a></h3>
+<p><cite>BrowserRouter</cite> wird um deine Anwendung gelegt, um die Routing-Funktionalität bereitzustellen. Es verwendet die HTML5-History-API, um die Navigation und URL-Änderungen ohne vollständige Seitenaktualisierungen zu ermöglichen.</p>
+<p>Hier ist ein einfaches Beispiel, wie du <cite>BrowserRouter</cite> einrichtest:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BrowserRouter</span><span class="p">,</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./App&#39;</span><span class="p">;</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+<span class="w">  </span><span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">App</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">  </span><span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;,</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel wird die gesamte React-App in den <cite>BrowserRouter</cite> eingepackt, damit Routing in allen untergeordneten Komponenten funktioniert.</p>
+</section>
+<section id="routing-in-der-anwendung">
+<h3>Routing in der Anwendung 🧭<a class="headerlink" href="#routing-in-der-anwendung" title="Link to this heading">¶</a></h3>
+<p>Um Routing in deiner Anwendung zu implementieren, musst du in deiner App-Komponente (oder einer beliebigen anderen Komponente) die Routes definieren. Jede Route wird mit dem <cite>Route</cite>-Element angegeben und gibt an, welche Komponente angezeigt wird, wenn eine bestimmte URL aufgerufen wird.</p>
+<p>Beispiel für grundlegendes Routing:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Essen</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Essen&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Speisekarte</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Speisekarte&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/essen&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Essen</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/speisekarte&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Speisekarte</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>path</strong>: Dies ist der URL-Pfad, der zu der jeweiligen Komponente führt. Im Beispiel wird <cite>/essen</cite> den <cite>Essen</cite>-Komponentenrender anzeigen und <cite>/speisekarte</cite> die <cite>Speisekarte</cite>-Komponentenrender.</p></li>
+<li><p><strong>element</strong>: Die Komponente, die gerendert wird, wenn der Pfad in der URL übereinstimmt.</p></li>
+</ul>
+</section>
+<section id="beispiel-fur-spezifische-routen">
+<h3>Beispiel für spezifische Routen 🎲<a class="headerlink" href="#beispiel-fur-spezifische-routen" title="Link to this heading">¶</a></h3>
+<p><strong>Szenario:</strong>
+Wenn der Benutzer die Route <cite>/essen</cite> eingibt, soll der Inhalt auf der aktuellen Seite angezeigt werden. Bei der Route <cite>/speisekarte</cite> soll eine andere Seite gerendert werden.</p>
+<p>Du kannst dieses Szenario mit React Router umsetzen, indem du für <cite>/essen</cite> die Inhalte direkt auf der Seite renderst und für <cite>/speisekarte</cite> eine neue Ansicht erstellst.</p>
+<ol class="arabic simple">
+<li><p><strong>Essen-Komponente</strong> (Inhalt auf derselben Seite anzeigen):</p></li>
+</ol>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">Essen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Essen</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Hier</span><span class="w"> </span><span class="nx">ist</span><span class="w"> </span><span class="nx">der</span><span class="w"> </span><span class="nx">Inhalt</span><span class="w"> </span><span class="nx">für</span><span class="w"> </span><span class="nx">die</span><span class="w"> </span><span class="nx">Essen</span><span class="o">-</span><span class="nx">Seite</span><span class="p">.&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Speisekarte-Komponente</strong> (Wechsel zu einer anderen Seite):</p></li>
+</ol>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">Speisekarte</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Speisekarte</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Hier</span><span class="w"> </span><span class="nx">ist</span><span class="w"> </span><span class="nx">der</span><span class="w"> </span><span class="nx">Inhalt</span><span class="w"> </span><span class="nx">für</span><span class="w"> </span><span class="nx">die</span><span class="w"> </span><span class="nx">Speisekarte</span><span class="o">-</span><span class="nx">Seite</span><span class="p">.&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In deiner Haupt-App-Komponente verwendest du dann <cite>Routes</cite> und <cite>Route</cite>, um das gewünschte Verhalten für <cite>/essen</cite> und <cite>/speisekarte</cite> zu erzielen.</p>
+<p>Komplettes Beispiel für die App-Komponente:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Routes</span><span class="p">,</span><span class="w"> </span><span class="nx">Route</span><span class="p">,</span><span class="w"> </span><span class="nx">Link</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Essen</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Essen&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Speisekarte</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Speisekarte&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">Link</span><span class="w"> </span><span class="na">to</span><span class="o">=</span><span class="s">&quot;/essen&quot;</span><span class="p">&gt;</span><span class="nx">Essen</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">Link</span><span class="w"> </span><span class="na">to</span><span class="o">=</span><span class="s">&quot;/speisekarte&quot;</span><span class="p">&gt;</span><span class="nx">Speisekarte</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/essen&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Essen</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/speisekarte&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Speisekarte</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel:</p>
+<ul class="simple">
+<li><p>Der Benutzer kann zwischen den Seiten navigieren, indem er auf die Links in der Navigation klickt.</p></li>
+<li><p>Wenn der Benutzer <cite>/essen</cite> besucht, wird der Inhalt der <strong>Essen-Komponente</strong> auf derselben Seite angezeigt.</p></li>
+<li><p>Wenn der Benutzer <cite>/speisekarte</cite> besucht, wird die <strong>Speisekarte-Komponente</strong> gerendert, die eine andere Ansicht darstellt.</p></li>
+</ul>
+</section>
+<section id="link-komponente">
+<h3>Link-Komponente 🔗<a class="headerlink" href="#link-komponente" title="Link to this heading">¶</a></h3>
+<p>Die <cite>Link</cite>-Komponente wird verwendet, um das Navigieren zwischen den Routen ohne vollständige Seitenneuladen zu ermöglichen. Statt herkömmliche HTML-Anker (<cite>&lt;a&gt;</cite>-Elemente) zu verwenden, sollten <cite>Link</cite>-Komponenten aus React Router genutzt werden.</p>
+<p>Beispiel:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">Link</span><span class="w"> </span><span class="na">to</span><span class="o">=</span><span class="s">&quot;/essen&quot;</span><span class="p">&gt;</span><span class="nx">Essen</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>to</strong>: Der URL-Pfad, zu dem der Link führt. Wenn der Benutzer darauf klickt, wechselt die Route zu <cite>/essen</cite>.</p></li>
+</ul>
+</section>
+<section id="navigieren-zwischen-routen">
+<h3>Navigieren zwischen Routen 🧭<a class="headerlink" href="#navigieren-zwischen-routen" title="Link to this heading">¶</a></h3>
+<p>Um programmgesteuert zwischen Routen zu navigieren, kannst du das <cite>useNavigate</cite>-Hook verwenden. Dies ist besonders nützlich, wenn du aufgrund eines Ereignisses, wie einer Formulareinreichung oder eines Button-Klicks, die Route ändern möchtest.</p>
+<p>Beispiel für die Verwendung von <cite>useNavigate</cite>:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useNavigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">navigate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useNavigate</span><span class="p">();</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleNavigation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;/speisekarte&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleNavigation</span><span class="p">}&gt;</span><span class="nx">Zur</span><span class="w"> </span><span class="nx">Speisekarte</span><span class="w"> </span><span class="nx">wechseln</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel wird durch das Klicken des Buttons die Route zu <cite>/speisekarte</cite> gewechselt.</p>
+</section>
+<section id="seiten-nicht-gefundene-routen">
+<h3>404-Seiten (Nicht gefundene Routen) 👾<a class="headerlink" href="#seiten-nicht-gefundene-routen" title="Link to this heading">¶</a></h3>
+<p>Es ist eine gute Praxis, eine 404-Seite (Not Found Page) zu implementieren, um ungültige oder nicht vorhandene URLs abzufangen.</p>
+<p>Beispiel:</p>
+<div class="highlight-react notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">NotFound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="mf">404</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">Seite</span><span class="w"> </span><span class="nx">nicht</span><span class="w"> </span><span class="nx">gefunden</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/essen&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Essen</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;/speisekarte&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">Speisekarte</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">Route</span><span class="w"> </span><span class="na">path</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="na">element</span><span class="o">=</span><span class="p">{&lt;</span><span class="nt">NotFound</span><span class="w"> </span><span class="p">/&gt;}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">Routes</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel wird jede nicht definierte Route zur <cite>NotFound</cite>-Komponente führen, die eine 404-Fehlermeldung anzeigt.</p>
+</section>
+<section id="zusammenfassung">
+<h3>Zusammenfassung 📑<a class="headerlink" href="#zusammenfassung" title="Link to this heading">¶</a></h3>
+<p>React Router ist ein leistungsstarkes Tool, das es dir ermöglicht, <strong>clientseitiges Routing</strong> in React-Anwendungen zu implementieren. Mit <cite>BrowserRouter</cite>, <cite>Route</cite>, <cite>Link</cite> und <cite>useNavigate</cite> kannst du Seiten dynamisch basierend auf der URL rendern, ohne die Seite neu zu laden.</p>
+<ul class="simple">
+<li><p>Installiere React Router mit: <cite>npm install react-router-dom</cite></p></li>
+<li><p>Verwende <cite>BrowserRouter</cite> zur Umwicklung deiner App.</p></li>
+<li><p>Definiere Routen mit <cite>Route</cite> und verwende <cite>Link</cite> zum Navigieren.</p></li>
+<li><p>Implementiere spezielle Routen für <cite>/essen</cite> und <cite>/speisekarte</cite> nach deinen Bedürfnissen.</p></li>
+<li><p>Vergiss nicht, eine 404-Seite für ungültige Routen zu implementieren.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../mui/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Material-UI (MUI) 🎨</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="produktivServer.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Produktiv Server 🔨</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Bichler Bastian
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Routing 🧭</a><ul>
+<li><a class="reference internal" href="#einfuhrung">Einführung</a><ul>
+<li><a class="reference internal" href="#installation">Installation 🛠️</a></li>
+<li><a class="reference internal" href="#grundlegende-verwendung-von-browserrouter">Grundlegende Verwendung von <cite>BrowserRouter</cite> 🔨</a></li>
+<li><a class="reference internal" href="#routing-in-der-anwendung">Routing in der Anwendung 🧭</a></li>
+<li><a class="reference internal" href="#beispiel-fur-spezifische-routen">Beispiel für spezifische Routen 🎲</a></li>
+<li><a class="reference internal" href="#link-komponente">Link-Komponente 🔗</a></li>
+<li><a class="reference internal" href="#navigieren-zwischen-routen">Navigieren zwischen Routen 🧭</a></li>
+<li><a class="reference internal" href="#seiten-nicht-gefundene-routen">404-Seiten (Nicht gefundene Routen) 👾</a></li>
+<li><a class="reference internal" href="#zusammenfassung">Zusammenfassung 📑</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=a921576d"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    </body>
+</html>
