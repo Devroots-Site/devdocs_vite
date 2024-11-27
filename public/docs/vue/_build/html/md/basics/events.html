@@ -337,6 +337,105 @@
 <li><p>Jedes Event kann eine eigene Methode aufrufen, die eine benutzerdefinierte Aktion ausführt.</p></li>
 </ul>
 </section>
+<section id="besonderheiten-bei-events">
+<h2>Besonderheiten bei Events 🚨<a class="headerlink" href="#besonderheiten-bei-events" title="Link to this heading">¶</a></h2>
+<img alt="../../_images/feature.svg" src="../../_images/feature.svg" />
+<p>In Vue bieten Events zahlreiche erweiterte Features, die speziellere Anforderungen abdecken. Hier sind einige zusätzliche Event-Optionen, die besonders nützlich sind:</p>
+<ol class="arabic">
+<li><p><strong>Event-Modifikatoren</strong>
+Event-Modifikatoren werden verwendet, um das Verhalten von Events anzupassen:</p>
+<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Verhindert die Standardaktion des Browsers --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="err">@</span><span class="na">submit</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&quot;onSubmit&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Stoppt die Ausbreitung des Events --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">&quot;onButtonClick&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Event nur einmal ausführen --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">once</span><span class="o">=</span><span class="s">&quot;onButtonClick&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Natives Event auf Kind-Komponenten --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">child-component</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">native</span><span class="o">=</span><span class="s">&quot;onClick&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">child-component</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Key-Modifikatoren</strong>
+Key-Modifikatoren ermöglichen es, gezielt auf bestimmte Tasten zu reagieren:</p>
+<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Reaktion auf die &quot;Enter&quot;-Taste --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">enter</span><span class="o">=</span><span class="s">&quot;onEnter&quot;</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Reaktion auf eine beliebige Taste --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">space</span><span class="o">=</span><span class="s">&quot;onSpace&quot;</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Kombination mit Shift-Taste --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">shift</span><span class="err">.</span><span class="na">enter</span><span class="o">=</span><span class="s">&quot;onShiftEnter&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>System-Modifikatoren</strong>
+System-Modifikatoren reagieren auf spezielle Tasten wie <cite>Ctrl</cite>, <cite>Alt</cite>, <cite>Shift</cite> oder <cite>Meta</cite>:</p>
+<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Nur wenn gleichzeitig `Ctrl` gedrückt wird --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">ctrl</span><span class="o">=</span><span class="s">&quot;onCtrlClick&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Alt-Taste als Voraussetzung --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">alt</span><span class="o">=</span><span class="s">&quot;onAltClick&quot;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Event-Verkettung</strong>
+Mehrere Events können kombiniert werden, um komplexe Interaktionen abzubilden:</p>
+<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span>
+        <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">enter</span><span class="o">=</span><span class="s">&quot;onSubmit&quot;</span>
+        <span class="err">@</span><span class="na">keydown</span><span class="err">.</span><span class="na">esc</span><span class="o">=</span><span class="s">&quot;onCancel&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="besonderheit-von-stop">
+<h2>Besonderheit von <cite>.stop</cite> 🚧<a class="headerlink" href="#besonderheit-von-stop" title="Link to this heading">¶</a></h2>
+<p>Der <cite>.stop</cite>-Modifikator wird verwendet, um die Ausbreitung eines Events im DOM zu stoppen. Das bedeutet, dass das Event nicht weiter an die übergeordneten Elemente weitergegeben wird (kein Event-Bubbling).</p>
+<p>Hier ein Beispiel, das den Unterschied illustriert:</p>
+<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;onParentClick&quot;</span><span class="p">&gt;</span>
+        <span class="cm">&lt;!-- Klick auf dieses Element stoppt das Event-Bubbling --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">&quot;onButtonClick&quot;</span><span class="p">&gt;</span>Klicke mich<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">onParentClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Eltern-Element wurde angeklickt&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">onButtonClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Button wurde angeklickt&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Erklärung:</strong></p>
+<ol class="arabic simple">
+<li><p>Wenn der Button ohne <cite>.stop</cite> geklickt wird:
+- Das <cite>&#64;click</cite>-Event wird auf dem Button ausgelöst und die Methode <cite>onButtonClick</cite> wird ausgeführt.
+- Anschließend wird das Event an das übergeordnete <cite>div</cite> weitergegeben und <cite>onParentClick</cite> wird ebenfalls aufgerufen (Event-Bubbling).</p></li>
+<li><p>Wenn der Button mit <cite>.stop</cite> geklickt wird:
+- Das <cite>&#64;click</cite>-Event wird nur auf dem Button verarbeitet (<cite>onButtonClick</cite> wird ausgeführt).
+- Das Event wird <strong>nicht</strong> an das übergeordnete <cite>div</cite> weitergegeben, daher wird <cite>onParentClick</cite> <strong>nicht</strong> ausgeführt.</p></li>
+</ol>
+<p><strong>Praktischer Nutzen:</strong>
+- Du kannst so sicherstellen, dass nur spezifische Elemente auf ein Event reagieren, ohne dass versehentlich übergeordnete Elemente ebenfalls das Event behandeln.</p>
+<p><strong>Konsole-Ausgabe im Beispiel:</strong>
+- Mit <cite>.stop</cite>: <cite>Button wurde angeklickt</cite>
+- Ohne <cite>.stop</cite>:</p>
+</section>
 </section>
 
         </article>
@@ -397,6 +496,8 @@
 <li><a class="reference internal" href="#">Events in Vue 🚀</a><ul>
 <li><a class="reference internal" href="#event-referenz">Event-Referenz</a></li>
 <li><a class="reference internal" href="#erklarung-der-events">Erklärung der Events</a></li>
+<li><a class="reference internal" href="#besonderheiten-bei-events">Besonderheiten bei Events 🚨</a></li>
+<li><a class="reference internal" href="#besonderheit-von-stop">Besonderheit von <cite>.stop</cite> 🚧</a></li>
 </ul>
 </li>
 </ul>
