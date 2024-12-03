@@ -6,3 +6,4 @@ Index Grundlagen
    :caption: Contents:
 
    colors.rst
+   contrast.rst
