@@ -1,0 +1,36 @@
+[33mee4396d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;32mkeywords-check[m[33m)[m prüfung auf keywords
+[33mb434bb4[m added COntrast
+[33me061b7e[m UX/UI - added Color generell - added websites# - added Adobe Colors
+[33m2e00a76[m dockerfile
+[33ma796248[m updating dockerfile and build commant
+[33m79f6dc0[m remove docker-compose
+[33m647db27[m dockerfile update
+[33mf41848a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #1 from Devroots-Site/react_vue
+[33m72f4251[m - adding env variables on dockerfile and server
+[33me147b65[m react_vue - moved folder to public/docs - delte the dist folder
+[33m6671045[m react_vue - added React - added Vue
+[33m19087d6[m anpassung dockerfile und body auf /docs und nicht /public/docs
+[33m6046f0c[m updating Dockerfile
+[33mea82aaf[m Init new Projekt - New Desgin - New Logos added - Filter on name and Category
+[33m2a3fd25[m Python - updating md to rst dat - added pip
+[33mfd0f9a6[m remove ai_gen
+[33made9078[m - Logo to navigate to /
+[33me4efaed[m - 404 site - incl. Routing - Styling
+[33m9b3be9c[m added gitdocs
+[33mc43aba7[m Dockerfile name the container
+[33m2c69f26[m added aiworking
+[33mbc45718[m added new Git Docu
+[33m79d364f[m change permissions
+[33mc35c85e[m test
+[33m06468a0[m testing
+[33m3d84e15[m dockerfile
+[33m3ab2824[m Merge branch 'master' of github.com:WastlProgramming/devdocs_vite
+[33m1505627[m Delete docker-compose.yml
+[33m85a3019[m added docker compose
+[33m3c3b4fd[m added docker-compose
+[33m55405e8[m javascript doku neu generiert
+[33m40bb846[m fixxed anzeige fehler
+[33m86d00db[m addet rechner2 for test
+[33mddf22bd[m Javascript - added Requirements.txt for the docu
+[33m9598d20[m Javascript - Rechnen von MD zu rst - spread and rest datei erstellt
+[33mfb7f006[m added Vite

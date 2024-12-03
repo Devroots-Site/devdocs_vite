@@ -57,7 +57,6 @@ function Body() {
           throw new Error(`HTTP-Fehler! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
 
         // Sort the documents alphabetically by name
         const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
