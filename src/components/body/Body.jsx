@@ -57,6 +57,7 @@ function Body() {
           throw new Error(`HTTP-Fehler! Status: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data);
 
         // Sort the documents alphabetically by name
         const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
@@ -192,19 +193,23 @@ function Body() {
                     {doc.description}
                   </Typography>
                   <Box mb={1}>
-                    {doc.keywords.map((keyword, idx) => (
-                      <Chip
-                        key={idx}
-                        label={keyword}
-                        size="small"
-                        color={keywordColorMap[keyword]}
-                        sx={{
-                          marginRight: '5px',
-                          marginBottom: '5px',
-                          backgroundColor: keywordColorMap[keyword] === 'default' ? '#e0e0e0' : undefined,
-                        }}
-                      />
-                    ))}
+                    {Array.isArray(doc.keywords) ? (
+                      doc.keywords.map((keyword, idx) => (
+                        <Chip
+                          key={idx}
+                          label={keyword}
+                          size="small"
+                          color={keywordColorMap[keyword]}
+                          sx={{
+                            marginRight: '5px',
+                            marginBottom: '5px',
+                            backgroundColor: keywordColorMap[keyword] === 'default' ? '#e0e0e0' : undefined,
+                          }}
+                        />
+                      ))
+                    ) : (
+                      <Typography variant="body2" color="textSecondary">Keine Keywords verfügbar</Typography>
+                    )}
                   </Box>
                   <Typography variant="body2" color="textSecondary">
                     <strong>Version:</strong> {doc.version} | <strong>Autor:</strong> {doc.creator} | <strong>Letztes Update:</strong> {new Date(doc.updated_at).toLocaleDateString()}
